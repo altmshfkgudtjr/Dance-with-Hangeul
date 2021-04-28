@@ -1,15 +1,5 @@
 const Fetch = (url, method, sendData, callback, failed) => {
-
-	/* JWT Auto Authroization using WebStorage */
-	/* If you do not use the webStorage method and use the cookie method, please modify this part. */
-	const token = localStorage.getItem('tk'); // or sessionStorage
-	let authorization;
-
-	if (token === null || token === undefined || token === 'undefined') {
-		authorization = {};
-	} else {
-		authorization = { 'Authorization': "Bearer " + token };
-	}
+	const headers = {};
 
 	/* init request form */
 	const isFormData = !!sendData && checkFormData(sendData)
@@ -20,14 +10,14 @@ const Fetch = (url, method, sendData, callback, failed) => {
 	if (method === 'GET') {
 		request = {
 			method: 'GET',
-			headers: authorization
+			headers
 		};
 	} else {
 		request = {
 			method: method,
 			headers: isFormData
 				? {}
-				: Object.assign(authorization, {
+				: Object.assign(headers, {
 					'Content-Type': 'application/json',
 					'Accept': 'application/json'
 				}),
@@ -66,8 +56,6 @@ const Fetch = (url, method, sendData, callback, failed) => {
 			}
 
 			return err;
-			/* or use the method below. */
-			// return Promise.reject(err);
 		});
 }
 

@@ -1,0 +1,27 @@
+{
+	"templates": [
+		{
+			"name": "쿵",
+			"consonant": "ㄱ",
+			"pronunciation": "Ku’ng",
+			"info": {
+				"ko": "무거운 물체가 떨어져서 부딫히는 소리",
+				"en": "A sound of a big object falling"
+			},
+			"themes": [
+				{
+					"backgroundColor": "#ffffff",
+					"textColor": "#000000",
+					"mode": "Light",
+					"changable": true
+				},
+				{
+					"backgroundColor": "#ffffff",
+					"textColor": "#A77AF7",
+					"mode": "Light",
+					"changable": true
+				}
+			]
+		}
+	]
+}
