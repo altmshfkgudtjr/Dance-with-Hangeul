@@ -8,7 +8,7 @@ import { ApiError } from 'types/Error'
  */
 export const getTemplates = () => {
 	return Fetch('/lib/json/templates.json', 'GET')
-	.then(res => res)
+	.then(res => res.templates)
 	.catch(err => {
 		throw new ApiError();
 	});
