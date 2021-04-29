@@ -6,7 +6,7 @@ import Home from 'containers/Home'
 const HomePage = () => {
 	return (<>
 		<Helmet>
-			<title>APP-NAME</title>
+			<title>한글로 춤추다</title>
 		</Helmet>
 
 		<Home />

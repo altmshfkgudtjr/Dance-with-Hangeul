@@ -7,7 +7,7 @@ import { ApiError } from 'types/Error'
  * @version 1
  */
 export const getTemplates = () => {
-	return Fetch('/lib/json/templates.json', 'GET')
+	return Fetch('/storage/templates.json', 'GET')
 	.then(res => res.templates)
 	.catch(err => {
 		throw new ApiError();

@@ -1,15 +1,20 @@
 {
-  "short_name": "APP-NAME",
-  "name": "Display App Name",
-  "icons": [
-    {
-      "src": "favicons/favicon_96x96.png",
-      "sizes": "96x96 48x48 24x24",
-      "type": "image/x-icon"
-    }
-  ],
+	"name":"한글로 춤추다",
+	"short_name":"한글로 춤추다",
+	"icons":[
+		{
+			"src":"favicons/android-chrome-192x192.png",
+			"sizes":"192x192",
+			"type":"image/png"
+		},
+		{
+			"src":"favicons/android-chrome-512x512.png",
+			"sizes":"512x512",
+			"type":"image/png"
+		}
+	],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+	"theme_color":"#f8f4ff",
+	"background_color":"#f8f4ff",
+	"display":"standalone"
 }

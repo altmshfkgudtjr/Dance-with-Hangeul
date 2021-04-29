@@ -9,12 +9,12 @@ import palette from 'lib/styles/palette'
 function NoPage() {
 	return (<>
 		<Helmet>
-			<title>APP-NAME - 404</title>
+			<title>한글로 춤추다 - 404</title>
 		</Helmet>
 
-		<Title>404 Not Found.</Title>
+		<Title>어라. 잘못 들어오셨네요?</Title>
 		<Link to="/">
-			<Btn>Back</Btn>
+			<Btn>돌아가기</Btn>
 		</Link>
 	</>);
 }
