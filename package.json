@@ -1,19 +1,8 @@
 {
-	"name": "app-name",
+	"name": "dance-with-hangeul",
 	"version": "1.0.0",
+	"license": "MIT",
 	"private": false,
-	"dependencies": {
-		"@reduxjs/toolkit": "^1.5.1",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-helmet-async": "^1.0.6",
-		"react-redux": "^7.2.0",
-		"react-router-dom": "^5.2.0",
-		"react-scripts": "^3.4.3",
-		"redux": "^4.0.5",
-		"redux-thunk": "^2.3.0",
-		"styled-components": "^5.1.1"
-	},
 	"scripts": {
 		"start": "react-scripts start",
 		"prebuild": "react-scripts test --watchAll=false",
@@ -21,6 +10,24 @@
 		"postbuild": "cp -r build/* ../backend/src/client",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "^1.5.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-helmet-async": "^1.0.6",
+		"react-redux": "^7.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^3.4.3",
+		"redux": "^4.1.0",
+		"styled-components": "^5.2.3"
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^5.11.5",
+		"@testing-library/react": "^11.1.0",
+		"@testing-library/user-event": "^12.1.10",
+		"prop-types": "^15.7.2",
+		"redux-mock-store": "^1.5.4"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -37,13 +44,14 @@
 			"last 1 safari version"
 		]
 	},
-	"devDependencies": {
-		"@testing-library/jest-dom": "^5.11.5",
-		"@testing-library/react": "^11.1.0",
-		"@testing-library/user-event": "^12.1.10",
-		"prop-types": "^15.7.2",
-		"redux-mock-store": "^1.5.4"
-	},
-	"license": "MIT",
-	"proxy": "http://localhost:5000"
+	"babel": {
+		"presets": [
+			[
+				"react-app",
+				{
+					"runtime": "automatic"
+				}
+			]
+		]
+	}
 }

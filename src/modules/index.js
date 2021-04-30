@@ -1,5 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import ReduxThunk from 'redux-thunk';
+import { createStore, combineReducers } from 'redux'
 // Reducers
 import modal from 'modules/modal'
 import snackbar from 'modules/snackbar'
@@ -16,8 +15,7 @@ const reducers = combineReducers({
 	Create Store
 */
 const store = createStore(
-	reducers,
-	applyMiddleware(ReduxThunk)
+	reducers
 );
 
 export default store
