@@ -19,9 +19,9 @@ const App = () => {
 			<Route path="*" component={NotFound} status={404} />
 		</Switch>
 		
-		<Modal /> {/* Modal Position */}
+		<Modal />
 
-		<Snackbar /> {/* Snackbar Position */}
+		<Snackbar />
 	</div>);
 }
 
