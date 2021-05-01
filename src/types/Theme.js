@@ -1,5 +1,5 @@
 // utils
-import { validateProps } from 'lib/utils/validator'
+import { validateProp } from 'lib/utils/validator'
 
 /**
  * 템플릿 테마
@@ -20,7 +20,7 @@ import { validateProps } from 'lib/utils/validator'
 		this.changable = prop.changable || false;
 	}
 	
-	validateProps();
+	validateProp();
 	constructor();
 
 	return this;

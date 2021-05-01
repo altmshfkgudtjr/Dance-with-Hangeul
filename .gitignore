@@ -192,7 +192,16 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,react,windows,macos,linux
+### yarn ###
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# End of https://www.toptal.com/developers/gitignore/api/node,react,windows,macos,linux,yarn
 
 build/*
 build/

@@ -1,5 +1,5 @@
 // utils
-import { validateProps } from 'lib/utils/validator'
+import { validateProp } from 'lib/utils/validator'
 // types
 import Theme from 'types/Theme'
 
@@ -30,7 +30,7 @@ function Template(prop) {
 		this.themes = (prop.themes && prop.themes.map(theme => new Theme(theme))) || [];	
 	}
 	
-	validateProps();
+	validateProp();
 	constructor();
 
 	return this;

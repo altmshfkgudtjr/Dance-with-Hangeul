@@ -1,0 +1,7 @@
+{
+	"files.exclude": {
+		".pnp.js": true,
+		".yarn/*": true,
+		"yarn.lock": true
+	}
+}
