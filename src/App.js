@@ -9,7 +9,6 @@ import useWebAccessibility from 'lib/hooks/useWebAccessibility'
 const App = () => {
 	const [isMouseDown] = useWebAccessibility();
 
-
 	return (<div className={isMouseDown ? 'mousedown' : ''}>
 		<Switch>
 			<Route path="/" component={HomePage} exact />

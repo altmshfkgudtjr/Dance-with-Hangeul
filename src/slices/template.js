@@ -10,7 +10,7 @@ import Template from 'types/Template'
 */
 export const getTemplates = createAsyncThunk(
 	'template/getTemplates',
-	async ({}, { dispatch }) => {
+	async (_, { dispatch }) => {
 		const templates = await templateAPI.getTemplates();
 		const templatesMap = templates.map(template => new Template(template));
 		dispatch(updateTemplates(templatesMap));
