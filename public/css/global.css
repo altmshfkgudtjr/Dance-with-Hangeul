@@ -43,7 +43,7 @@ html, body {
 	scroll-behavior: auto;
 	-webkit-overflow-scrolling: touch;
 	font-size: 16px;
-	background-color: #FFF;
+	background-color: #FCFAFF;
 	overflow: hidden;
 }
 
@@ -89,6 +89,7 @@ dialog {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	font-size: 1rem;
 	font-weight: 300;
+	color: #333;
 }
 
 :focus-visible {

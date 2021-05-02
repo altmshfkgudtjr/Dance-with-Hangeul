@@ -11,6 +11,8 @@
   8:   40%
 */
 const palette = {
+  white: '#ffffff',
+  black: '#000000',
   /* gray */
   gray0: '#f7f6f3',
   gray1: '#eeeceb',
@@ -71,6 +73,16 @@ const palette = {
   blue6: '#003e80',
   blue7: '#001f40',
   blue8: '#001226',
+  /* purple */
+  purple0: '#',
+  purple1: '#',
+  purple2: '#',
+  purple3: '#D1B7FF',
+  purple4: '#C9AAFF',
+  purple5: '#',
+  purple6: '#',
+  purple7: '#',
+  purple8: '#',
 };
 
 export default palette
