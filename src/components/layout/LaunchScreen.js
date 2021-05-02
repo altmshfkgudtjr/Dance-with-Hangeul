@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+// lib
+import animations from 'lib/styles/animations'
 
 const LaunchScreenLayout = styled.div`
 	width: 100vw;
@@ -6,6 +8,10 @@ const LaunchScreenLayout = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	animation: ${({ time, isClose }) => isClose
+		? css`${time}ms ${animations.fadeOut}`
+		: ``
+	};
 `;
 
 export default LaunchScreenLayout
