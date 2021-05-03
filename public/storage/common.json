@@ -1,0 +1,31 @@
+{
+	"name": "common",
+	"doucments": [
+		{
+			"id": "defaultTheme",
+			"themes": [
+				{
+					"id": "T_ffffff_ff0000",
+					"bgColor": "#ffffff",
+					"fgColor": ["#ff0000"],
+					"mode": "Light"
+				},
+				{
+					"id": "T_ffffff_00ff00",
+					"bgColor": "#ffffff",
+					"fgColor": ["#00ff00"],
+					"mode": "Light"
+				}
+			]
+		},
+		{
+			"id": "hanguelQuotes",
+			"quotes": [
+				{
+					"ko": "1994 년 ‘Discover’ 잡지는 한글을 ‘세계 최고의 알파벳’으로 ‘세계에서 가장 과학적인 글쓰기 체계’로 묘사했다. 한글은 음성 기호 체계 임에도 불구하고 모음과 자음, 심지어는 “그것을 발음하기 위해 입술, 입, 혀를 잡는 위치”로 분류된다.",
+					"en": "In 1994, ‘Discover’ magazine described Hangeul as ‘the most scientific system of writing’ in the world withthe ‘world’s best alphabet.’ Even though Hangeul is a system of phonetic symbols, the symbols arecategorized by vowels and consonants and even by the “position in which the lips, mouth, or tongue is heldto pronounce that” symbol."
+				}
+			]
+		}
+	]
+}
