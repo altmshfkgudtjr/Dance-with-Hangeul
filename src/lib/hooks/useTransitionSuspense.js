@@ -54,6 +54,15 @@ const useTransitionSuspense = ({ delay }) => {
 		return () => window.clearTimeout(timer);
 	}, [isFullfilled, delay]);
 
+	useEffect(() => {
+		if (!fallback.current) return;
+		fallback.current = <FallbackComponent 
+			delay={delay} 
+			setIsPending={setIsPending} 
+			setIsFullfilled={setIsFullfilled} 
+		/>;
+	}, [delay]);
+
 	
 	return {
 		suspenseFallback: fallback.current,
