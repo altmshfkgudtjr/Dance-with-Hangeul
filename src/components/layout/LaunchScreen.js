@@ -12,6 +12,7 @@ const LaunchScreenLayout = styled.div`
 		? css`${time}ms ${animations.fadeOut}`
 		: ``
 	};
+	background-color: rgba(0,0,0,0)
 `;
 
 export default LaunchScreenLayout

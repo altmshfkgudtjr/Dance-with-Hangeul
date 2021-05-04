@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 import { Helmet } from "react-helmet-async"
 // containers
 import LaunchScreen from 'containers/LaunchScreen'
@@ -6,25 +6,29 @@ import LaunchScreen from 'containers/LaunchScreen'
 import LaunchScreenLayout from 'components/layout/LaunchScreen'
 import HomeLayout from 'components/layout/Home'
 // hook
-import useCheckLazy from 'lib/hooks/useCheckLazy'
+import useTransitionSuspense from 'lib/hooks/useTransitionSuspense'
 // lib
 import palette from 'lib/styles/palette'
 
 
 const Home = lazy(() => {
 	return Promise.all([
-		import("containers/Home"),
-    new Promise(resolve => setTimeout(resolve, 7000))
+		import(
+			/* webpackChunkName: "home" */ 
+			"containers/Home"
+		),
+		// Animation duration(5000ms) + FadeOut duration(1000ms) + Stay duration(1000ms)
+		new Promise(resolve => setTimeout(resolve, 7000))
   ])
   .then(([module]) => module);
 });
 
 const HomePage = () => {
 	const {
-		FallbackComponent, 
+		DelayedSuspense,
 		isPending, 
-		isAnimation
-	} = useCheckLazy({ time: 1000 });
+		isFullfilled
+	} = useTransitionSuspense({ delay: 1000 });
 
 	
 	return (<>
@@ -33,16 +37,16 @@ const HomePage = () => {
 		</Helmet>
 
 		{isPending && <>
-			<LaunchScreenLayout isClose={isAnimation} time={1000}>
+			<LaunchScreenLayout isClose={isFullfilled} time={1000 + 100}>
 				<LaunchScreen time={5000} color={palette.purple4} />
 			</LaunchScreenLayout>
 		</>}
 		
-		<Suspense fallback={<FallbackComponent />} >
+		<DelayedSuspense>
 			<HomeLayout>
 				<Home />
 			</HomeLayout>
-		</Suspense>
+		</DelayedSuspense>
 	</>);
 }
 
