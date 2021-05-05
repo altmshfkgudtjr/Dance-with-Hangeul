@@ -25,9 +25,9 @@ const Home = lazy(() => {
 
 const HomePage = () => {
 	const {
-		DelayedSuspense,
 		isPending, 
-		isFullfilled
+		isFullfilled,
+		DelayedSuspense
 	} = useTransitionSuspense({ delay: 1000 });
 
 	
@@ -36,12 +36,14 @@ const HomePage = () => {
 			<title>한글로 춤추다</title>
 		</Helmet>
 
+		{/* LaunchScreen */}
 		{isPending && <>
 			<LaunchScreenLayout isClose={isFullfilled} time={1000 + 100}>
 				<LaunchScreen time={5000} color={palette.purple4} />
 			</LaunchScreenLayout>
 		</>}
 		
+		{/* Lazy loaded Components */}
 		<DelayedSuspense>
 			<HomeLayout>
 				<Home />

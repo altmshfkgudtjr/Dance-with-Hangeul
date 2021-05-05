@@ -65,28 +65,28 @@ const useTransitionSuspense = ({ delay }) => {
 
 	
 	return {
-		suspenseFallback: fallback.current,
-		DelayedSuspense: suspense,
 		isPending,
-		isFullfilled
+		isFullfilled,
+		DelayedSuspense: suspense
 	};
 }
 
 
 /** Suspense fallback에 넣어줄 Component */
-function FallbackComponent({ delay, setIsPending, setIsFullfilled }) {
+const FallbackComponent = ({ delay, setIsPending, setIsFullfilled }) => {
 	useEffect(() => {
 		setIsPending(true);
 		setIsFullfilled(false);
 		return () => setIsFullfilled(true);
 	}, [delay, setIsPending, setIsFullfilled]);
 
+	
 	return null;
 };
 
 
 /** Delay 후에 지연 컴포넌트를 표시해주는 Suspense */
-function DelayedSuspense(isPending, fallback, children) {
+const DelayedSuspense = (isPending, fallback, children) => {
 	return (
 		<Suspense fallback={fallback}>
 			<div style={{ display: isPending ? "none" : "block" }}>
