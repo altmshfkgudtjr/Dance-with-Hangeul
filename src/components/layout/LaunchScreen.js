@@ -10,8 +10,9 @@ const LaunchScreenLayout = styled.div`
 	justify-content: center;
 	animation: ${({ time, isClose }) => isClose
 		? css`${time}ms ${animations.fadeOut}`
-		: ``
+		: css`${time}ms ${animations.fadeIn}`
 	};
+	animation-fill-mode: forwards;
 	background-color: rgba(0,0,0,0)
 `;
 

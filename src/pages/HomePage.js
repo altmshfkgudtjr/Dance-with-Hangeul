@@ -1,14 +1,11 @@
 import { lazy } from 'react'
 import { Helmet } from "react-helmet-async"
 // containers
-import LaunchScreen from 'containers/LaunchScreen'
+import LaunchScreen from 'containers/lauchScreen'
 // components
-import LaunchScreenLayout from 'components/layout/LaunchScreen'
 import HomeLayout from 'components/layout/Home'
 // hook
 import useTransitionSuspense from 'lib/hooks/useTransitionSuspense'
-// lib
-import palette from 'lib/styles/palette'
 
 
 const Home = lazy(() => {
@@ -17,8 +14,14 @@ const Home = lazy(() => {
 			/* webpackChunkName: "home" */ 
 			"containers/Home"
 		),
-		// Animation duration(5000ms) + FadeOut duration(1000ms) + Stay duration(1000ms)
-		new Promise(resolve => setTimeout(resolve, 7000))
+		/* 
+			LogoScreen duration(5000ms) + 
+			Stay duration(2000ms) + 
+			FadeOut duration(1000ms) + 
+			QuoteScreen duration(3000ms) + 
+			FadeOut duration(1000ms)
+		*/
+		new Promise(resolve => setTimeout(resolve, 12000))
   ])
   .then(([module]) => module);
 });
@@ -37,11 +40,7 @@ const HomePage = () => {
 		</Helmet>
 
 		{/* LaunchScreen */}
-		{isPending && <>
-			<LaunchScreenLayout isClose={isFullfilled} time={1000 + 100}>
-				<LaunchScreen time={5000} color={palette.purple4} />
-			</LaunchScreenLayout>
-		</>}
+		{isPending && <LaunchScreen time={5000} isFullfilled={isFullfilled} />}
 		
 		{/* Lazy loaded Components */}
 		<DelayedSuspense>
