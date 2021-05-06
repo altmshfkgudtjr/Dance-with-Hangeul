@@ -15,7 +15,7 @@ export const getThemes = createAsyncThunk(
 		const themesObject = themes.reduce((prev, curr) => 
 			prev[curr.id] = new Theme(curr)
 		, {});
-		dispatch(updateTemplates(themesObject));
+		dispatch(updateThemes(themesObject));
 	}
 );
 
