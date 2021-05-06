@@ -1,11 +1,11 @@
 // utils
 import { validateProp } from 'lib/utils/validator'
-// types
-import Theme from 'types/Theme'
+// type
+import { ValidationError } from 'types/Error'
 
 /**
  * 의성어 / 의태어 템플릿
- * @param {Template} prop
+ * @param {object} prop
  * @param {string} prop.name	템플릿 명
  * @param {string} prop.consonant 템플릿 초성
  * @param {string} prop.pronunciation 발음
@@ -17,7 +17,10 @@ function Template(prop) {
 	 * 의성어 / 의태어 템플릿 객체 생성
 	 */
 	const constructor = () => {
-		this.name = prop.name || "";
+		if (!prop.id || prop.id === "") {
+			throw new ValidationError(`Template 식별값(id)이(가) 비어있습니다.`);
+		}
+		this.id = prop.id;
 		this.consonant = prop.consonant || "";
 		this.pronunciation = `${prop.pronunciation}` || "";
 		this.info = {
@@ -27,7 +30,7 @@ function Template(prop) {
 			ko: null, 
 			en: null 
 		};
-		this.themes = (prop.themes && prop.themes.map(theme => new Theme(theme))) || [];	
+		this.themes = prop.themes || [];
 	}
 	
 	validateProp();

@@ -2,16 +2,22 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from 'redux'
 // reducers
 import template from 'slices/template'
+import theme from 'slices/theme'
+import common from 'slices/common'
+
 
 /**
- * 모든 리듀서가 결합된 Root 리듀서
+ * Combined Reducer
  */
 const reducer = combineReducers({
-	template
+	template,
+	theme,
+	common
 });
 
+
 /**
- * 공통 Store
+ * Create Store & Apply Middlewares
  */
 const store = configureStore({
 	reducer,	
