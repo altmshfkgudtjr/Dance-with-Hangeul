@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
 import * as themeAPI from 'controllers/theme'
-// types
-import Theme from 'types/Theme'
 
 
 /* 
@@ -13,7 +11,7 @@ export const getThemes = createAsyncThunk(
 	async (_, { dispatch }) => {
 		const themes = await themeAPI.getThemes();
 		const themesObject = themes.reduce((prev, curr) => 
-			prev[curr.id] = new Theme(curr)
+			prev[curr.id] = curr
 		, {});
 		dispatch(updateThemes(themesObject));
 	}
@@ -23,8 +21,7 @@ export const getDefaultThemes = createAsyncThunk(
 	'theme/getDefaultThemes',
 	async (_, { dispatch }) => {
 		const themes = await themeAPI.getDefaultThemes();
-		const themesMap = themes.map(theme => new Theme(theme));
-		dispatch(updateDefaultThemes(themesMap));
+		dispatch(updateDefaultThemes(themes));
 	}
 );
 

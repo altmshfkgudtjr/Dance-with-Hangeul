@@ -7,20 +7,29 @@ import Quote from 'components/quoteScreen/Quote'
 
 
 const QuoteScreen = () => {
-	// const quotes = [];
-	// const [quote, setQuote] = useState({ ko: "", en: "" });
+	const quotes = useSelector(state => state.common.quotes);
+	const [quote, setQuote] = useState({ ko: "", en: "" });
 
 
-	// useEffect(() => {
-		
-	// }, [quotes]);
+	/** 랜덤 인용구 설정 */
+	useEffect(() => {
+		const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+		setQuote({
+			ko: randomQuote.ko 
+				? randomQuote.ko 
+				: "‘한글로 춤추다’는 한글의 아름다움을 시각적으로 표현합니다.",
+			en: randomQuote.en 
+				? randomQuote.en 
+				: "‘Dance with Hangeul’ visually expresses the beauty of Hangeul."
+		});
+	}, [quotes, setQuote]);
 	
 	
 	return (
 		<Wrapper>
 			<Icon />
-			<Quote>나 때는 말이야...</Quote>
-			<Quote>Lette is horse...</Quote>
+			<Quote>{quote.ko}</Quote>
+			<Quote>{quote.en}</Quote>
 		</Wrapper>
 	);
 }

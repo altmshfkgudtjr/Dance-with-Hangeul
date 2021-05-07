@@ -8,24 +8,6 @@ import HomeLayout from 'components/layout/Home'
 import useTransitionSuspense from 'lib/hooks/useTransitionSuspense'
 
 
-const Home = lazy(() => {
-	return Promise.all([
-		import(
-			/* webpackChunkName: "home" */ 
-			"containers/Home"
-		),
-		/* 
-			LogoScreen duration(5000ms) + 
-			Stay duration(2000ms) + 
-			FadeOut duration(1000ms) + 
-			QuoteScreen duration(3000ms) + 
-			FadeOut duration(1000ms)
-		*/
-		new Promise(resolve => setTimeout(resolve, 12000))
-  ])
-  .then(([module]) => module);
-});
-
 const HomePage = () => {
 	const {
 		isPending, 
@@ -33,14 +15,14 @@ const HomePage = () => {
 		DelayedSuspense
 	} = useTransitionSuspense({ delay: 1000 });
 
-	
+
 	return (<>
 		<Helmet>
 			<title>한글로 춤추다</title>
 		</Helmet>
 
 		{/* LaunchScreen */}
-		{isPending && <LaunchScreen time={5000} isFullfilled={isFullfilled} />}
+		{isPending && <LaunchScreen time={4000} isFullfilled={isFullfilled} />}
 		
 		{/* Lazy loaded Components */}
 		<DelayedSuspense>
@@ -50,6 +32,25 @@ const HomePage = () => {
 		</DelayedSuspense>
 	</>);
 }
+
+
+const Home = lazy(() => {
+	return Promise.all([
+		import(
+			/* webpackChunkName: "home" */ 
+			"containers/Home"
+		),
+		/* 
+			LogoScreen duration(4000ms) + 
+			Stay duration(2000ms) + 
+			FadeOut duration(1000ms) + 
+			QuoteScreen duration(4000ms) + 
+			FadeOut duration(1000ms)
+		*/
+		new Promise(resolve => setTimeout(resolve, 12000)),
+  ])
+  .then(([module]) => module);
+});
 
 
 export default HomePage

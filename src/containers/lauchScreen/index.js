@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 // containers
 import LogoScreen from 'containers/lauchScreen/LogoScreen'
 import QuoteScreen from 'containers/lauchScreen/QuoteScreen'
 // components
 import LaunchScreenLayout from 'components/layout/LaunchScreen'
+// slices
+import { getQuotes } from 'slices/common'
 // lib
 import palette from 'lib/styles/palette'
 
 
 const LaunchScreen = ({ time=5000, isFullfilled }) => {
+	const dispatch = useDispatch();
+	
 	const animationDuration = 1000;
 	const [isClose, setIsClose] = useState(false);
 	const [isNext, setIsNext] = useState(false);
 
+
+	/** 초기 인용구 데이터 사전 호출 */
+	useEffect(() => dispatch(getQuotes()), [dispatch]);
 
 	/** fadeOut Animation flag 설정 */
 	useEffect(() => {

@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
 import * as templateAPI from 'controllers/template'
-// types
-import Template from 'types/Template'
 
 
 /* 
@@ -12,8 +10,7 @@ export const getTemplates = createAsyncThunk(
 	'template/getTemplates',
 	async (_, { dispatch }) => {
 		const templates = await templateAPI.getTemplates();
-		const templatesMap = templates.map(template => new Template(template));
-		dispatch(updateTemplates(templatesMap));
+		dispatch(updateTemplates(templates));
 	}
 );
 

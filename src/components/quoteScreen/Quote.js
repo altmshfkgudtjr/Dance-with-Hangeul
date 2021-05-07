@@ -12,6 +12,7 @@ const Quote = styled.blockquote`
 	margin-inline-end: auto;
 	margin-top: 100px;
 	text-align: center;
+	word-break: keep-all;
 	transition: .3s ${styles.transition};
 
 	${media.medium} {

@@ -9,7 +9,7 @@ const Icon = styled(MailIcon)`
 	width: 32px;
 	height: 32px;
 	opacity: .8;
-	animation: 1s ${animations.fadeInBottom};
+	animation: 2s ${animations.fadeInBottom};
 `;
 
 
