@@ -14,6 +14,8 @@ const QuoteScreen = () => {
 	/** 랜덤 인용구 설정 */
 	useEffect(() => {
 		const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+		if (!randomQuote) return;
+
 		setQuote({
 			ko: randomQuote.ko 
 				? randomQuote.ko 

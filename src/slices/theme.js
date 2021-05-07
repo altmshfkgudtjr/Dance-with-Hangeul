@@ -10,9 +10,10 @@ export const getThemes = createAsyncThunk(
 	'theme/getThemes',
 	async (_, { dispatch }) => {
 		const themes = await themeAPI.getThemes();
-		const themesObject = themes.reduce((prev, curr) => 
-			prev[curr.id] = curr
-		, {});
+		const themesObject = themes.reduce((acc, curr) => {
+			acc[curr.id] = curr;
+			return acc;
+		}, {});
 		dispatch(updateThemes(themesObject));
 	}
 );

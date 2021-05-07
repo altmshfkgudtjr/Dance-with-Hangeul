@@ -9,7 +9,7 @@ import { ApiError } from 'types/Error'
  */
 export const getTemplates = () => {
 	return Fetch('/storage/templates.json', 'GET')
-	.then(res => res.templates)
+	.then(res => res.documents)
 	.catch(err => {
 		throw new ApiError("getTemplates Error", err);
 	});
