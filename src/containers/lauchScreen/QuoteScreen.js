@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 // components
-import Wrapper from 'components/quoteScreen/Wrapper';
-import Icon from 'components/quoteScreen/Icon';
-import Quote from 'components/quoteScreen/Quote';
+import Wrapper from 'components/launchScreen/quoteScreen/Wrapper';
+import Icon from 'components/launchScreen/quoteScreen/Icon';
+import Quote from 'components/launchScreen/quoteScreen/Quote';
 
 const QuoteScreen = () => {
   const quotes = useSelector(state => state.common.quotes);

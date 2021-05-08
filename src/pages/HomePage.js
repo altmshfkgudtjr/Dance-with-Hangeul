@@ -2,13 +2,13 @@ import { lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 // containers
 import LaunchScreen from 'containers/lauchScreen';
-// components
-import HomeLayout from 'components/layout/Home';
 // hook
 import useTransitionSuspense from 'lib/hooks/useTransitionSuspense';
 
 const HomePage = () => {
-  const { isPending, isFullfilled, DelayedSuspense } = useTransitionSuspense({ delay: 1000 });
+  const { isPending, isFullfilled, DelayedSuspense } = useTransitionSuspense({
+    delay: 1000,
+  });
 
   return (
     <>
@@ -21,9 +21,7 @@ const HomePage = () => {
 
       {/* Lazy loaded Components */}
       <DelayedSuspense>
-        <HomeLayout>
-          <Home />
-        </HomeLayout>
+        <Home />
       </DelayedSuspense>
     </>
   );
@@ -33,7 +31,7 @@ const Home = lazy(() => {
   return Promise.all([
     import(
       /* webpackChunkName: "home" */
-      'containers/Home'
+      'containers/home'
     ),
     /* 
 			LogoScreen duration(4000ms) + 
@@ -42,7 +40,8 @@ const Home = lazy(() => {
 			QuoteScreen duration(4000ms) + 
 			FadeOut duration(1000ms)
 		*/
-    new Promise(resolve => setTimeout(resolve, 12000)),
+    // new Promise(resolve => setTimeout(resolve, 12000)),
+    new Promise(resolve => setTimeout(resolve, 0)),
   ]).then(([module]) => module);
 });
 

@@ -18,7 +18,7 @@ const Quote = styled.blockquote`
     margin-top: 60px;
     display: none;
 
-    &:nth-child(1) {
+    &:nth-child(2) {
       display: block;
     }
   }

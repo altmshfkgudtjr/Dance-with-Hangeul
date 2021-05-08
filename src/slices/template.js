@@ -6,6 +6,7 @@ import * as templateAPI from 'controllers/template';
 /* 
 	Thunks
 */
+/** Template API 요청 */
 export const getTemplates = createAsyncThunk(
 	'template/getTemplates',
 	async (_, { dispatch }) => {
@@ -19,6 +20,21 @@ export const getTemplates = createAsyncThunk(
 	}
 );
 
+/** 랜덤 템플릿 선택 및 설정 */
+export const setRandomTemplate = createAsyncThunk(
+	'template/setRandomTemplate',
+	async (_, { getState, dispatch }) => {
+		const templates = getState().template.templates;
+		let flatten = [];
+		for (let key of Object.keys(templates)) {
+			flatten = flatten.concat(templates[key]);
+		}
+    const randomTemplate = flatten[Math.floor(Math.random() * flatten.length)];
+		randomTemplate && dispatch(updateSelectedTemplate(randomTemplate));
+		return randomTemplate;
+	}
+);
+
 
 /**
  * Initial State
@@ -28,7 +44,17 @@ export const getTemplates = createAsyncThunk(
  * @property {Theme[]} defaultThemes 기본 테마 리스트
  */
 const initialState = {
-	selectedTemplate: {},
+	selectedTemplate: {
+		id: '',
+		consonant: '',
+		pronunciation: '',
+		info: {
+			ko: '',
+			en: ''
+		},
+		type: 'Origin',
+		themes: []
+	},
 	selectedTheme: {},
 	templates: {
 		'ㄱ': [],
