@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 // reducers
-import template from 'slices/template'
-import theme from 'slices/theme'
-import common from 'slices/common'
+import template from 'slices/template';
+import theme from 'slices/theme';
+import common from 'slices/common';
 
 
 /**
@@ -20,7 +20,7 @@ const reducer = combineReducers({
  * Create Store & Apply Middlewares
  */
 const store = configureStore({
-	reducer,	
+	reducer,
 });
 
-export default store
+export default store;

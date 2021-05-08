@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
-import * as themeAPI from 'controllers/theme'
+import * as themeAPI from 'controllers/theme';
 
 
 /* 
@@ -35,7 +35,7 @@ export const getDefaultThemes = createAsyncThunk(
 const initialState = {
 	themes: {},
 	defaultThemes: []
-}
+};
 
 
 /*
@@ -63,4 +63,4 @@ export const {
 } = themeSlice.actions;
 
 
-export default themeSlice.reducer
+export default themeSlice.reducer;

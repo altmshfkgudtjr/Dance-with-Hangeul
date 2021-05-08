@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
-import * as commonAPI from 'controllers/common'
+import * as commonAPI from 'controllers/common';
 
 
 /* 
@@ -21,7 +21,7 @@ export const getQuotes = createAsyncThunk(
  */
 const initialState = {
 	quotes: []
-}
+};
 
 
 /*
@@ -44,4 +44,4 @@ export const {
 } = commonSlice.actions;
 
 
-export default commonSlice.reducer
+export default commonSlice.reducer;

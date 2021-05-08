@@ -85,4 +85,4 @@ const palette = {
   purple8: '#',
 };
 
-export default palette
+export default palette;

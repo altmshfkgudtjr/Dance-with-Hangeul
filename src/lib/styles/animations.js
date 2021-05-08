@@ -60,20 +60,20 @@ const pulse = keyframes`
 	100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
 `;
 const animations = {
-	fadeIn,
-	fadeOut,
-	fadeInTop,
-	fadeOutTop,
-	fadeInBottom,
-	fadeOutBottom,
-	fadeInLeft,
-	fadeOutLeft,
-	fadeInRight,
-	fadeOutRight,
-	zoomIn,
-	zoomOut,
-	tooltip,
-	pulse
+  fadeIn,
+  fadeOut,
+  fadeInTop,
+  fadeOutTop,
+  fadeInBottom,
+  fadeOutBottom,
+  fadeInLeft,
+  fadeOutLeft,
+  fadeInRight,
+  fadeOutRight,
+  zoomIn,
+  zoomOut,
+  tooltip,
+  pulse,
 };
 
-export default animations
+export default animations;

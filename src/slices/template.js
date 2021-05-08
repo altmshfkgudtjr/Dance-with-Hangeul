@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
-import * as templateAPI from 'controllers/template'
+import * as templateAPI from 'controllers/template';
 
 
 /* 
@@ -47,7 +47,7 @@ const initialState = {
 		'ㅎ': [],
 	},
 	defaultThemes: []
-}
+};
 
 
 /*
@@ -90,4 +90,4 @@ export const {
 } = templateSlice.actions;
 
 
-export default templateSlice.reducer
+export default templateSlice.reducer;
