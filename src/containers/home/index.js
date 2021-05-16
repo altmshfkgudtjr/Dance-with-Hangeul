@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import HomeDesktop from 'containers/home/HomeDesktop';
 import HomeMobile from 'containers/home/HomeMobile';
 import Header from 'containers/Header';
+import WordAnime from 'containers/WordAnime';
 // components
 import HomeLayout from 'components/layout/Home';
 // utils
@@ -31,9 +32,11 @@ const Home = () => {
 
   return (
     <>
-      {/* Canvas 영역 */}
+      <WordAnime />
+
       <HomeLayout>
         <Header device={device} />
+
         {device === 'Desktop' && <HomeDesktop />}
         {device === 'Mobile' && <HomeMobile />}
       </HomeLayout>

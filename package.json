@@ -6,7 +6,8 @@
 		"start": "react-scripts start",
 		"prebuild": "react-scripts test --watchAll=false",
 		"build": "react-scripts build",
-		"test": "react-scripts test"
+		"test": "react-scripts test",
+		"analysis": "TODAY=$(date \"+%Y-%m-%d\") && npx cra-bundle-analyzer -r \"../bundle_analysis/report-$TODAY.html\""
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.5.1",
@@ -24,6 +25,8 @@
 		"@testing-library/jest-dom": "^5.11.5",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
+		"chalk": "^4.1.1",
+		"cra-bundle-analyzer": "^0.1.0",
 		"eslint-config-react-app": "^6.0.0",
 		"redux-mock-store": "^1.5.4"
 	},

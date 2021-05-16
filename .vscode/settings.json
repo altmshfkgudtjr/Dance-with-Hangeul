@@ -3,5 +3,8 @@
 		".pnp.js": true,
 		".yarn/*": true,
 		"yarn.lock": true
-	}
+	},
+
+	"editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

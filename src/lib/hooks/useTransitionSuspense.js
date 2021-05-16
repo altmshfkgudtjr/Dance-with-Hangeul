@@ -10,17 +10,17 @@ import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
  *
  * function Home() {
  *   const {
- *     suspenseFallback, eslint-plugin-react-hooks
  *     isPending,
- *     isFullfilled
+ *     isFullfilled,
+ *     DelayedSuspense,
  *   } = useTransitionSuspense({ delay: 1000 });
  *
  *   return (<div>
  *     {isPending && <LoadingComponent isDisappear={isFullfilled} />}
  *
- *     <Suspense fallback={suspenseFallback}>
+ *     <DelayedSuspense>
  *       <LazyComponent />
- *     </Suspense>
+ *     </DelayedSuspense>
  *   </div>);
  * }
  */
