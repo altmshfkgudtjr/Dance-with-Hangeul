@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // lib
-import animations from 'lib/styles/animations';
+import animations from 'src/lib/styles/animations';
 
 const HomeLayout = styled.div`
   width: 100vw;

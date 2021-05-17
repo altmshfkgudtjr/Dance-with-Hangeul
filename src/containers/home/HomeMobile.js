@@ -1,5 +1,5 @@
 // containers
-import ControlBar from 'containers/controlBox/ControlBar';
+import ControlBar from 'src/containers/controlBox/ControlBar';
 
 const HomeMobile = () => {
   return (

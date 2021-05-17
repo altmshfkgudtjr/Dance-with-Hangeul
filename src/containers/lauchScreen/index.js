@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // containers
-import LogoScreen from 'containers/lauchScreen/LogoScreen';
-import QuoteScreen from 'containers/lauchScreen/QuoteScreen';
+import LogoScreen from 'src/containers/lauchScreen/LogoScreen';
+import QuoteScreen from 'src/containers/lauchScreen/QuoteScreen';
 // components
-import LaunchScreenLayout from 'components/layout/LaunchScreen';
+import LaunchScreenLayout from 'src/components/layout/LaunchScreen';
 // slices
-import { getQuotes } from 'slices/common';
-import { getThemes } from 'slices/theme';
-import { getTemplates } from 'slices/template';
+import { getQuotes } from 'src/slices/common';
+import { getThemes } from 'src/slices/theme';
+import { getTemplates } from 'src/slices/template';
 // lib
-import palette from 'lib/styles/palette';
+import palette from 'src/lib/styles/palette';
 
 const LaunchScreen = ({ time = 5000, isFullfilled }) => {
   /** 로고가 멈춰있는 시간(ms) */

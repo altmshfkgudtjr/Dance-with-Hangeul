@@ -93,7 +93,3 @@ dialog {
 :focus-visible {
   outline: #c9aaff auto 1px;
 }
-
-.mousedown *:focus {
-  outline: none;
-}

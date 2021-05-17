@@ -1,6 +1,6 @@
-import Fetch from 'controllers/fetch';
+import Fetch from 'src/controllers/fetch';
 // types
-import { ApiError } from 'types/Error';
+import { ApiError } from 'src/types/Error';
 
 /**
  * 인용구 요청 API

@@ -1,6 +1,6 @@
 // containers
-import TemplateInfo from 'containers/controlBox/TemplateInfo';
-import ControlBar from 'containers/controlBox/ControlBar';
+import TemplateInfo from 'src/containers/controlBox/TemplateInfo';
+import ControlBar from 'src/containers/controlBox/ControlBar';
 
 const HomeDesktop = () => {
   return (

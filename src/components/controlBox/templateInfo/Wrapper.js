@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 // lib
-import media from 'lib/styles/media';
+import media from 'src/lib/styles/media';
 
 const Wrapper = styled.div`
   display: flex;

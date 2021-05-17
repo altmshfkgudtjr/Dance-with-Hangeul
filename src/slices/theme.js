@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
-import * as themeAPI from 'controllers/theme';
+import * as themeAPI from 'src/controllers/theme';
 
 
 /* 

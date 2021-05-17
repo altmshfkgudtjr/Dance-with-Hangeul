@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 // lib
-import * as styles from 'lib/styles/styles';
+import * as styles from 'src/lib/styles/styles';
 
 const moveAnimation = keyframes`
 	from { opacity: 0; transform: translateX(0) }
