@@ -59,7 +59,7 @@ Happy Development! 😀
 
 ### Branch Strategy
 
-모든 코드는 `develop` 브랜치에서 병합되며, 코드 검증이 끝난 버전은 `master` 브랜치로 올라가게 됩니다.
+모든 코드는 `develop_xx` 브랜치에서 작성되며, 코드 검증이 끝난 버전은 `master` 브랜치로 올라가게 됩니다.
 
 코드 검증은 코드 작성자를 제외한 코드 리뷰어 최소 1명이 필요합니다.
 
