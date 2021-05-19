@@ -6,11 +6,12 @@ import Info from 'src/components/controlBox/templateInfo/Info';
 
 const TemplateInfo = () => {
   const selectedTemplate = useSelector(state => state.template.selectedTemplate);
+  const selectedTheme = useSelector(state => state.template.selectedTheme);
 
   return (
-    <Wrapper>
+    <Wrapper mode={selectedTheme.mode}>
       <Title>
-        {selectedTemplate.id} [{selectedTemplate.pronunciation}]
+        {selectedTemplate.name} [{selectedTemplate.pronunciation}]
       </Title>
       <Info>{selectedTemplate.info.en}</Info>
       <Info>{selectedTemplate.info.ko}</Info>

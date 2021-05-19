@@ -1,37 +1,41 @@
-import { lazy } from 'react';
+import { lazy, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 // components
 import WordAnimeLayout from 'src/components/layout/WordAnime';
+import CanvasLayout from 'src/components/layout/Canvas';
 // hook
 import useTransitionSuspense from 'src/lib/hooks/useTransitionSuspense';
 
 const WordAnime = () => {
-  const name = 'Tong'; // Example Template Name
+  const selectedTemplate = useSelector(state => state.template.selectedTemplate);
+  const selectedTheme = useSelector(state => state.template.selectedTheme);
 
-  const templates = templateLazyImport(
-    () => import(`src/modules/wordAnime/component/${name}`),
-    name,
-  );
-  const CanvasComponent = templates[name];
-
-  const { isPending, DelayedSuspense } = useTransitionSuspense({
+  const [CanvasComponent, setCanvasComponent] = useState(function () {
+    return () => null;
+  });
+  const { isFullfilled, DelayedSuspense } = useTransitionSuspense({
     delay: 1000,
   });
 
+  /** Canvas component init */
+  useEffect(() => {
+    if (!selectedTemplate.id) return;
+    setCanvasComponent(templateLazyImport(selectedTemplate.id));
+  }, [setCanvasComponent, selectedTemplate]);
+
   return (
     <WordAnimeLayout>
-      {isPending && <div>Template Loading...</div>}
-
       <DelayedSuspense>
-        <CanvasComponent colorSet="#12b886" />
+        <CanvasLayout isFullfilled={isFullfilled}>
+          <CanvasComponent color={selectedTheme.fgColor} backgroundColor={selectedTheme.bgColor} />
+        </CanvasLayout>
       </DelayedSuspense>
     </WordAnimeLayout>
   );
 };
 
-const templateLazyImport = (factory, name) => {
-  return {
-    [name]: lazy(() => factory().then(module => ({ default: module[name] }))),
-  };
+const templateLazyImport = name => {
+  return lazy(() => import(`src/modules/wordAnime/component/${name}`));
 };
 
 export default WordAnime;

@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   ${media.medium} {
     margin-left: 2rem;
   }
+
+  color: ${({ mode }) => (mode === 'Light' ? '#000' : '#fff')};
 `;
 
 export default Wrapper;

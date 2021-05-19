@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import animations from 'src/lib/styles/animations';
 
 const HomeLayout = styled.div`
+  position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;

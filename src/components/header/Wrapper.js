@@ -7,6 +7,8 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: ${({ device }) => (device === 'Mobile' ? 'space-between' : 'center')};
   backdrop-filter: ${({ device }) => (device === 'Mobile' ? 'blur(4px)' : '')};
+
+  color: ${({ mode }) => (mode === 'Light' ? '#000' : '#fff')};
 `;
 
 export default Wrapper;

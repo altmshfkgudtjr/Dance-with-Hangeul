@@ -2,12 +2,15 @@
   "name": "dance-with-hangeul",
   "version": "1.0.0",
   "license": "MIT",
+  "homepage" : "https://altmshfkgudtjr.github.io/Dance-with-Hangeul/",
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "react-scripts test --watchAll=false",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "analysis": "TODAY=$(date \"+%Y-%m-%d\") && npx cra-bundle-analyzer -r \"../bundle_analysis/report-$TODAY.html\""
+    "analysis": "TODAY=$(date \"+%Y-%m-%d\") && npx cra-bundle-analyzer -r \"../bundle_analysis/report-$TODAY.html\"",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
@@ -36,6 +39,7 @@
     "chalk": "^4.1.1",
     "cra-bundle-analyzer": "^0.1.0",
     "eslint-config-react-app": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "react-scripts": "^4.0.3",
     "redux-mock-store": "^1.5.4",
     "typescript": "^4.2.4"
