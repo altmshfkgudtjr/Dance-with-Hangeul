@@ -1,0 +1,49 @@
+{
+  "name": "templates",
+  "documents": [
+    {
+      "id": "Tong",
+      "name": "통",
+      "consonant": "ㅌ",
+      "pronunciation": "Tong",
+      "info": {
+        "ko": "가벼운 물체가 떨어져서 튕기는 소리",
+        "en": "The sound of light objects falling and bounces"
+      },
+      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+    },
+    {
+      "id": "Kick",
+      "name": "킥",
+      "consonant": "ㅋ",
+      "pronunciation": "Ki’ck",
+      "info": {
+        "ko": "목소리를 숨기려다 참을 수 없어 입속으로 웃는 소리",
+        "en": "The sound of laughing in my mouth"
+      },
+      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+    },
+    {
+      "id": "Banjjag",
+      "name": "반짝",
+      "consonant": "ㅂ",
+      "pronunciation": "Banjja’g",
+      "info": {
+        "ko": "작은 빛이 잠깐 잇따라 나타났다가 사라지는 모양",
+        "en": "Small lights twinkling"
+      },
+      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+    },
+    {
+      "id": "Warr",
+      "name": "와르르",
+      "consonant": "ㅇ",
+      "pronunciation": "Waleuleu",
+      "info": {
+        "ko": "쌓인 것이 야단스럽게 무너지는 소리나 모양",
+        "en": "The sound or shape of what is crumbling"
+      },
+      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+    }
+  ]
+}

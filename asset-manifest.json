@@ -1,0 +1,28 @@
+{
+  "files": {
+    "static/js/0.857fd130.chunk.js": "/Dance-with-Hangeul/static/js/0.857fd130.chunk.js",
+    "static/js/1.5d9e4fca.chunk.js": "/Dance-with-Hangeul/static/js/1.5d9e4fca.chunk.js",
+    "static/js/2.702a9136.chunk.js": "/Dance-with-Hangeul/static/js/2.702a9136.chunk.js",
+    "home.js": "/Dance-with-Hangeul/static/js/home.70a91b5e.chunk.js",
+    "main.js": "/Dance-with-Hangeul/static/js/main.2a41b5dc.chunk.js",
+    "runtime-main.js": "/Dance-with-Hangeul/static/js/runtime-main.9093f466.js",
+    "static/js/6.63e21ea5.chunk.js": "/Dance-with-Hangeul/static/js/6.63e21ea5.chunk.js",
+    "static/js/7.14bad4d8.chunk.js": "/Dance-with-Hangeul/static/js/7.14bad4d8.chunk.js",
+    "index.html": "/Dance-with-Hangeul/index.html",
+    "static/js/6.63e21ea5.chunk.js.LICENSE.txt": "/Dance-with-Hangeul/static/js/6.63e21ea5.chunk.js.LICENSE.txt",
+    "static/media/close.f74162c7.svg": "/Dance-with-Hangeul/static/media/close.f74162c7.svg",
+    "static/media/left.16533e39.svg": "/Dance-with-Hangeul/static/media/left.16533e39.svg",
+    "static/media/mail.fd8f1570.svg": "/Dance-with-Hangeul/static/media/mail.fd8f1570.svg",
+    "static/media/next.06c1756b.svg": "/Dance-with-Hangeul/static/media/next.06c1756b.svg",
+    "static/media/palette.2ad92489.svg": "/Dance-with-Hangeul/static/media/palette.2ad92489.svg",
+    "static/media/prev.31ae1810.svg": "/Dance-with-Hangeul/static/media/prev.31ae1810.svg",
+    "static/media/right.1f0d6a33.svg": "/Dance-with-Hangeul/static/media/right.1f0d6a33.svg",
+    "static/media/save.967922b7.svg": "/Dance-with-Hangeul/static/media/save.967922b7.svg",
+    "static/media/video.2fef7145.svg": "/Dance-with-Hangeul/static/media/video.2fef7145.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9093f466.js",
+    "static/js/6.63e21ea5.chunk.js",
+    "static/js/main.2a41b5dc.chunk.js"
+  ]
+}

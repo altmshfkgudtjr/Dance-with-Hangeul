@@ -1,0 +1,17 @@
+{
+  "name": "defaultThemes",
+  "documents": [
+    {
+      "id": "T_000000_ffffff",
+      "bgColor": "#000000",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_ffffff_000000",
+      "bgColor": "#ffffff",
+      "fgColor": ["#000000"],
+      "mode": "Light"
+    }
+  ]
+}
