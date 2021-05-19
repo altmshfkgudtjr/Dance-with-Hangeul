@@ -2,7 +2,11 @@
   "name": "dance-with-hangeul",
   "version": "1.0.0",
   "license": "MIT",
-  "homepage" : "https://altmshfkgudtjr.github.io/Dance-with-Hangeul/",
+  "homepage": "https://altmshfkgudtjr.github.io/Dance-with-Hangeul",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altmshfkgudtjr/Dance-with-Hangeul"
+  },
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "react-scripts test --watchAll=false",
