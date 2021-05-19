@@ -7,7 +7,7 @@ import App from 'src/App';
 import store from 'src/slices';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Dance-with-Hangeul">
     <Provider store={store}>
       <HelmetProvider>
         <App />
