@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 // icons
-import { MailIcon } from 'lib/svg';
+import { MailIcon } from 'src/lib/svg';
 // styles
-import animations from 'lib/styles/animations';
+import animations from 'src/lib/styles/animations';
 
 const Icon = styled(MailIcon)`
   width: 32px;

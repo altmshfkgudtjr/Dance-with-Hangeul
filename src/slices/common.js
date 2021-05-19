@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 // controllers
-import * as commonAPI from 'controllers/common';
+import * as commonAPI from 'src/controllers/common';
 
 
 /* 

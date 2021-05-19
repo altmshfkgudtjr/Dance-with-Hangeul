@@ -37,6 +37,8 @@ export default class Banjjag extends Hangul {
         if(this.isBlur) {
             this.ctx.filter = `blur(${this.blur}px)`;
             this.ctx.beginPath();
+            if(this.opacity > 0.5)
+                this.ctx.globalAlpha = 0.5;
             this.ctx.ellipse(0, 0, this.fontSize, this.fontSize/2, 0, 0, 2 * Math.PI);
             this.ctx.fill();
             //this.ctx.fillRect(-this.fontSize/2*2, -this.fontSize/2, this.fontSize*2, this.fontSize)

@@ -1,5 +1,5 @@
 // components
-import Wrapper from 'components/header/Wrapper';
+import Wrapper from 'src/components/header/Wrapper';
 
 const Header = ({ type }) => {
   return (

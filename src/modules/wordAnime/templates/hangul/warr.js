@@ -1,6 +1,6 @@
 
 import Hangul from '../Hangul'
-import {getRandomInt} from '../utils'
+import { getRandomInt } from '../utils'
 
 export default class Warr extends Hangul {
 
@@ -8,7 +8,7 @@ export default class Warr extends Hangul {
         super(props);
         this.acc_value = 2;
         this.rotate_acc = props.rotate_acc
-        this.isGravity = props.isGravity ?? true;
+        this.isGravity = props.isGravity==false ? props.isGravity: true;
         this.isStop = false;
         this.isRotate = false;
         this.vibe = 1;
@@ -28,21 +28,19 @@ export default class Warr extends Hangul {
     }
 
     draw() {
+
         if (this.isGravity) this.gravity();
-        if(this.y_acc < -10) {
-            this.text = "쾅" 
-            this.fontSize = 120
-    }
+
         this.move();
         if (this.life < this.maxLife - 60 && this.life > this.finLife) {
             this.x += this.vibe;
             this.vibe *= -1.01;
-            if(this.vibe > 10) this.vibe = 10
+            if (this.vibe > 10) this.vibe = 10
         }
 
 
         this.ctx.save();
-        ///this.drawPadding();
+        //this.drawPadding();
         this.ctx.fillStyle = this.color;
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
@@ -62,8 +60,8 @@ export default class Warr extends Hangul {
         if (bottom > this.y + this.fontSize / 2) {
             this.y_acc += this.acc_value;
             this.y += this.y_acc;
-            this.rotate+=this.rotate_acc;
-            this.x_acc +=getRandomInt(-2, 2) 
+            this.rotate += this.rotate_acc;
+            this.x_acc += getRandomInt(-2, 2)
 
         }
         if (this.y + this.fontSize / 2 >= bottom) {
@@ -96,6 +94,7 @@ export default class Warr extends Hangul {
             }
         }
 
+
         if (this.y_acc > 0) {
             this.y_acc -= this.acc_value / 2;
             if (this.y_acc < 1) this.y_acc = 0
@@ -115,6 +114,7 @@ export default class Warr extends Hangul {
                 this.y_acc *= (-1 / 2)
             }
         }
+
     }
 
 
@@ -123,40 +123,62 @@ export default class Warr extends Hangul {
     destory() {
         if (this.life >= 0) {
             this.life -= 1;
-            if (this.life < this.finLife && this.life >= 120) {
+            if (this.life < this.finLife && this.life >= this.finLife-20) {
                 this.isGravity = true;
 
-            } else if(-1 <this.life && this.life <= 60){
-                this.opacity = this.life/60;
-            }else if (this.life > this.maxLife) {
+            } else if (-1 < this.life && this.life <= 60) {
+                this.opacity = this.life / 60;
+            } else if (this.life > this.maxLife) {
                 this.life = -1;
             }
         }
     }
-
-
     detect(obj) {
 
         const x = this.x - obj.x
         const y = this.y - obj.y
-        const padding_size = 1.8
+        const padding_size = 1
         const distance = (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))) * padding_size
         if (distance < (this.fontSize / 2) + (obj.fontSize / 2) // 거리가 두 오브젝트의 반지름의 합보다 작고,
+            // 이 오브젝트가 기존 오브젝트보다 위에 있을 때
         ) {
+            if (this.y < obj.y) {
+                this.y_acc = 0
+                if (this.x > obj.x) {
+                    this.x_acc = 3
 
-            const radian = Math.atan2(y, x)+5;
-            this.x_acc = Math.sin(radian + Math.PI / 2) * this.crush_acc*5
-            this.y_acc = Math.cos(radian - Math.PI / 2) * this.crush_acc*4
-            obj.x_acc = Math.sin(radian + Math.PI / 2) * -obj.crush_acc*5
-            obj.y_acc = Math.cos(radian - Math.PI / 2) * -obj.crush_acc*4
-            this.rotate += this.rotate_acc;
-            obj.rotate += this.rotate_acc;
-
-            return 0;
+                } else {
+                    this.x_acc = -3
+                }
+                //this.rotate+=2;
+                return obj.y - this.y
+            }
         }
         return 0;
     }
-    stop() {
+
+    // detect(obj) {
+
+    //     const x = this.x - obj.x
+    //     const y = this.y - obj.y
+    //     const padding_size = 1.8
+    //     const distance = (Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))) * padding_size
+    //     if (distance < (this.fontSize / 2) + (obj.fontSize / 2) // 거리가 두 오브젝트의 반지름의 합보다 작고,
+    //     ) {
+
+    //         const radian = Math.atan2(y, x)+5;
+    //         this.x_acc = Math.sin(radian + Math.PI / 2) * this.crush_acc*5
+    //         this.y_acc = Math.cos(radian - Math.PI / 2) * this.crush_acc*4
+    //         obj.x_acc = Math.sin(radian + Math.PI / 2) * -obj.crush_acc*5
+    //         obj.y_acc = Math.cos(radian - Math.PI / 2) * -obj.crush_acc*4
+    //         this.rotate += this.rotate_acc;
+    //         obj.rotate += this.rotate_acc;
+
+    //         return 0;
+    //     }
+    //     return 0;
+    // }
+    stop = () => {
         this.x_acc = 0;
         this.y_acc = 0;
         this.isGravity = false;

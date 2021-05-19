@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 // lib
-import * as styles from 'lib/styles/styles';
-import media from 'lib/styles/media';
+import * as styles from 'src/lib/styles/styles';
+import media from 'src/lib/styles/media';
 
 const Quote = styled.blockquote`
   display: block;

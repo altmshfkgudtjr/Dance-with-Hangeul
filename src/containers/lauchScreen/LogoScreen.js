@@ -1,9 +1,9 @@
 // components
-import Wrapper from 'components/launchScreen/logoScreen/Wrapper';
-import Circle from 'components/launchScreen/logoScreen/Circle';
-import LineFirst from 'components/launchScreen/logoScreen/LineFirst';
-import LineSecond from 'components/launchScreen/logoScreen/LineSecond';
-import Title from 'components/launchScreen/logoScreen/Title';
+import Wrapper from 'src/components/launchScreen/logoScreen/Wrapper';
+import Circle from 'src/components/launchScreen/logoScreen/Circle';
+import LineFirst from 'src/components/launchScreen/logoScreen/LineFirst';
+import LineSecond from 'src/components/launchScreen/logoScreen/LineSecond';
+import Title from 'src/components/launchScreen/logoScreen/Title';
 
 const LogoScreen = ({ time = 5000, color }) => {
   return (

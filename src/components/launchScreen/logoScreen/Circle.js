@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 // lib
-import * as styles from 'lib/styles/styles';
+import * as styles from 'src/lib/styles/styles';
 
 const Circle = ({ time, color }) => {
   return (

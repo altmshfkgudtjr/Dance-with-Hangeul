@@ -1,16 +1,19 @@
 import { lazy } from 'react';
 // components
-import WordAnimeLayout from 'components/layout/WordAnime';
+import WordAnimeLayout from 'src/components/layout/WordAnime';
 // hook
-import useTransitionSuspense from 'lib/hooks/useTransitionSuspense';
+import useTransitionSuspense from 'src/lib/hooks/useTransitionSuspense';
 
 const WordAnime = () => {
   const name = 'Tong'; // Example Template Name
 
-  const templates = templateLazyImport(() => import(`modules/wordAnime/templates/${name}`), name);
+  const templates = templateLazyImport(
+    () => import(`src/modules/wordAnime/component/${name}`),
+    name,
+  );
   const CanvasComponent = templates[name];
 
-  const { isPending, isFullfilled, DelayedSuspense } = useTransitionSuspense({
+  const { isPending, DelayedSuspense } = useTransitionSuspense({
     delay: 1000,
   });
 

@@ -7,8 +7,6 @@ export default class Canvas_Kick extends HangulCanvas {
     constructor(props) {
         super(props);
         this.HangulClass = Kick;
-        this.width = window.innerWidth;
-        this.height = window.innerHeight;
     }
     init() {
         super.init();
@@ -42,7 +40,6 @@ export default class Canvas_Kick extends HangulCanvas {
             groupId: groupId,
             text: 'ㅋ',
             fontSize: getRandomInt(80, 130),
-            fontFamily: 'Nanum Myeongjo',
             opacity: 1,
             x: getRandomInt(this.width *0.2, this.width *0.7),
             y: getRandomInt(this.height *0.3, this.height *0.8),

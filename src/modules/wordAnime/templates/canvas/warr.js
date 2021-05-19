@@ -1,13 +1,13 @@
 import HangulCanvas from '../HangulCanvas'
 import Warr from '../hangul/warr'
-import {getRandomInt} from '../utils'
+import { getRandomInt } from '../utils'
 
 export default class Canvas_Warr extends HangulCanvas {
 
     constructor(props) {
         super(props);
         this.HangulClass = Warr;
-        this.maxObjectCount = 35;
+        this.maxObjectCount = 49;
         this.maxCooltime = 120;
 
     }
@@ -65,9 +65,9 @@ export default class Canvas_Warr extends HangulCanvas {
                 }
                 paramsArray.push({
                     ...params,
-                    text: (i ===0 || i===3) ? '와' : '르',
+                    text: (i === 0 || i === 3) ? '와' : '르',
                     x: x + (fontSize - 10) * i,
-                    y: 0 - (fontSize - 10) * j,
+                    y: 0 - (fontSize - 0) * j,
                     line: j,
                     finLife: finLife,
                     rotate: getRandomInt(-20, 20),
@@ -79,19 +79,41 @@ export default class Canvas_Warr extends HangulCanvas {
 
         return paramsArray
     }
-
     detectObjects() {
         let i, j;
+        let hap;
         const length = this.objects.length;
         for (i = length - 1; i > 0; i--) {
-            for (j = i - 1; j >= 0; j--) {
-                if((i+j) % 2 === 1){
-                    this.objects[i].detect(this.objects[j])
+            if (!this.objects[i].isStop) {
+                hap = 0;
+                for (j = i - 1; j >= 0; j--) {
+                    hap += this.objects[i].detect(this.objects[j])
+
+                    //console.log(this.objects[j].y,this.objects[j].y_acc, this.objects[j].isStop, this.objects[j].isGravity)
+                    if (hap > this.objects[i].fontSize*0.4) {
+                        this.objects[i].stop();
+                        //console.log(this.objects[i].isStop);
+                    }
                 }
             }
 
-
         }
     }
+
+    /*
+        detectObjects() {
+            let i, j;
+            const length = this.objects.length;
+            for (i = length - 1; i > 0; i--) {
+                for (j = i - 1; j >= 0; j--) {
+                    if((i+j) % 2 === 1){
+                        this.objects[i].detect(this.objects[j])
+                    }
+                }
+    
+    
+            }
+        }
+    */
 
 }

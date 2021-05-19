@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 // lib
-import animations from 'lib/styles/animations';
+import animations from 'src/lib/styles/animations';
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 // components
-import Wrapper from 'components/controlBox/controlBar/Wrapper';
+import Wrapper from 'src/components/controlBox/controlBar/Wrapper';
 
 const ControlBar = ({ device }) => {
   return (

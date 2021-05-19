@@ -25,14 +25,16 @@ export default class Canvas_Banjjag extends HangulCanvas {
 
     getParams(){
         const params = super.getParams();
+        let fontSize = Math.random() < 0.8 ? getRandomInt(30, 40) : getRandomInt(80, 90)
+        fontSize *= this.rectSum/ 2000
         return {
             ...params,
             text: '반짝',
-            fontSize: Math.random() < 0.8 ? getRandomInt(30, 40) : getRandomInt(80, 90),
+            fontSize: fontSize,
             fontFamily: 'Nanum Myeongjo',
             opacity: 0,
-            x: getRandomInt(500, window.innerWidth - 400),
-            y: getRandomInt(200, window.innerHeight-200),
+            x: getRandomInt(this.width *0.2, this.width *0.7),
+            y: getRandomInt(this.height *0.3, this.height *0.8),
             x_acc: getRandomInt(10, 30) / -20,
             life: 60,
             finLife: 30,

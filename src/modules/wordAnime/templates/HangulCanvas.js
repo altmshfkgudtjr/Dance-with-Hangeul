@@ -19,6 +19,7 @@ export default class HangulCanvas {
         this.cooltime = 0;
         this.width = props.width ? props.width : window.innerWidth;
         this.height = props.height ? props.height : window.innerHeight;
+        this.rectSum = this.width + this.height;
     }
 
     init() {

@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 // containers
-import HomeDesktop from 'containers/home/HomeDesktop';
-import HomeMobile from 'containers/home/HomeMobile';
-import Header from 'containers/Header';
-import WordAnime from 'containers/WordAnime';
+import HomeDesktop from 'src/containers/home/HomeDesktop';
+import HomeMobile from 'src/containers/home/HomeMobile';
+import Header from 'src/containers/Header';
+// import WordAnime from 'src/containers/WordAnime';
 // components
-import HomeLayout from 'components/layout/Home';
+import HomeLayout from 'src/components/layout/Home';
 // utils
-import { mobileChecker } from 'lib/utils/commonUtils';
+import { mobileChecker } from 'src/lib/utils/commonUtils';
 // slices
-import { setRandomTemplate } from 'slices/template';
+import { setRandomTemplate } from 'src/slices/template';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <>
-      <WordAnime />
+      {/* <WordAnime /> */}
 
       <HomeLayout>
         <Header device={device} />

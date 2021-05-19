@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from 'redux';
 // reducers
-import template from 'slices/template';
-import theme from 'slices/theme';
-import common from 'slices/common';
+import template from 'src/slices/template';
+import theme from 'src/slices/theme';
+import common from 'src/slices/common';
 
 
 /**

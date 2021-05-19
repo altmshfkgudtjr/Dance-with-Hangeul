@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // lib
-import { transition, noselect } from 'lib/styles/styles';
-import palette from 'lib/styles/palette';
+import { transition, noselect } from 'src/lib/styles/styles';
+import palette from 'src/lib/styles/palette';
 
 function NoPage() {
   return (

@@ -1,9 +1,9 @@
 import { lazy } from 'react';
 import { Helmet } from 'react-helmet-async';
 // containers
-import LaunchScreen from 'containers/lauchScreen';
+import LaunchScreen from 'src/containers/lauchScreen';
 // hook
-import useTransitionSuspense from 'lib/hooks/useTransitionSuspense';
+import useTransitionSuspense from 'src/lib/hooks/useTransitionSuspense';
 
 const HomePage = () => {
   const { isPending, isFullfilled, DelayedSuspense } = useTransitionSuspense({
@@ -31,7 +31,7 @@ const Home = lazy(() => {
   return Promise.all([
     import(
       /* webpackChunkName: "home" */
-      'containers/home'
+      'src/containers/home'
     ),
     /* 
 			LogoScreen duration(4000ms) + 
