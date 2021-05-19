@@ -4,19 +4,20 @@ import animations from 'src/lib/styles/animations';
 
 const Wrapper = styled.div`
   display: flex;
+  color: ${({ mode }) => (mode === 'Light' ? '#000' : '#fff')};
   ${({ device }) =>
     device === 'Mobile'
       ? css`
           flex-direction: column;
           margin-right: 1rem;
-          animation: 1.4s ${animations.fadeInLeft};
+          animation: 1.2s ${animations.fadeInLeft};
         `
       : css`
           opacity: 0;
           flex-direction: row;
           margin-top: 1rem;
           margin-left: 6.25rem;
-          animation: 1.4s ${animations.fadeInLeft} 0.8s;
+          animation: 1s ${animations.fadeInLeft} 1.4s ease-out;
           animation-fill-mode: forwards;
         `};
 `;

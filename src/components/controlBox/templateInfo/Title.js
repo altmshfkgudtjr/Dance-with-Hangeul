@@ -6,7 +6,10 @@ const Title = styled.h1`
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  animation: 1.4s ${animations.fadeInLeft};
+  color: inherit;
+  opacity: 0;
+  animation: 1s ${animations.fadeInTop} 1s ease-out;
+  animation-fill-mode: forwards;
 `;
 
 export default Title;

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import HomeDesktop from 'src/containers/home/HomeDesktop';
 import HomeMobile from 'src/containers/home/HomeMobile';
 import Header from 'src/containers/Header';
-// import WordAnime from 'src/containers/WordAnime';
+import WordAnime from 'src/containers/WordAnime';
 // components
 import HomeLayout from 'src/components/layout/Home';
 // utils
@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <WordAnime /> */}
+      <WordAnime />
 
       <HomeLayout>
         <Header device={device} />

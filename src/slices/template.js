@@ -46,13 +46,13 @@ export const setRandomTemplate = createAsyncThunk(
 const initialState = {
 	selectedTemplate: {
 		id: '',
+		name: '',
 		consonant: '',
 		pronunciation: '',
 		info: {
 			ko: '',
 			en: ''
 		},
-		type: 'Origin',
 		themes: []
 	},
 	selectedTheme: {},

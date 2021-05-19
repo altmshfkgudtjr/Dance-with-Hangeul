@@ -1,17 +1,17 @@
 {
-	"name": "defaultThemes",
-	"documents": [
-		{
-			"id": "T_ffffff_ff0000",
-			"bgColor": "#ffffff",
-			"fgColor": ["#ff0000"],
-			"mode": "Light"
-		},
-		{
-			"id": "T_ffffff_00ff00",
-			"bgColor": "#ffffff",
-			"fgColor": ["#00ff00"],
-			"mode": "Light"
-		}
-	]
+  "name": "defaultThemes",
+  "documents": [
+    {
+      "id": "T_000000_ffffff",
+      "bgColor": "#000000",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_ffffff_000000",
+      "bgColor": "#ffffff",
+      "fgColor": ["#000000"],
+      "mode": "Light"
+    }
+  ]
 }
