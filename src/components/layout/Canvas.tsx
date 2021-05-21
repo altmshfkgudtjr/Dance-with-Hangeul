@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 // styles
 import animations from 'src/lib/styles/animations';
 
-const CanvasLayout = styled.div`
+const CanvasLayout = styled.div<{ isFullfilled: boolean }>`
   position: absolute;
   top: 0;
   left: 0;

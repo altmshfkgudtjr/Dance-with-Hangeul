@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux';
 // components
 import Wrapper from 'src/components/controlBox/templateInfo/Wrapper';
 import Title from 'src/components/controlBox/templateInfo/Title';
 import Info from 'src/components/controlBox/templateInfo/Info';
+// hooks
+import { useSelector } from 'src/lib/hooks/useStore';
 
 const TemplateInfo = () => {
   const selectedTemplate = useSelector(state => state.template.selectedTemplate);

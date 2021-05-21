@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 // lib
 import media from 'src/lib/styles/media';
+// types
+import { Mode } from 'src/types/common';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,7 +14,7 @@ const Wrapper = styled.div`
     margin-left: 2rem;
   }
 
-  color: ${({ mode }) => (mode === 'Light' ? '#000' : '#fff')};
+  color: ${({ mode }: { mode: Mode }) => (mode === 'Light' ? '#000' : '#fff')};
 `;
 
 export default Wrapper;

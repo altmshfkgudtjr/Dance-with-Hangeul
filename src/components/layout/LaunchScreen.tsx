@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 // lib
 import animations from 'src/lib/styles/animations';
 
-const LaunchScreenLayout = styled.div`
+const LaunchScreenLayout = styled.div<{ time: number; isClose: boolean }>`
   width: 100vw;
   height: 100vh;
   display: flex;

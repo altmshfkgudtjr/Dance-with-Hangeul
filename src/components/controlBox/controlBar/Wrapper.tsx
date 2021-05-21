@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 // lib
 import animations from 'src/lib/styles/animations';
+// types
+import { Device, Mode } from 'src/types/common';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ device: Device; mode: Mode }>`
   display: flex;
   color: ${({ mode }) => (mode === 'Light' ? '#000' : '#fff')};
   ${({ device }) =>

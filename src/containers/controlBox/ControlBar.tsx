@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
 // components
 import Wrapper from 'src/components/controlBox/controlBar/Wrapper';
+// hooks
+import { useSelector } from 'src/lib/hooks/useStore';
 
 const ControlBar = ({ device }) => {
   const selectedTheme = useSelector(state => state.template.selectedTheme);

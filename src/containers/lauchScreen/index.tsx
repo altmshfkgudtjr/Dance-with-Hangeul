@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 // containers
 import LogoScreen from 'src/containers/lauchScreen/LogoScreen';
 import QuoteScreen from 'src/containers/lauchScreen/QuoteScreen';
@@ -9,10 +8,12 @@ import LaunchScreenLayout from 'src/components/layout/LaunchScreen';
 import { getQuotes } from 'src/slices/common';
 import { getThemes } from 'src/slices/theme';
 import { getTemplates } from 'src/slices/template';
+// hooks
+import { useDispatch } from 'src/lib/hooks/useStore';
 // lib
 import palette from 'src/lib/styles/palette';
 
-const LaunchScreen = ({ time = 5000, isFullfilled }) => {
+const LaunchScreen = ({ time = 5000, isFullfilled }: Props) => {
   /** 로고가 멈춰있는 시간(ms) */
   const logoStayDuration = 2000;
   /** 화면 전환 애니메이션 시간(ms) */
@@ -20,8 +21,8 @@ const LaunchScreen = ({ time = 5000, isFullfilled }) => {
 
   const dispatch = useDispatch();
 
-  const [isClose, setIsClose] = useState(false);
-  const [isNext, setIsNext] = useState(false);
+  const [isClose, setIsClose] = useState<boolean>(false);
+  const [isNext, setIsNext] = useState<boolean>(false);
 
   /** 초기 데이터 사전 호출 */
   useEffect(() => {
@@ -47,7 +48,7 @@ const LaunchScreen = ({ time = 5000, isFullfilled }) => {
     <>
       {!isNext && (
         <>
-          <LaunchScreenLayout isClose={isClose} time={animationDuration}>
+          <LaunchScreenLayout time={animationDuration} isClose={isClose}>
             <LogoScreen time={time} color={palette.purple4} />
           </LaunchScreenLayout>
         </>
@@ -55,13 +56,18 @@ const LaunchScreen = ({ time = 5000, isFullfilled }) => {
 
       {isNext && (
         <>
-          <LaunchScreenLayout isClose={isFullfilled} time={animationDuration}>
-            <QuoteScreen time={time} />
+          <LaunchScreenLayout time={animationDuration} isClose={isFullfilled}>
+            <QuoteScreen />
           </LaunchScreenLayout>
         </>
       )}
     </>
   );
 };
+
+interface Props {
+  time: number;
+  isFullfilled: boolean;
+}
 
 export default LaunchScreen;

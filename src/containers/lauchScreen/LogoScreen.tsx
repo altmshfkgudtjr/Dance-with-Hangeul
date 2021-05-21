@@ -5,7 +5,7 @@ import LineFirst from 'src/components/launchScreen/logoScreen/LineFirst';
 import LineSecond from 'src/components/launchScreen/logoScreen/LineSecond';
 import Title from 'src/components/launchScreen/logoScreen/Title';
 
-const LogoScreen = ({ time = 5000, color }) => {
+const LogoScreen = ({ time = 5000, color }: Props) => {
   return (
     <>
       <Wrapper time={time} color={color}>
@@ -18,5 +18,10 @@ const LogoScreen = ({ time = 5000, color }) => {
     </>
   );
 };
+
+interface Props {
+  time: number;
+  color: string;
+}
 
 export default LogoScreen;

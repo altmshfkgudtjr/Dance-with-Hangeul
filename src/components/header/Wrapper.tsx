@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+// types
+import { Device, Mode } from 'src/types/common';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ device: Device; mode: Mode }>`
   width: 100%;
   height: ${({ device }) => (device === 'Mobile' ? '48px' : '80px')};
   display: flex;

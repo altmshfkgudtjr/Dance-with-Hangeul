@@ -1,15 +1,22 @@
-import { useSelector } from 'react-redux';
 // components
 import Wrapper from 'src/components/header/Wrapper';
+// hooks
+import { useSelector } from 'src/lib/hooks/useStore';
+// types
+import { Device } from 'src/types/common';
 
-const Header = ({ type }) => {
+const Header = ({ device }: Props) => {
   const selectedTheme = useSelector(state => state.template.selectedTheme);
 
   return (
-    <Wrapper type={type} mode={selectedTheme.mode}>
+    <Wrapper device={device} mode={selectedTheme.mode}>
       <button style={{ color: 'inherit', fontSize: '14px' }}>HIDE UI</button>
     </Wrapper>
   );
+};
+
+type Props = {
+  device: Device;
 };
 
 export default Header;

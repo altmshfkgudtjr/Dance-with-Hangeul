@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 // containers
 import HomeDesktop from 'src/containers/home/HomeDesktop';
 import HomeMobile from 'src/containers/home/HomeMobile';
@@ -11,10 +10,14 @@ import HomeLayout from 'src/components/layout/Home';
 import { mobileChecker } from 'src/lib/utils/commonUtils';
 // slices
 import { setRandomTemplate } from 'src/slices/template';
+// hooks
+import { useDispatch } from 'src/lib/hooks/useStore';
+// types
+import { Device } from 'src/types/common';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const [device, setDevice] = useState(null);
+  const [device, setDevice] = useState<Device | null>(null);
 
   /** 랜덤 템플릿 설정 */
   useEffect(() => {
@@ -35,7 +38,7 @@ const Home = () => {
       <WordAnime />
 
       <HomeLayout>
-        <Header device={device} />
+        {device && <Header device={device} />}
 
         {device === 'Desktop' && <HomeDesktop />}
         {device === 'Mobile' && <HomeMobile />}

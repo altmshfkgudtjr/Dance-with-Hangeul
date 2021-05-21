@@ -12,7 +12,7 @@ const moveAnimation = keyframes`
 	100% { transform: translateX(-64px) scale(0.5); }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ time: number }>`
   position: relative;
   display: flex;
   flex-direction: column;

@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 // lib
 import * as styles from 'src/lib/styles/styles';
 
-const LineFirst = ({ time, color }) => {
+const LineFirst = ({ time, color }: Props) => {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const fillAnimation = color => keyframes`
 	85% { stroke: #ffffff }
 `;
 
-const Svg = styled.svg`
+const Svg = styled.svg<Props>`
   transition: 0.2s ${styles.transition};
   animation: ${({ time }) => `${(time / 5) * 4}ms`} ${fallingAnimation};
 
@@ -49,5 +49,10 @@ const Svg = styled.svg`
     animation: ${({ time }) => `${time}ms`} ${({ color }) => fillAnimation(color)};
   }
 `;
+
+interface Props {
+  time: number;
+  color: string;
+}
 
 export default LineFirst;

@@ -1,6 +1,6 @@
 /** 모바일 여부 (PC/Tablet 제외) */
 /* eslint-disable */
-export const mobileChecker = () => {
+export const mobileChecker = (): boolean => {
   let check = false;
   (function (nav) {
     if (
@@ -12,7 +12,7 @@ export const mobileChecker = () => {
       )
     )
       check = true;
-  })(navigator.userAgent || navigator.vendor || window.opera);
+  })(navigator.userAgent || navigator.vendor);
   return check;
 };
 /* eslint-enable */

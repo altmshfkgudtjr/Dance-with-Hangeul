@@ -7,7 +7,7 @@ const moveAnimation = keyframes`
 	to { opacity: 1; transform: translateX(26px) }
 `;
 
-const Title = styled.div`
+const Title = styled.div<{ time: number }>`
   position: absolute;
   font-size: 21px;
   font-weight: 600;

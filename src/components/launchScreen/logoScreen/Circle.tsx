@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 // lib
 import * as styles from 'src/lib/styles/styles';
 
-const Circle = ({ time, color }) => {
+const Circle = ({ time, color }: Props) => {
   return (
     <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" time={time} color={color}>
       <ellipse
@@ -31,7 +31,7 @@ const fillAnimation = color => keyframes`
 	85% { stroke: #ffffff }
 `;
 
-const Svg = styled.svg`
+const Svg = styled.svg<Props>`
   width: 30px;
   height: 30px;
   transition: 0.2s ${styles.transition};
@@ -45,5 +45,10 @@ const Svg = styled.svg`
     animation: ${({ time }) => `${time}ms`} ${({ color }) => fillAnimation(color)};
   }
 `;
+
+interface Props {
+  time: number;
+  color: string;
+}
 
 export default Circle;
