@@ -1,7 +1,8 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 // controllers
 import * as commonAPI from 'src/controllers/common';
-
+// types
+import { CommonState, Quote, ControlOption } from 'src/types/slices/common'
 
 /* 
 	Thunks
@@ -17,9 +18,9 @@ export const getQuotes = createAsyncThunk(
 
 /**
  * Initial State
- * @property {object} quotes 한글 인용구
  */
-const initialState = {
+const initialState: CommonState = {
+	controlOption: null,
 	quotes: []
 };
 
@@ -31,8 +32,12 @@ const commonSlice = createSlice({
 	name: 'common',
 	initialState,
 	reducers: {
-		/** quotes 갱신 @dispatch */
-		updateQuotes(state, action) {
+		/** @dispatch Contorl Option 변경 */
+		updateControlOption(state, action: PayloadAction<ControlOption>) {
+			state.controlOption = action.payload;
+		},
+		/** @dispatch quotes 갱신 */
+		updateQuotes(state, action: PayloadAction<Quote[]>) {
 			state.quotes = action.payload;
 		},
 	}
@@ -40,6 +45,7 @@ const commonSlice = createSlice({
 
 
 export const { 
+	updateControlOption,
 	updateQuotes
 } = commonSlice.actions;
 

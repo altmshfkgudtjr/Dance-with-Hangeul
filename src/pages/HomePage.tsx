@@ -40,8 +40,8 @@ const Home = lazy(() => {
 			QuoteScreen duration(4000ms) + 
 			FadeOut duration(1000ms)
 		*/
-    new Promise(resolve => setTimeout(resolve, 12000)),
-    // new Promise(resolve => setTimeout(resolve, 0)),
+    // new Promise(resolve => setTimeout(resolve, 12000)),
+    new Promise(resolve => setTimeout(resolve, 0)),
   ]).then(([module]) => module);
 });
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// hooks
+import { useSelector } from 'src/lib/hooks/useStore';
 // components
 import Wrapper from 'src/components/launchScreen/quoteScreen/Wrapper';
 import Icon from 'src/components/launchScreen/quoteScreen/Icon';

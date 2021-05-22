@@ -6,7 +6,7 @@ import { useSelector } from 'src/lib/hooks/useStore';
 import { Device } from 'src/types/common';
 
 const Header = ({ device }: Props) => {
-  const selectedTheme = useSelector(state => state.template.selectedTheme);
+  const selectedTheme = useSelector(state => state.theme.selectedTheme);
 
   return (
     <Wrapper device={device} mode={selectedTheme.mode}>

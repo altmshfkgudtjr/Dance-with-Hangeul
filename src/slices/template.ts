@@ -1,6 +1,10 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 // controllers
 import * as templateAPI from 'src/controllers/template';
+// typees
+import { RootState } from 'src/slices'
+import { TemplateState } from 'src/types/slices/template'
+import { Template } from 'src/types/template'
 
 
 /* 
@@ -24,13 +28,17 @@ export const getTemplates = createAsyncThunk(
 export const setRandomTemplate = createAsyncThunk(
 	'template/setRandomTemplate',
 	async (_, { getState, dispatch }) => {
-		const templates = getState().template.templates;
-		let flatten = [];
+		const state = getState() as RootState;
+		const templates = state.template.templates;
+
+		let flatten: Template[] = [];
 		for (let key of Object.keys(templates)) {
 			flatten = flatten.concat(templates[key]);
 		}
-    const randomTemplate = flatten[Math.floor(Math.random() * flatten.length)];
+    
+		const randomTemplate = flatten[Math.floor(Math.random() * flatten.length)];
 		randomTemplate && dispatch(updateSelectedTemplate(randomTemplate));
+		
 		return randomTemplate;
 	}
 );
@@ -38,12 +46,8 @@ export const setRandomTemplate = createAsyncThunk(
 
 /**
  * Initial State
- * @property {Template} selectedTemplate 현재 선택된 템플릿
- * @property {Theme} selectedTheme 현재 선택된 테마 
- * @property {object} templates 템플릿 리스트
- * @property {Theme[]} defaultThemes 기본 테마 리스트
  */
-const initialState = {
+const initialState: TemplateState = {
 	selectedTemplate: {
 		id: '',
 		name: '',
@@ -55,7 +59,6 @@ const initialState = {
 		},
 		themes: []
 	},
-	selectedTheme: {},
 	templates: {
 		'ㄱ': [],
 		'ㄴ': [],
@@ -83,25 +86,27 @@ const templateSlice = createSlice({
 	name: 'template',
 	initialState,
 	reducers: {
-		/** template 갱신 @dispatch */
-		updateTemplates(state, action) {
+		/** @dispatch template 갱신 */
+		updateTemplates(state, action: PayloadAction<{[key: string]: Template[]}>) {
 			state.templates = Object.assign(state.templates, action.payload);
 		},
-		/** selectedTemplate 갱신 @dispatch */
-		updateSelectedTemplate(state, action) {
+		/** @dispatch selectedTemplate 갱신  */
+		updateSelectedTemplate(state, action: PayloadAction<Template>) {
 			state.selectedTemplate = action.payload;
 		},
-		/** selectedTemplate 초기화 @dispatch */
+		/** @dispatch selectedTemplate 초기화  */
 		clearSelectedTemplate(state) {
-			state.selectedTemplate = {}
-		},
-		/** selectedTheme 갱신 @dispatch */
-		updateSelectedTheme(state, action) {
-			state.selectedTheme = action.payload;
-		},
-		/** selectedTheme 초기화 @dispatch */
-		clearSelectedTheme(state) {
-			state.selectedTheme = {}
+			state.selectedTemplate = {
+				id: '',
+				name: '',
+				consonant: '',
+				pronunciation: '',
+				info: {
+					ko: '',
+					en: ''
+				},
+				themes: []
+			}
 		}
 	}
 });
@@ -110,9 +115,7 @@ const templateSlice = createSlice({
 export const { 
 	updateTemplates,
 	updateSelectedTemplate,
-	clearSelectedTemplate,
-	updateSelectedTheme,
-	clearSelectedTheme
+	clearSelectedTemplate
 } = templateSlice.actions;
 
 

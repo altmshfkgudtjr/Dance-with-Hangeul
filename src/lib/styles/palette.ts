@@ -76,10 +76,10 @@ const palette = {
   /* purple */
   purple0: '#',
   purple1: '#',
-  purple2: '#',
+  purple2: '#E1D2FF',
   purple3: '#D1B7FF',
   purple4: '#C9AAFF',
-  purple5: '#',
+  purple5: '#BC98FA',
   purple6: '#',
   purple7: '#',
   purple8: '#',

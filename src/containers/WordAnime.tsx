@@ -3,14 +3,17 @@ import { lazy, useState, useEffect } from 'react';
 import WordAnimeLayout from 'src/components/layout/WordAnime';
 import CanvasLayout from 'src/components/layout/Canvas';
 // hook
-import { useSelector } from 'src/lib/hooks/useStore';
+import { useSelector, useDispatch } from 'src/lib/hooks/useStore';
 import useTransitionSuspense from 'src/lib/hooks/useTransitionSuspense';
+// slices
+import { selectTheme } from 'src/slices/theme';
 
 const WordAnime = () => {
+  const dispatch = useDispatch();
   const selectedTemplate = useSelector(state => state.template.selectedTemplate);
-  const selectedTheme = useSelector(state => state.template.selectedTheme);
+  const selectedTheme = useSelector(state => state.theme.selectedTheme);
 
-  const [CanvasComponent, setCanvasComponent] = useState<Function>(function () {
+  const [CanvasComponent, setCanvasComponent] = useState<any>(function () {
     return () => null;
   });
   const { isFullfilled, DelayedSuspense } = useTransitionSuspense({
@@ -21,13 +24,18 @@ const WordAnime = () => {
   useEffect(() => {
     if (!selectedTemplate.id) return;
     setCanvasComponent(templateLazyImport(selectedTemplate.id));
-  }, [setCanvasComponent, selectedTemplate]);
+    dispatch(selectTheme(selectedTemplate.themes[0]));
+  }, [dispatch, setCanvasComponent, selectedTemplate]);
 
   return (
     <WordAnimeLayout>
       <DelayedSuspense>
         <CanvasLayout isFullfilled={isFullfilled}>
-          <CanvasComponent color={selectedTheme.fgColor} backgroundColor={selectedTheme.bgColor} />
+          <CanvasComponent
+            fontFamily={'Nanum Myeongjo'}
+            color={selectedTheme.fgColor}
+            backgroundColor={selectedTheme.bgColor}
+          />
         </CanvasLayout>
       </DelayedSuspense>
     </WordAnimeLayout>

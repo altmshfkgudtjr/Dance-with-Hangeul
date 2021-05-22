@@ -7,7 +7,7 @@ import { useSelector } from 'src/lib/hooks/useStore';
 
 const TemplateInfo = () => {
   const selectedTemplate = useSelector(state => state.template.selectedTemplate);
-  const selectedTheme = useSelector(state => state.template.selectedTheme);
+  const selectedTheme = useSelector(state => state.theme.selectedTheme);
 
   return (
     <Wrapper mode={selectedTheme.mode}>

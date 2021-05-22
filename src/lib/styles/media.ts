@@ -9,7 +9,7 @@ export const mediaQueryMax = maxWidth => `
 `;
 
 /** Media Value 규격 */
-const mediaValue = {
+export const mediaValue = {
   xlarge: 1600,
   large: 1440,
   medium: 1200,

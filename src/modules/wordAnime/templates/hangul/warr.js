@@ -6,7 +6,7 @@ export default class Warr extends Hangul {
     super(props);
     this.acc_value = 2;
     this.rotate_acc = props.rotate_acc;
-    this.isGravity = props.isGravity == false ? props.isGravity : true;
+    this.isGravity = props.isGravity === false ? props.isGravity : true;
     this.isStop = false;
     this.isRotate = false;
     this.vibe = 1;
