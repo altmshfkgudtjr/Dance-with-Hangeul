@@ -12,29 +12,36 @@ import { ControlOption } from 'src/types/slices/common';
 const ControlBar = ({ device }: Props) => {
   const dispatch = useDispatch();
   const selectedTheme = useSelector(state => state.theme.selectedTheme);
+  const controlOption = useSelector(state => state.common.controlOption);
 
   /** Control 옵션 변경 */
   const onUpdateControlOption = (type: ControlOption) => {
     dispatch(updateControlOption(type));
   };
 
+  /** 테마 버튼 토글 */
+  const onTogglePalette = () => {
+    if (controlOption === 'Palette') onUpdateControlOption(null);
+    else onUpdateControlOption('Palette');
+  };
+
+  /** 저장 버튼 토글 */
+  const onToggleSave = () => {
+    if (controlOption === 'Save') onUpdateControlOption(null);
+    else onUpdateControlOption('Save');
+  };
+
+  /** 영상 버튼 */
+  const onClickVideo = () => {
+    onUpdateControlOption(null);
+    console.log('영상을 업로드 해 주세요.');
+  };
+
   return (
     <Wrapper device={device} mode={selectedTheme.mode}>
-      <Button
-        type="Palette"
-        mode={selectedTheme.mode}
-        onClick={() => onUpdateControlOption('Palette')}
-      />
-      <Button
-        type="Video"
-        mode={selectedTheme.mode}
-        onClick={() => console.log('영상을 업로드 해 주세요.')}
-      />
-      <Button
-        type="Save"
-        mode={selectedTheme.mode}
-        onClick={() => onUpdateControlOption('Save')}
-      />
+      <Button type="Palette" mode={selectedTheme.mode} onClick={onTogglePalette} />
+      <Button type="Video" mode={selectedTheme.mode} onClick={onClickVideo} />
+      <Button type="Save" mode={selectedTheme.mode} onClick={onToggleSave} />
     </Wrapper>
   );
 };

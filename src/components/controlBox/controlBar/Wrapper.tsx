@@ -20,7 +20,7 @@ const Wrapper = styled.div<{ device: Device; mode: Mode }>`
           flex-direction: row;
           margin-top: 1rem;
           margin-left: 6.25rem;
-          animation: 1s ${animations.fadeInLeft} 1.4s ease-out;
+          animation: 1s ${animations.fadeInLeft} 1.5s ease-out;
           animation-fill-mode: forwards;
         `};
   margin-left: 6.25rem;
@@ -30,6 +30,8 @@ const Wrapper = styled.div<{ device: Device; mode: Mode }>`
   }
 
   ${media.small} {
+    margin-top: 16px;
+    margin-left: 1rem;
     align-items: flex-end;
   }
 `;

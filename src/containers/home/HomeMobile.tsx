@@ -1,12 +1,12 @@
 // containers
 import ControlBar from 'src/containers/controlBox/ControlBar';
-import ControlItemBar from 'src/containers/controlBox/ControlItemBar';
+import ControlOptionBar from 'src/containers/controlBox/ControlOptionBar';
 
 const HomeMobile = () => {
   return (
     <>
       <ControlBar device="Mobile" />
-      <ControlItemBar device="Mobile" />
+      <ControlOptionBar device="Mobile" />
     </>
   );
 };

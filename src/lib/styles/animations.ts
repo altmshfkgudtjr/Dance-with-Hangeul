@@ -9,36 +9,36 @@ const fadeOut = keyframes`
 	to { opacity: 0; }
 `;
 const fadeInTop = keyframes`
-	from { opacity: 0; transform: translateY(-3rem); }
+	from { opacity: 0; transform: translateY(-2rem); }
 	to { opacity: 1; transform: translateY(0); }
 `;
 const fadeOutTop = keyframes`
 	from { opacity: 1; transform: translateY(0); }
-	to { opacity: 0; transform: translateY(-3rem); }
+	to { opacity: 0; transform: translateY(-2rem); }
 `;
 const fadeInBottom = keyframes`
-	from { opacity: 0; transform: translateY(3rem); }
+	from { opacity: 0; transform: translateY(2rem); }
 	to { opacity: 1; transform: translateY(0); }
 `;
 const fadeOutBottom = keyframes`
 	from { opacity: 1; transform: translateY(0); }
-	to { opacity: 0; transform: translateY(3rem); }
+	to { opacity: 0; transform: translateY(2rem); }
 `;
 const fadeInLeft = keyframes`
-	from { opacity: 0; transform: translateX(-3rem); }
+	from { opacity: 0; transform: translateX(-2rem); }
 	to { opacity: 1; transform: translateX(0); }
 `;
 const fadeOutLeft = keyframes`
 	from { opacity: 1; transform: translateX(0); }
-	to { opacity: 0; transform: translateX(-3rem); }
+	to { opacity: 0; transform: translateX(-2rem); }
 `;
 const fadeInRight = keyframes`
-	from { opacity: 0; transform: translateX(3rem); }
+	from { opacity: 0; transform: translateX(2rem); }
 	to { opacity: 1; transform: translateX(0); }
 `;
 const fadeOutRight = keyframes`
 	from { opacity: 1; transform: translateX(0); }
-	to { opacity: 0; transform: translateX(3rem); }
+	to { opacity: 0; transform: translateX(2rem); }
 `;
 const zoomIn = keyframes`
 	from { opacity: 0; transform: scale(.5, .5); }

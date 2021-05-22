@@ -10,7 +10,9 @@ const Header = ({ device }: Props) => {
 
   return (
     <Wrapper device={device} mode={selectedTheme.mode}>
+      {device === 'Mobile' && <button>Back</button>}
       <button style={{ color: 'inherit', fontSize: '14px' }}>HIDE UI</button>
+      {device === 'Mobile' && <button>Next</button>}
     </Wrapper>
   );
 };
