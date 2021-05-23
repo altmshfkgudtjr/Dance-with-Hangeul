@@ -74,7 +74,7 @@ const palette = {
   blue7: '#001f40',
   blue8: '#001226',
   /* purple */
-  purple0: '#',
+  purple0: '#F8F4FF',
   purple1: '#',
   purple2: '#E1D2FF',
   purple3: '#D1B7FF',

@@ -21,7 +21,8 @@ export const getQuotes = createAsyncThunk(
  */
 const initialState: CommonState = {
 	controlOption: null,
-	quotes: []
+	quotes: [],
+	isFullscreen: false
 };
 
 
@@ -40,13 +41,18 @@ const commonSlice = createSlice({
 		updateQuotes(state, action: PayloadAction<Quote[]>) {
 			state.quotes = action.payload;
 		},
+		/** @dispatch fullscreen 토글 */
+		toggleFullscreen(state) {
+			state.isFullscreen = !state.isFullscreen
+		}
 	}
 });
 
 
 export const { 
 	updateControlOption,
-	updateQuotes
+	updateQuotes,
+	toggleFullscreen
 } = commonSlice.actions;
 
 

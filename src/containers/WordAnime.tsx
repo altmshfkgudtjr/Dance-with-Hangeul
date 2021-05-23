@@ -23,8 +23,9 @@ const WordAnime = () => {
   /** Canvas component init */
   useEffect(() => {
     if (!selectedTemplate.id) return;
-    setCanvasComponent(templateLazyImport(selectedTemplate.id));
-    dispatch(selectTheme(selectedTemplate.themes[0]));
+    // TODO Production 모드에서는 주석 해제할 것
+    // setCanvasComponent(templateLazyImport(selectedTemplate.id));
+    // dispatch(selectTheme(selectedTemplate.themes[0]));
   }, [dispatch, setCanvasComponent, selectedTemplate]);
 
   return (

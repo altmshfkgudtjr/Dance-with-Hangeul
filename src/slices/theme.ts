@@ -35,7 +35,7 @@ export const getDefaultThemes = createAsyncThunk(
 /** 
  * 특정 테마 선택 
  * @param themeId 테마 식별값
- */
+*/
 export const selectTheme = createAsyncThunk(
 	'theme/setTheme',
 	async (themeId: string, { getState, dispatch }) => {
@@ -56,7 +56,7 @@ const initialState: ThemeState = {
 		id: '',
 		bgColor: '',
 		fgColor: [],
-		mode: 'Dark'
+		mode: 'Light'
 	},
 	themes: {},
 	defaultThemes: []

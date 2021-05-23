@@ -62,7 +62,6 @@ const Container = styled.button<{ time: number; mode: Mode }>`
     &:hover {
       margin-left: 8px;
       background-color: ${palette.purple5};
-      opacity: 1;
       color: white;
 
       & > svg {
@@ -74,6 +73,7 @@ const Container = styled.button<{ time: number; mode: Mode }>`
 
 const Message = styled.span`
   color: inherit;
+  font-size: 14px;
 `;
 
 interface Props {
