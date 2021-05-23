@@ -19,7 +19,7 @@ const Wrapper = styled.div<{ isOpen: boolean }>`
   box-sizing: border-box;
   transition: 0.6s ${styles.transition};
   transform: ${({ isOpen }) => (isOpen ? 'translateX(-400px)' : `translateX(0)`)};
-  background-color: rgba(248, 244, 255, 0.3);
+  background-color: rgba(248, 244, 255, 0.4);
   backdrop-filter: blur(6px);
   z-index: ${zIndex.menu};
   animation: 2s ${animations.fadeInRight} ease-in-out;

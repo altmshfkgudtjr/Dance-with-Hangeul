@@ -22,13 +22,13 @@ const Container = styled.button<{ time: number; mode: Mode }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
+  width: 100px;
   height: 32px;
   border-radius: 4px;
   margin-bottom: 12px;
   box-sizing: border-box;
   padding: 0 0.5rem;
-  background-color: ${palette.purple3};
+  /* background-color: ${palette.purple3}; */
   transition: 0.2s ${styles.transition};
   margin-left: 0;
   color: ${({ mode }) => (mode === 'Light' ? 'black' : 'white')};
@@ -61,7 +61,7 @@ const Container = styled.button<{ time: number; mode: Mode }>`
   ${mediaQueryMin(mediaValue.small)} {
     &:hover {
       margin-left: 8px;
-      background-color: ${palette.purple5};
+      /* background-color: ${palette.purple5}; */
       color: white;
 
       & > svg {
@@ -69,11 +69,18 @@ const Container = styled.button<{ time: number; mode: Mode }>`
       }
     }
   }
+
+  ${media.small} {
+    &:active {
+      margin-left: 8px;
+    }
+  }
 `;
 
 const Message = styled.span`
   color: inherit;
   font-size: 14px;
+  ${styles.noselect};
 `;
 
 interface Props {

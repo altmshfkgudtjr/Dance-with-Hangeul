@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react';
 // containers
 import HomeDesktop from 'src/containers/home/HomeDesktop';
 import HomeMobile from 'src/containers/home/HomeMobile';
-import Header from 'src/containers/Header';
 import WordAnime from 'src/containers/WordAnime';
 // components
 import HomeLayout from 'src/components/layout/Home';
@@ -18,6 +17,7 @@ import { Device } from 'src/types/common';
 const Home = () => {
   const dispatch = useDispatch();
   const [device, setDevice] = useState<Device | null>(null);
+  const [showCanvas, setCanvas] = useState<boolean>(false);
 
   /** 디바이스 검사 함수 */
   const detectDevice = useCallback(() => {
@@ -27,6 +27,9 @@ const Home = () => {
       setDevice('Desktop');
     }
   }, [setDevice]);
+
+  /** Canvas 표시 함수 */
+  const setShowCanvas = value => setCanvas(value);
 
   /** 랜덤 템플릿 설정 */
   useEffect(() => {
@@ -40,15 +43,18 @@ const Home = () => {
     return () => window.removeEventListener('resize', detectDevice);
   }, [detectDevice]);
 
+  /** 디바이스에 따론 초기 Canvas 렌더링 작업 */
+  useEffect(() => {
+    if (device === 'Desktop') setCanvas(true);
+  }, [device]);
+
   return (
     <>
-      <WordAnime />
+      <WordAnime isShow={showCanvas} />
 
       <HomeLayout>
-        {device && <Header device={device} />}
-
         {device === 'Desktop' && <HomeDesktop />}
-        {device === 'Mobile' && <HomeMobile />}
+        {device === 'Mobile' && <HomeMobile setShowCanvas={setShowCanvas} />}
       </HomeLayout>
     </>
   );

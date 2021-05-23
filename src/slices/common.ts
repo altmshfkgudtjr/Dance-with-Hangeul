@@ -22,7 +22,8 @@ export const getQuotes = createAsyncThunk(
 const initialState: CommonState = {
 	controlOption: null,
 	quotes: [],
-	isFullscreen: false
+	isFullscreen: false,
+	selectedConsonant: ''
 };
 
 
@@ -44,6 +45,10 @@ const commonSlice = createSlice({
 		/** @dispatch fullscreen 토글 */
 		toggleFullscreen(state) {
 			state.isFullscreen = !state.isFullscreen
+		},
+		/** @dispatch Selected Consonant 갱신 */
+		updateSelectedConsonant(state, action: PayloadAction<string>) {
+			state.selectedConsonant = action.payload;
 		}
 	}
 });
@@ -52,7 +57,8 @@ const commonSlice = createSlice({
 export const { 
 	updateControlOption,
 	updateQuotes,
-	toggleFullscreen
+	toggleFullscreen,
+	updateSelectedConsonant
 } = commonSlice.actions;
 
 

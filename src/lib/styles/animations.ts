@@ -90,6 +90,23 @@ const spin = keyframes`
 	from { transform: rotate(0deg); }
 	to { transform: rotate()(360deg); }
 `;
+const fadeOutRightMenu = keyframes`
+	from { opacity: 1; transform: translateX(0) }
+	to { opacity: 0; transform: translateX(4rem) }
+`;
+const fadeOutLeftMenu = keyframes`
+	from { opacity: 1; transform: translateX(0) }
+	to { opacity: 0; transform: translateX(-4rem) }
+`;
+const fadeInRightMenu = keyframes`
+	from { opacity: 0; transform: translateX(4rem) }
+	to { opacity: 1; transform: translateX(0) }
+`;
+const fadeInLeftMenu = keyframes`
+	from { opacity: 0; transform: translateX(-4rem) }
+	to { opacity: 1; transform: translateX(0) }
+`;
+
 const animations = {
   fadeIn,
   fadeOut,
@@ -113,6 +130,10 @@ const animations = {
   zoomOut,
   tooltip,
   spin,
+  fadeOutRightMenu,
+  fadeOutLeftMenu,
+  fadeInRightMenu,
+  fadeInLeftMenu,
 };
 
 export default animations;

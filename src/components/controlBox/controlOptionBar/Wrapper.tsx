@@ -24,7 +24,13 @@ const Container = styled.div<{ time: number; isChanged: boolean }>`
 
   ${media.small} {
     position: absolute;
-    top: 64px;
+    top: 1rem;
+    margin-top: 0;
+  }
+
+  ${media.mobileLandscape} {
+    position: absolute;
+    top: 1rem;
     margin-top: 0;
   }
 `;

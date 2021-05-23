@@ -24,6 +24,9 @@ const media = {
   medium: mediaQueryMax(mediaValue.medium),
   small: mediaQueryMax(mediaValue.small),
   xsmall: mediaQueryMax(mediaValue.xsmall),
+  mobileLandscape: `@media only screen and (min-device-width: 480px) 
+                    and (max-device-width: 812px) 
+                    and (orientation: landscape)`,
   custom: mediaQueryMax,
 };
 

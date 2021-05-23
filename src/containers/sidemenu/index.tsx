@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // containers
 import Consonant from 'src/containers/sidemenu/Consonant';
+import Roulette from 'src/containers/sidemenu/Roulette';
 // components
 import Wrapper from 'src/components/sidemenu/Wrapper';
 import MenuBtn from 'src/components/sidemenu/MenuBtn';
@@ -18,7 +19,7 @@ const SideMenu = () => {
     <Wrapper isOpen={isOpen}>
       <MenuBtn isOpen={isOpen} mode={selectedTheme.mode} onClick={onToggleMenu} />
       <Consonant />
-      <div></div>
+      <Roulette />
     </Wrapper>
   );
 };

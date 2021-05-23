@@ -80,7 +80,7 @@ const palette = {
   purple3: '#D1B7FF',
   purple4: '#C9AAFF',
   purple5: '#BC98FA',
-  purple6: '#',
+  purple6: '#A476F5',
   purple7: '#',
   purple8: '#',
 };

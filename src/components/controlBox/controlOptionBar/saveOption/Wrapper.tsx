@@ -23,6 +23,10 @@ const ItemWrapper = styled.div<{ time: number; device: Device }>`
   ${media.small} {
     margin-left: 1rem;
   }
+
+  ${media.mobileLandscape} {
+    margin-left: 1rem;
+  }
 `;
 
 export default ItemWrapper;

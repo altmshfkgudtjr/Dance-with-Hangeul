@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { LeftIcon, RightIcon } from 'src/lib/svg';
 // lib
 import * as styles from 'src/lib/styles/styles';
+import media, { mediaQueryMin, mediaValue } from 'src/lib/styles/media';
 // types
 import { Mode } from 'src/types/common';
 
@@ -34,18 +35,38 @@ const Container = styled.button<{ mode: Mode }>`
     }
   }
 
-  &:hover {
-    & > span {
-      transform: translateY(-4px);
-    }
-
-    & > svg {
-      &:nth-child(1) {
-        padding-right: 12px;
+  ${mediaQueryMin(mediaValue.small)} {
+    &:hover {
+      & > span {
+        transform: translateY(-4px);
       }
 
-      &:nth-child(3) {
-        padding-left: 12px;
+      & > svg {
+        &:nth-child(1) {
+          padding-right: 12px;
+        }
+
+        &:nth-child(3) {
+          padding-left: 12px;
+        }
+      }
+    }
+  }
+
+  ${media.small} {
+    &:active {
+      & > span {
+        transform: translateY(-4px);
+      }
+
+      & > svg {
+        &:nth-child(1) {
+          padding-right: 12px;
+        }
+
+        &:nth-child(3) {
+          padding-left: 12px;
+        }
       }
     }
   }
@@ -55,6 +76,7 @@ const Message = styled.span`
   color: inherit;
   font-size: 14px;
   transition: 0.2s ${styles.transition};
+  ${styles.noselect};
 `;
 
 interface Props {

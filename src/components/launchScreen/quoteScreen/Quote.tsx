@@ -9,10 +9,11 @@ const Quote = styled.blockquote`
   margin-block-end: auto;
   margin-inline-start: auto;
   margin-inline-end: auto;
-  margin-top: 100px;
+  margin-top: 80px;
   text-align: center;
   word-break: keep-all;
   transition: 0.3s ${styles.transition};
+  line-height: 24px;
 
   ${media.medium} {
     margin-top: 60px;

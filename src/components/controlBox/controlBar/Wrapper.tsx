@@ -13,7 +13,7 @@ const Wrapper = styled.div<{ device: Device; mode: Mode }>`
       ? css`
           flex-direction: column;
           margin-right: 1rem;
-          animation: 1.2s ${animations.fadeInLeft};
+          animation: 1.2s ${animations.fadeInRight};
         `
       : css`
           opacity: 0;
@@ -30,6 +30,12 @@ const Wrapper = styled.div<{ device: Device; mode: Mode }>`
   }
 
   ${media.small} {
+    margin-top: 16px;
+    margin-left: 1rem;
+    align-items: flex-end;
+  }
+
+  ${media.mobileLandscape} {
     margin-top: 16px;
     margin-left: 1rem;
     align-items: flex-end;

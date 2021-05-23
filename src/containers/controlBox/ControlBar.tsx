@@ -39,9 +39,24 @@ const ControlBar = ({ device }: Props) => {
 
   return (
     <Wrapper device={device} mode={selectedTheme.mode}>
-      <Button type="Palette" mode={selectedTheme.mode} onClick={onTogglePalette} />
-      <Button type="Video" mode={selectedTheme.mode} onClick={onClickVideo} />
-      <Button type="Save" mode={selectedTheme.mode} onClick={onToggleSave} />
+      <Button
+        type="Palette"
+        isSelected={controlOption === 'Palette'}
+        mode={selectedTheme.mode}
+        onClick={onTogglePalette}
+      />
+      <Button
+        type="Video"
+        isSelected={false}
+        mode={selectedTheme.mode}
+        onClick={onClickVideo}
+      />
+      <Button
+        type="Save"
+        isSelected={controlOption === 'Save'}
+        mode={selectedTheme.mode}
+        onClick={onToggleSave}
+      />
     </Wrapper>
   );
 };

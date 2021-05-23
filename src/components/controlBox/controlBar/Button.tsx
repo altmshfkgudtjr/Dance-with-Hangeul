@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 // icons
 import { PaletteIcon, VideoIcon, SaveIcon } from 'src/lib/svg';
 // lib
@@ -14,12 +14,12 @@ const IconMap = {
   Save: SaveIcon,
 };
 
-const Button = ({ type, mode, onClick }: Props) => {
+const Button = ({ type, isSelected, mode, onClick }: Props) => {
   const Icon = IconMap[type];
 
   return (
     <Container mode={mode} onClick={onClick}>
-      <Background />
+      <Background mode={mode} isSelected={isSelected} />
       <Icon />
     </Container>
   );
@@ -47,7 +47,7 @@ const Container = styled.button<{ mode: Mode }>`
       & > div {
         transform: scale(5, 5);
         background-color: ${({ mode }) =>
-          mode === 'Light' ? palette.purple2 : palette.purple5};
+          mode === 'Light' ? palette.purple2 : palette.purple6};
       }
 
       & > svg {
@@ -59,10 +59,39 @@ const Container = styled.button<{ mode: Mode }>`
   ${media.small} {
     margin-right: 0;
     margin-bottom: 1rem;
+
+    &:active {
+      & > div {
+        transform: scale(5, 5);
+        background-color: ${({ mode }) =>
+          mode === 'Light' ? palette.purple2 : palette.purple6};
+      }
+
+      & > svg {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  ${media.mobileLandscape} {
+    margin-right: 0;
+    margin-bottom: 1rem;
+
+    &:active {
+      & > div {
+        transform: scale(5, 5);
+        background-color: ${({ mode }) =>
+          mode === 'Light' ? palette.purple2 : palette.purple6};
+      }
+
+      & > svg {
+        opacity: 0.9;
+      }
+    }
   }
 `;
 
-const Background = styled.div`
+const Background = styled.div<{ mode: Mode; isSelected: boolean }>`
   position: absolute;
   left: 0;
   right: 0;
@@ -75,10 +104,19 @@ const Background = styled.div`
   transition: 0.2s ${styles.transition};
   background-color: rgba(0, 0, 0, 0);
   border-radius: 40px;
+
+  ${({ mode, isSelected }) =>
+    isSelected
+      ? css`
+          transform: scale(5, 5);
+          background-color: ${mode === 'Light' ? palette.purple2 : palette.purple6};
+        `
+      : css``};
 `;
 
 interface Props {
   type: 'Palette' | 'Video' | 'Save';
+  isSelected: boolean;
   mode: Mode;
   onClick: () => void;
 }

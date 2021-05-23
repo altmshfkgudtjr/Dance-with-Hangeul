@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+// lib
+import animations from 'src/lib/styles/animations';
 
-const WordAnimeLayout = styled.div`
+const WordAnimeLayout = styled.div<{ time: number; isAnime: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -10,6 +12,13 @@ const WordAnimeLayout = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
+  ${({ time, isAnime }) =>
+    isAnime
+      ? css`
+          animation: ${time}ms ${animations.fadeOut} ease-in-out;
+        `
+      : ``}
 `;
 
 export default WordAnimeLayout;

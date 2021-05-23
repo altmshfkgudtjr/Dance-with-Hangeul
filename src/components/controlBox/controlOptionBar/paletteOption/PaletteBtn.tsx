@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 // lib
 import animations from 'src/lib/styles/animations';
 import palette from 'src/lib/styles/palette';
-import media from 'src/lib/styles/media';
+import media, { mediaQueryMin, mediaValue } from 'src/lib/styles/media';
 import * as styles from 'src/lib/styles/styles';
 
 const PaletteBtn = ({ time, isSelected, colors }: Props) => {
@@ -27,7 +27,8 @@ const Container = styled.button<{ time: number; isSelected: boolean }>`
   border-radius: 40px;
   margin-right: 1rem;
   opacity: 0;
-  background-color: ${({ isSelected }) => (isSelected ? palette.gray5 : `rgba(0,0,0,0)`)};
+  box-shadow: 0 0 0 2px
+    ${({ isSelected }) => (isSelected ? palette.purple4 : `rgba(0,0,0,0)`)};
   transition: background-color, margin 0.2s ${styles.transition};
   ${({ time }) =>
     css`
@@ -51,12 +52,26 @@ const Container = styled.button<{ time: number; isSelected: boolean }>`
     animation-delay: 500ms;
   }
 
-  ${media.small} {
-    margin-bottom: 1rem;
+  ${mediaQueryMin(mediaValue.small)} {
+    &:hover {
+      margin-top: -2px;
+    }
   }
 
-  &:hover {
-    margin-top: -2px;
+  ${media.small} {
+    margin-bottom: 1rem;
+
+    &:active {
+      margin-left: 8px;
+    }
+  }
+
+  ${media.mobileLandscape} {
+    margin-bottom: 1rem;
+
+    &:active {
+      margin-left: 8px;
+    }
   }
 `;
 

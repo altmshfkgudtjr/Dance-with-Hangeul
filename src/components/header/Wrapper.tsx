@@ -26,6 +26,11 @@ const Wrapper = styled.div<{ device: Device; isFullscreen: boolean }>`
     box-sizing: border-box;
     padding: 0 1rem;
   }
+
+  ${media.mobileLandscape} {
+    box-sizing: border-box;
+    padding: 0 1rem;
+  }
 `;
 
 export default Wrapper;
