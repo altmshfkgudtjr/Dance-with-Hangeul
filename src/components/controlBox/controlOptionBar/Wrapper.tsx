@@ -3,23 +3,42 @@ import styled, { css } from 'styled-components';
 import animations from 'src/lib/styles/animations';
 import media from 'src/lib/styles/media';
 
-const Wrapper = ({ time, isChanged, children }: Props) => {
+const Wrapper = ({ time, isChanged, isFullscreen, children }: Props) => {
   return (
-    <Container time={time} isChanged={isChanged}>
+    <Container time={time} isFullscreen={isFullscreen} isChanged={isChanged}>
       {children}
     </Container>
   );
 };
 
-const Container = styled.div<{ time: number; isChanged: boolean }>`
-  ${({ time, isChanged }) =>
-    isChanged
-      ? css`
-          animation: ${time}ms ${animations.fadeOutTop} ease;
-        `
-      : css`
-          animation: ${time}ms ${animations.fadeInTop} ease;
-        `}
+const Container = styled.div<{ time: number; isFullscreen: boolean; isChanged: boolean }>`
+  ${({ time, isFullscreen, isChanged }) => {
+    if (isChanged && isFullscreen) {
+      return css`
+        animation: 400ms ${animations.fadeOutLeft} ease-in-out;
+      `;
+    }
+
+    if (isChanged && !isFullscreen) {
+      return css`
+        animation: ${time}ms ${animations.fadeOutTop} ease;
+      `;
+    }
+
+    if (!isChanged && isFullscreen) {
+      return css`
+        animation: 400ms ${animations.fadeOutLeft} ease-in-out;
+      `;
+    }
+
+    if (!isChanged && !isFullscreen) {
+      return css`
+        animation: 400ms ${animations.fadeInLeft} ease-in-out;
+      `;
+    }
+  }};
+  animation-fill-mode: forwards;
+
   margin-top: 1rem;
 
   ${media.small} {
@@ -38,6 +57,7 @@ const Container = styled.div<{ time: number; isChanged: boolean }>`
 interface Props {
   time: number;
   isChanged: boolean;
+  isFullscreen: boolean;
   children?: React.ReactNode;
 }
 

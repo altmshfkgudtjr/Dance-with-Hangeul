@@ -13,6 +13,7 @@ const ControlBar = ({ device }: Props) => {
   const dispatch = useDispatch();
   const selectedTheme = useSelector(state => state.theme.selectedTheme);
   const controlOption = useSelector(state => state.common.controlOption);
+  const isFullscreen = useSelector(state => state.common.isFullscreen);
 
   /** Control 옵션 변경 */
   const onUpdateControlOption = (type: ControlOption) => {
@@ -38,23 +39,26 @@ const ControlBar = ({ device }: Props) => {
   };
 
   return (
-    <Wrapper device={device} mode={selectedTheme.mode}>
+    <Wrapper device={device} mode={selectedTheme.mode} isFullscreen={isFullscreen}>
       <Button
         type="Palette"
         isSelected={controlOption === 'Palette'}
         mode={selectedTheme.mode}
+        device={device}
         onClick={onTogglePalette}
       />
       <Button
         type="Video"
         isSelected={false}
         mode={selectedTheme.mode}
+        device={device}
         onClick={onClickVideo}
       />
       <Button
         type="Save"
         isSelected={controlOption === 'Save'}
         mode={selectedTheme.mode}
+        device={device}
         onClick={onToggleSave}
       />
     </Wrapper>

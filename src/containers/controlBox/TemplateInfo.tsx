@@ -8,9 +8,10 @@ import { useSelector } from 'src/lib/hooks/useStore';
 const TemplateInfo = () => {
   const selectedTemplate = useSelector(state => state.template.selectedTemplate);
   const selectedTheme = useSelector(state => state.theme.selectedTheme);
+  const isFullscreen = useSelector(state => state.common.isFullscreen);
 
   return (
-    <Wrapper mode={selectedTheme.mode}>
+    <Wrapper mode={selectedTheme.mode} isFullscreen={isFullscreen}>
       <Title>
         {selectedTemplate.name} [{selectedTemplate.pronunciation}]
       </Title>
