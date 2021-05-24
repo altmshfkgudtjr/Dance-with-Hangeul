@@ -18,14 +18,14 @@ const Button = ({ type, isSelected, mode, onClick }: Props) => {
   const Icon = IconMap[type];
 
   return (
-    <Container mode={mode} onClick={onClick}>
+    <Container mode={mode} isSelected={isSelected} onClick={onClick}>
       <Background mode={mode} isSelected={isSelected} />
       <Icon />
     </Container>
   );
 };
 
-const Container = styled.button<{ mode: Mode }>`
+const Container = styled.button<{ mode: Mode; isSelected: boolean }>`
   position: relative;
   width: 40px;
   height: 40px;
@@ -37,7 +37,7 @@ const Container = styled.button<{ mode: Mode }>`
   & > svg {
     width: 28px;
     height: 28px;
-    opacity: 0.7;
+    opacity: ${({ isSelected }) => (isSelected ? 1 : 0.7)};
     z-index: 1;
     fill: ${({ mode }) => (mode === 'Light' ? 'black' : 'white')};
   }

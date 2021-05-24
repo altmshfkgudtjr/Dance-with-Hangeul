@@ -62,11 +62,11 @@ const Container = styled.button<{ time: number; mode: Mode }>`
     &:hover {
       margin-left: 8px;
       /* background-color: ${palette.purple5}; */
-      color: white;
+      /* color: white; */
 
-      & > svg {
+      /* & > svg {
         fill: white;
-      }
+      } */
     }
   }
 

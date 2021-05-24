@@ -5,14 +5,14 @@ import palette from 'src/lib/styles/palette';
 import media, { mediaQueryMin, mediaValue } from 'src/lib/styles/media';
 import * as styles from 'src/lib/styles/styles';
 
-const PaletteBtn = ({ time, isSelected, colors }: Props) => {
+const PaletteBtn = ({ time, isSelected, colors, onClick }: Props) => {
   const colorLength = colors.length;
   const gradientColor = colors.reduce((acc, cur, idx) => {
     return acc + `, ${cur} 0 ${(100 / colorLength) * (idx + 1)}%`;
   }, '');
 
   return (
-    <Container time={time} isSelected={isSelected}>
+    <Container time={time} isSelected={isSelected} onClick={onClick}>
       <Color gradientColor={gradientColor.slice(2)} />
     </Container>
   );
@@ -27,13 +27,14 @@ const Container = styled.button<{ time: number; isSelected: boolean }>`
   border-radius: 40px;
   margin-right: 1rem;
   opacity: 0;
-  box-shadow: 0 0 0 2px
+  box-shadow: 0 0 0 3px
     ${({ isSelected }) => (isSelected ? palette.purple4 : `rgba(0,0,0,0)`)};
   transition: background-color, margin 0.2s ${styles.transition};
   ${({ time }) =>
     css`
       animation: ${time}ms ${animations.fadeInLeft} ease-in-out;
     `};
+  background-color: rgba(150, 150, 150, 0.3);
   animation-fill-mode: forwards;
 
   &:nth-child(1) {
@@ -86,6 +87,7 @@ interface Props {
   time: number;
   isSelected: boolean;
   colors: string[];
+  onClick: () => void;
 }
 
 export default PaletteBtn;
