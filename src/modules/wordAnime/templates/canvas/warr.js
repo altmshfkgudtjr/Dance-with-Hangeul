@@ -6,7 +6,7 @@ export default class Canvas_Warr extends HangulCanvas {
   constructor(props) {
     super(props);
     this.HangulClass = Warr;
-    this.maxObjectCount = 49;
+    this.maxObjectCount = 100;
     this.maxCooltime = 120;
   }
   init() {
@@ -29,24 +29,19 @@ export default class Canvas_Warr extends HangulCanvas {
   }
 
   getParams() {
-    const groupId = new Date();
-    const lineCount = 7;
-    const hangulCount = 7;
+    const lineCount = 10;
+    const hangulCount = 10;
     const paramsArray = [];
     const fontSize = 100;
     const x = window.innerWidth / 2 - ((fontSize - 10) * (hangulCount - 1)) / 2;
     const superParams = super.getParams();
     const params = {
       ...superParams,
-      groupId: groupId,
       fontSize: fontSize,
-      opacity: 1,
       x: x,
       y: 0,
       life: 800,
-      x_acc: 0,
-      y_acc: 20,
-      crush_acc: 10,
+
       isGravity: false,
     };
     let i, j, finLife;
@@ -74,20 +69,11 @@ export default class Canvas_Warr extends HangulCanvas {
   }
   detectObjects() {
     let i, j;
-    let hap;
     const length = this.objects.length;
-    for (i = length - 1; i > 0; i--) {
-      if (!this.objects[i].isStop) {
-        hap = 0;
-        for (j = i - 1; j >= 0; j--) {
-          hap += this.objects[i].detect(this.objects[j]);
-
-          //console.log(this.objects[j].y,this.objects[j].y_acc, this.objects[j].isStop, this.objects[j].isGravity)
-          if (hap > this.objects[i].fontSize * 0.4) {
-            this.objects[i].stop();
-            //console.log(this.objects[i].isStop);
-          }
-        }
+    for (i = 0; i < length; i++) {
+      for (j = 0; j < length; j++) {
+        if (i == j) continue;
+        this.objects[i].detect(this.objects[j]);
       }
     }
   }
