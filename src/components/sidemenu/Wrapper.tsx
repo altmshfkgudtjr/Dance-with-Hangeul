@@ -49,7 +49,7 @@ const Content = styled.div<{ isOpen: boolean }>`
   background-color: rgba(248, 244, 255, 0.4);
   backdrop-filter: blur(6px);
   z-index: ${zIndex.menu};
-  animation: 2s ${animations.fadeInRight} ease-in-out;
+  animation: 1s ${animations.fadeInRight} ease-in-out;
 `;
 
 export default Wrapper;

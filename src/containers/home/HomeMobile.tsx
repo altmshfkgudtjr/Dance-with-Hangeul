@@ -54,13 +54,7 @@ const HomeMobile = ({ setShowCanvas }: Props) => {
 
       <HomeContent time={TransitionTime} step={step} isDirection={isDirection}>
         {viewStep === 0 && <Consonant device="Mobile" onClickNextStep={onClickNext} />}
-        {viewStep === 1 && (
-          <Roulette
-            device="Mobile"
-            onClickPrevStep={onClickPrev}
-            onClickNextStep={onClickNext}
-          />
-        )}
+        {viewStep === 1 && <Roulette device="Mobile" onClickNextStep={onClickNext} />}
         {viewStep === 2 && (
           <>
             <ControlBar device="Mobile" />

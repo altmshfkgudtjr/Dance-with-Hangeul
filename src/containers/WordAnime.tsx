@@ -27,8 +27,8 @@ const WordAnime = ({ isShow }: Props) => {
   /** Canvas component init */
   useEffect(() => {
     if (!selectedTemplate.id) return;
-    setCanvasComponent(templateLazyImport(selectedTemplate.id));
-    dispatch(selectTheme(selectedTemplate.themes[0]));
+    // setCanvasComponent(templateLazyImport(selectedTemplate.id));
+    // dispatch(selectTheme(selectedTemplate.themes[0]));
   }, [dispatch, setCanvasComponent, selectedTemplate]);
 
   useEffect(() => {

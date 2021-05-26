@@ -58,6 +58,7 @@ const Message = styled.span`
   color: inherit;
   font-size: 14px;
   transition: 0.2s ${styles.transition};
+  ${styles.noselect};
 `;
 
 interface Props {
