@@ -13,7 +13,8 @@ const Wrapper = styled.div`
   max-height: 1000px;
   flex: 1;
   padding: 0.5rem;
-  overflow-y: auto;
+
+  perspective: 1200px;
 
   &::-webkit-scrollbar {
     width: 0;

@@ -1,11 +1,15 @@
+import { useRef } from 'react';
 // components
+import ItemWrapper from 'src/components/sidemenu/roulette/ItemWrapper';
 import Wrapper from 'src/components/sidemenu/roulette/Wrapper';
+import ItemStandard from 'src/components/sidemenu/roulette/ItemStandard';
 import ItemBtn from 'src/components/sidemenu/roulette/ItemBtn';
 import SelectedAria from 'src/components/sidemenu/roulette/SelectedAria';
 // slices
 import { updateSelectedTemplate } from 'src/slices/template';
 // hooks
 import { useSelector, useDispatch } from 'src/lib/hooks/useStore';
+import useRoulette from 'src/lib/hooks/useRoulette';
 // types
 import { Template } from 'src/types/template';
 import { Device } from 'src/types/common';
@@ -14,6 +18,9 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
   const dispatch = useDispatch();
   const templates = useSelector(state => state.template.templates);
   const selectedConsonant = useSelector(state => state.common.selectedConsonant);
+
+  const rouletteScrollRef = useRef<any>(null);
+  const result = useRoulette(rouletteScrollRef);
 
   /** 템플릿 선택 */
   const onClickTempalte = (template: Template) => {
@@ -26,9 +33,10 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
       ? null
       : // TODO Production 에서 주석해제
         // : templates[selectedConsonant].map(template => (
-        mockupData.map(template => (
+        mockupData.map((template, idx) => (
           <ItemBtn
             key={template.id}
+            idx={idx}
             template={template}
             onClick={() => onClickTempalte(template)}
           />
@@ -37,7 +45,9 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
   return (
     <Wrapper>
       <SelectedAria />
-      {TemplateList}
+      <ItemWrapper ref={rouletteScrollRef}>
+        <ItemStandard>{TemplateList}</ItemStandard>
+      </ItemWrapper>
     </Wrapper>
   );
 };
