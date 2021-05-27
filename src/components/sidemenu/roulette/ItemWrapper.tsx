@@ -3,13 +3,20 @@ import styled from 'styled-components';
 import * as styles from 'src/lib/styles/styles';
 
 const ItemWrapper = styled.div`
-  height: 50%;
-  /* height: 64px; */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 120%;
+  height: 128%;
+  margin-left: -10%;
+  margin-top: 10px;
+  overflow: visible;
   transform-style: preserve-3d;
-  overflow: auto;
-
-  transform: translate3d(0px, calc(50% - 32px - 6px), 0px);
+  transform: translate3d(0px, calc(-50% - 8px), -300px);
   transition: 1000ms ${styles.transition};
+
+  touch-action: none;
 `;
 
 export default ItemWrapper;

@@ -13,19 +13,30 @@ const ItemBtn = ({ idx, template, onClick }: Props) => {
   );
 };
 
+export const DumyBtn = ({ idx }: { idx: number }) => {
+  return <Container idx={idx} />;
+};
+
 const Container = styled.button<{ idx: number }>`
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 64px;
+  height: 48px;
   margin: 6px 0;
-  transform: ${({ idx }) => `rotateX(${-80 - idx * 20}deg) translateZ(85px);`}
-    ${media.small} {
+  transform: ${({ idx }) => `rotateX(${0 - idx * 20}deg) translateZ(300px)`};
+  backface-visibility: hidden;
+  opacity: 0.4;
+
+  ${media.small} {
     width: 94vw;
     height: 48px;
   }
-  backface-visibility: hidden;
 `;
 
 const Message = styled.span`

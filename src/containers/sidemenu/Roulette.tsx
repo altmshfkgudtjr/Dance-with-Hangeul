@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import ItemWrapper from 'src/components/sidemenu/roulette/ItemWrapper';
 import Wrapper from 'src/components/sidemenu/roulette/Wrapper';
 import ItemStandard from 'src/components/sidemenu/roulette/ItemStandard';
-import ItemBtn from 'src/components/sidemenu/roulette/ItemBtn';
+import ItemBtn, { DumyBtn } from 'src/components/sidemenu/roulette/ItemBtn';
 import SelectedAria from 'src/components/sidemenu/roulette/SelectedAria';
 // slices
 import { updateSelectedTemplate } from 'src/slices/template';
@@ -20,7 +20,7 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
   const selectedConsonant = useSelector(state => state.common.selectedConsonant);
 
   const rouletteScrollRef = useRef<any>(null);
-  const result = useRoulette(rouletteScrollRef);
+  const result = useRoulette(rouletteScrollRef.current);
 
   /** 템플릿 선택 */
   const onClickTempalte = (template: Template) => {
@@ -36,7 +36,7 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
         mockupData.map((template, idx) => (
           <ItemBtn
             key={template.id}
-            idx={idx}
+            idx={idx + mockupData.length}
             template={template}
             onClick={() => onClickTempalte(template)}
           />

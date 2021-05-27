@@ -3,23 +3,19 @@ import styled from 'styled-components';
 import media from 'src/lib/styles/media';
 
 const Wrapper = styled.div`
+  flex: 1;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 90vw;
   height: 100%;
-  max-height: 1000px;
-  flex: 1;
+  margin: auto;
   padding: 0.5rem;
+  overflow: hidden;
 
   perspective: 1200px;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
-  }
 
   ${media.small} {
     max-height: 600px;

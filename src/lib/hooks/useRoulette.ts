@@ -1,30 +1,33 @@
 import { useEffect } from 'react';
 
 /**
- * 룰렛 hook
+ * Roulette hook
  * @param props
- * @param props.ref 룰렛 스크롤 타겟 Ref
+ * @param props.element Roulette Wrapper DOM Element
  */
-const useRoulette = (ref: any) => {
-  /** 스크롤 이벤트 부착 작업 */
+const useRoulette = (element: HTMLElement) => {
   useEffect(() => {
-    if (!ref.current) return;
-    ref.current.addEventListener('scroll', onScrollRoulette);
+    if (!element) return;
+    element.addEventListener('wheel', onScrollRoulette, true);
     return () => {
-      if (!ref.current) return;
-      ref.current.removeEventListener('scroll', onScrollRoulette);
+      if (!element) return;
+      element.removeEventListener('wheel', onScrollRoulette, true);
     };
-  }, [ref]);
+  }, [element]);
 
   return true;
 };
 
 const onScrollRoulette = (e: any) => {
-  const targetDom = e.target?.querySelector('div');
-  if (!targetDom) return;
+  const value = Number(e.target.dataset.pos) || 0;
 
-  const scrollTop = e.target.scrollTop;
-  targetDom.style.transform = `rotateX(${0 + scrollTop / 5}deg)`;
+  const cylinderDom = e.target?.querySelector('div');
+  if (!cylinderDom) return;
+
+  const degree = value + (e.deltaY < 0 ? -1 : 1) * 20;
+
+  e.target.dataset.pos = degree;
+  cylinderDom.style.transform = `rotateX(${-60 + degree}deg)`;
 };
 
 export default useRoulette;
