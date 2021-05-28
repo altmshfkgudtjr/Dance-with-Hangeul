@@ -7,10 +7,9 @@ const ItemWrapper = styled.div`
   top: 50%;
   left: 0;
   right: 0;
-  width: 120%;
+  width: 100%;
   height: 128%;
-  margin-left: -10%;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
   overflow: visible;
   transform-style: preserve-3d;
   transform: translate3d(0px, calc(-50% - 8px), -300px);

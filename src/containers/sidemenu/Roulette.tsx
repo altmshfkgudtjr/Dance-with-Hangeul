@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import ItemWrapper from 'src/components/sidemenu/roulette/ItemWrapper';
 import Wrapper from 'src/components/sidemenu/roulette/Wrapper';
 import ItemStandard from 'src/components/sidemenu/roulette/ItemStandard';
-import ItemBtn, { DumyBtn } from 'src/components/sidemenu/roulette/ItemBtn';
+import ItemBtn from 'src/components/sidemenu/roulette/ItemBtn';
 import SelectedAria from 'src/components/sidemenu/roulette/SelectedAria';
 // slices
 import { updateSelectedTemplate } from 'src/slices/template';
@@ -19,18 +19,15 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
   const templates = useSelector(state => state.template.templates);
   const selectedConsonant = useSelector(state => state.common.selectedConsonant);
 
+  // TODO 모바일에서 ref가 적용되지 않는 이슈 수정하기
   const rouletteScrollRef = useRef<any>(null);
-  const result = useRoulette(rouletteScrollRef.current);
+  const { onClickRouletteButton } = useRoulette(rouletteScrollRef.current);
 
   /** 템플릿 선택 */
-  const onClickTempalte = (template: Template) => {
+  const onClickTemplate = (template: Template) => {
     dispatch(updateSelectedTemplate(template));
     if (device === 'Mobile' && onClickNextStep) onClickNextStep();
   };
-
-  const HiddenTemplateList = Array(mockupData.length * 3)
-    .fill(null)
-    .map((_, idx) => <DumyBtn key={idx} />);
 
   const TemplateList =
     selectedConsonant === ''
@@ -40,16 +37,16 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
         mockupData.map((template, idx) => (
           <ItemBtn
             key={template.id}
-            idx={idx + mockupData.length}
+            idx={idx}
             template={template}
-            onClick={() => onClickTempalte(template)}
+            onClick={onClickRouletteButton}
           />
         ));
 
   return (
     <Wrapper>
       <SelectedAria />
-      <div>{HiddenTemplateList}</div>
+      {/* <div>{HiddenTemplateList}</div> */}
       <ItemWrapper ref={rouletteScrollRef}>
         <ItemStandard>{TemplateList}</ItemStandard>
       </ItemWrapper>

@@ -7,21 +7,15 @@ import { Template } from 'src/types/template';
 
 const ItemBtn = ({ idx, template, onClick }: Props) => {
   return (
-    <Container idx={idx} onClick={onClick}>
+    <Container data-idx={idx} idx={idx} onClick={onClick}>
       <Message>{template.name}</Message>
     </Container>
   );
 };
 
-export const DumyBtn = styled.div`
-  height: 48px;
-  margin: 6px 0;
-`;
-
 const Container = styled.button<{ idx: number }>`
   position: absolute;
   width: 100%;
-  max-width: 100%;
   top: 0;
   left: 0;
   display: flex;
@@ -49,7 +43,7 @@ const Message = styled.span`
 interface Props {
   idx: number;
   template: Template;
-  onClick: () => void;
+  onClick: (e: any) => void;
 }
 
 export default ItemBtn;
