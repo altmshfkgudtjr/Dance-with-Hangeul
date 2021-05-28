@@ -28,6 +28,10 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
     if (device === 'Mobile' && onClickNextStep) onClickNextStep();
   };
 
+  const HiddenTemplateList = Array(mockupData.length * 3)
+    .fill(null)
+    .map((_, idx) => <DumyBtn key={idx} />);
+
   const TemplateList =
     selectedConsonant === ''
       ? null
@@ -45,6 +49,7 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
   return (
     <Wrapper>
       <SelectedAria />
+      <div>{HiddenTemplateList}</div>
       <ItemWrapper ref={rouletteScrollRef}>
         <ItemStandard>{TemplateList}</ItemStandard>
       </ItemWrapper>

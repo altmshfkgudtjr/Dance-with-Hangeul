@@ -8,34 +8,29 @@ import media from 'src/lib/styles/media';
 
 const Wrapper = ({ isOpen, isFullscreen, children }) => {
   return (
-    <Container isFullscreen={isFullscreen}>
-      <Content isOpen={isOpen}>{children}</Content>
+    <Container isOpen={isOpen}>
+      <Content isFullscreen={isFullscreen}>{children}</Content>
     </Container>
   );
 };
 
-const Container = styled.div<{ isFullscreen: boolean }>`
+const Container = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 0;
   right: -400px;
   width: 400px;
   height: 100vh;
-  ${({ isFullscreen }) =>
-    isFullscreen
-      ? css`
-          animation: 400ms ${animations.fadeOutRight} ease-in-out;
-        `
-      : css`
-          animation: 400ms ${animations.fadeInRight} ease-in-out;
-        `}
-  animation-fill-mode: forwards;
+  transition: 0.6s ${styles.transition};
+  transform: ${({ isOpen }) => (isOpen ? 'translateX(-400px)' : `translateX(0)`)};
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
 
   ${media.xsmall} {
     display: none;
   }
 `;
 
-const Content = styled.div<{ isOpen: boolean }>`
+const Content = styled.div<{ isFullscreen: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -45,11 +40,19 @@ const Content = styled.div<{ isOpen: boolean }>`
   padding: 0.5rem;
   box-sizing: border-box;
   transition: 0.6s ${styles.transition};
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(-400px)' : `translateX(0)`)};
+  ${({ isFullscreen }) =>
+    isFullscreen
+      ? css`
+          animation: 400ms ${animations.fadeOutRight} ease-in-out;
+        `
+      : css`
+          animation: 400ms ${animations.fadeInRight} ease-in-out;
+        `}
   background-color: rgba(248, 244, 255, 0.4);
   backdrop-filter: blur(6px);
   z-index: ${zIndex.menu};
-  animation: 1s ${animations.fadeInRight} ease-in-out;
+  /* animation: 1s ${animations.fadeInRight} ease-in-out; */
+  animation-fill-mode: forwards;
 `;
 
 export default Wrapper;

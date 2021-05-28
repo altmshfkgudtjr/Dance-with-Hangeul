@@ -13,9 +13,10 @@ const ItemBtn = ({ idx, template, onClick }: Props) => {
   );
 };
 
-export const DumyBtn = ({ idx }: { idx: number }) => {
-  return <Container idx={idx} />;
-};
+export const DumyBtn = styled.div`
+  height: 48px;
+  margin: 6px 0;
+`;
 
 const Container = styled.button<{ idx: number }>`
   position: absolute;
