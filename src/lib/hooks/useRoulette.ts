@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 /**
- * Roulette hook
+ * 룰렛 hook
  * @param props
  * @param props.element Roulette Wrapper DOM Element
+ * @returns onClickButton(e: MouseEvent)
  */
 const useRoulette = (element: any) => {
   /**

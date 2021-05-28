@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 // lib
 import * as styles from 'src/lib/styles/styles';
+import media, { mediaQueryMin, mediaValue } from 'src/lib/styles/media';
 
 const ItemWrapper = styled.div`
   position: absolute;
@@ -16,6 +17,22 @@ const ItemWrapper = styled.div`
   transition: 1000ms ${styles.transition};
 
   touch-action: none;
+
+  ${mediaQueryMin(mediaValue.small)} {
+    &:hover {
+      & > div {
+        will-change: transform;
+      }
+    }
+  }
+
+  ${media.small} {
+    &:active {
+      & > div {
+        will-change: transform;
+      }
+    }
+  }
 `;
 
 export default ItemWrapper;

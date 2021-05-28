@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import * as styles from 'src/lib/styles/styles';
 import media from 'src/lib/styles/media';
 // types
+import { Mode } from 'src/types/common';
 import { Template } from 'src/types/template';
 
-const ItemBtn = ({ idx, template, onClick }: Props) => {
+const ItemBtn = ({ idx, mode, template, onClick }: Props) => {
   return (
     <Container data-idx={idx} idx={idx} onClick={onClick}>
-      <Message>{template.name}</Message>
+      <Message mode={mode}>{template.name}</Message>
     </Container>
   );
 };
@@ -26,7 +27,7 @@ const Container = styled.button<{ idx: number }>`
   margin: 6px 0;
   transform: ${({ idx }) => `rotateX(${0 - idx * 20}deg) translateZ(300px)`};
   backface-visibility: hidden;
-  opacity: 0.4;
+  opacity: 0.8;
 
   ${media.small} {
     width: 94vw;
@@ -34,14 +35,20 @@ const Container = styled.button<{ idx: number }>`
   }
 `;
 
-const Message = styled.span`
+const Message = styled.span<{ mode: Mode }>`
   font-size: 24px;
   font-weight: 600;
+  color: ${({ mode }) => (mode === 'Light' ? 'black' : 'white')};
   ${styles.noselect};
+
+  ${media.small} {
+    color: black;
+  }
 `;
 
 interface Props {
   idx: number;
+  mode: Mode;
   template: Template;
   onClick: (e: any) => void;
 }

@@ -22,7 +22,7 @@ const Container = styled.div<{ isOpen: boolean }>`
   height: 100vh;
   transition: 0.6s ${styles.transition};
   transform: ${({ isOpen }) => (isOpen ? 'translateX(-400px)' : `translateX(0)`)};
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(220, 163, 255, 0.1);
   backdrop-filter: blur(4px);
 
   ${media.xsmall} {
@@ -36,7 +36,7 @@ const Content = styled.div<{ isFullscreen: boolean }>`
   height: 100%;
   display: flex;
   align-items: center;
-  border-left: 1px solid ${palette.gray3};
+  border-left: 1px solid ${palette.gray2};
   padding: 0.5rem;
   box-sizing: border-box;
   transition: 0.6s ${styles.transition};

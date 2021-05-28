@@ -13,8 +13,8 @@ const SelectedAria = styled.div`
   width: calc(100% - 1rem);
   height: 64px;
   border-radius: 16px;
-  background-color: ${palette.purple4};
-  opacity: 0.2;
+  background-color: ${palette.purple3};
+  opacity: 0.4;
   z-index: -1;
 
   ${media.small} {

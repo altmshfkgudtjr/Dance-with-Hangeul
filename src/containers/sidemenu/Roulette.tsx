@@ -17,6 +17,7 @@ import { Device } from 'src/types/common';
 const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
   const dispatch = useDispatch();
   const templates = useSelector(state => state.template.templates);
+  const mode = useSelector(state => state.theme.selectedTheme.mode);
   const selectedConsonant = useSelector(state => state.common.selectedConsonant);
 
   // TODO 모바일에서 ref가 적용되지 않는 이슈 수정하기
@@ -33,11 +34,12 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
     selectedConsonant === ''
       ? null
       : // TODO Production 에서 주석해제
-        // : templates[selectedConsonant].map(template => (
+        // templates[selectedConsonant].map((template, idx) => (
         mockupData.map((template, idx) => (
           <ItemBtn
             key={template.id}
             idx={idx}
+            mode={mode}
             template={template}
             onClick={onClickRouletteButton}
           />
@@ -63,7 +65,7 @@ interface Props {
 const mockupData = [
   {
     id: 'Warr',
-    name: '와르르',
+    name: '와르르(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Wa’leuleu',
     info: {
@@ -74,7 +76,7 @@ const mockupData = [
   },
   {
     id: 'Woorr',
-    name: '우르르',
+    name: '우르르(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Woo’leuleu',
     info: {
@@ -85,7 +87,7 @@ const mockupData = [
   },
   {
     id: 'Wooddook',
-    name: '우뚝',
+    name: '우뚝(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Woodd’ook',
     info: {
@@ -96,7 +98,7 @@ const mockupData = [
   },
   {
     id: 'Irijeori',
-    name: '이리저리',
+    name: '이리저리(임시)',
     consonant: 'ㅇ',
     pronunciation: 'I’rijeori',
     info: {
@@ -107,7 +109,7 @@ const mockupData = [
   },
   {
     id: 'Warrack',
-    name: '와락',
+    name: '와락(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Warrack',
     info: {
@@ -118,7 +120,7 @@ const mockupData = [
   },
   {
     id: 'Ossack',
-    name: '오싹',
+    name: '오싹(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Ossack’',
     info: {
@@ -129,7 +131,7 @@ const mockupData = [
   },
   {
     id: 'Ungeum',
-    name: '엉금엉금',
+    name: '엉금엉금(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Ungeum',
     info: {
@@ -140,7 +142,7 @@ const mockupData = [
   },
   {
     id: 'Euseuseu',
-    name: '으스스',
+    name: '으스스(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Eu’seuseu',
     info: {
@@ -151,7 +153,7 @@ const mockupData = [
   },
   {
     id: 'Eguel',
-    name: '이글이글',
+    name: '이글이글(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Eguel',
     info: {
@@ -162,7 +164,7 @@ const mockupData = [
   },
   {
     id: 'Odeul',
-    name: '오들오들',
+    name: '오들오들(임시)',
     consonant: 'ㅇ',
     pronunciation: 'O’deul',
     info: {
@@ -173,7 +175,7 @@ const mockupData = [
   },
   {
     id: 'Weeing',
-    name: '위잉',
+    name: '위잉(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Weeing',
     info: {
@@ -184,7 +186,7 @@ const mockupData = [
   },
   {
     id: 'Oing',
-    name: '오잉',
+    name: '오잉(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Oing',
     info: {
@@ -195,7 +197,7 @@ const mockupData = [
   },
   {
     id: 'Asack',
-    name: '아삭아삭',
+    name: '아삭아삭(임시)',
     consonant: 'ㅇ',
     pronunciation: 'A’sack',
     info: {
@@ -206,7 +208,7 @@ const mockupData = [
   },
   {
     id: 'Eujil',
-    name: '어질어질',
+    name: '어질어질(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Eujil',
     info: {
@@ -217,7 +219,7 @@ const mockupData = [
   },
   {
     id: 'Areun',
-    name: '아른아른',
+    name: '아른아른(임시)',
     consonant: 'ㅇ',
     pronunciation: 'Areun',
     info: {
