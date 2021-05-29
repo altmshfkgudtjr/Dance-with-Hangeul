@@ -27,14 +27,9 @@ export default class Hangul {
     this.maxLife = props.life;
     this.life = props.life;
     this.finLife = props.finLife;
+    this.gravityValue = 2;
 
-    /* Function 적용 여부 */
-    this.isWall = props.isWall;
-    this.isDetect = props.isDetect;
-    this.isGravity = props.isGravity;
-    this.isFadeIn = props.isFadeIn;
-    this.isVibe = props.isVibe;
-    this.isRotateDie = props.isRotateDie;
+
     this.init();
 
     //this.paddingVisiable = true;
@@ -44,7 +39,7 @@ export default class Hangul {
     this.paddingVisiable = false;
 
     this.fontSize = this.fontSize ? this.fontSize : getRandomInt(500, 500);
-    this.x = this.x
+    this.x = this.x !== undefined
       ? this.x
       : getRandomInt(this.fontSize / 2, window.innerWidth - this.fontSize / 2);
     this.y = this.y ? this.y : 0;
@@ -54,8 +49,8 @@ export default class Hangul {
   }
 
   draw() {
-    if (this.isGravity) this.gravity();
-    if (this.isVibe) this.vibe();
+    this.gravity();
+    this.vibe();
     this.move();
 
     this.ctx.save();
@@ -92,59 +87,18 @@ export default class Hangul {
     this.ctx.restore();
   }
 
-  gravity() {
-    if (window.innerHeight > this.y + this.fontSize / 2 || this.y_acc < -1) {
-      this.y_acc += 1;
-      this.y += this.y_acc;
 
-      if (this.y + this.fontSize / 2 >= window.innerHeight) {
-        this.y = window.innerHeight - this.fontSize / 2;
-        this.y_acc = this.y_acc * (-1 / 2);
-      }
-    }
-  }
+  gravity() { this.y_acc += this.gravityValue; }
 
   move() {
-    if (this.x_acc > 0) {
-      this.x_acc -= 1 / 2;
-      if (this.x_acc < 1) this.x_acc = 0;
-      this.x += this.x_acc;
-
-      if (this.x + this.fontSize / 2 > window.innerWidth && this.isWall) {
-        this.x = window.innerWidth - this.fontSize / 2;
-        this.x_acc *= -1 / 2;
-      }
-    } else if (this.x_acc < 0) {
-      this.x_acc += 1 / 2;
-      if (this.x_acc > -1) this.x_acc = 0;
-      this.x += this.x_acc;
-      if (this.x < this.fontSize / 2 && this.isWall) {
-        this.x = this.fontSize / 2;
-        this.x_acc *= -1 / 2;
-      }
-    }
-
-    if (this.y_acc > 0) {
-      this.y_acc -= 1 / 2;
-      if (this.y_acc < 1) this.y_acc = 0;
-      this.y += this.y_acc;
-
-      if (this.y + this.fontSize / 2 > window.innerHeight && this.isWall) {
-        this.y = window.innerHeight - this.fontSize / 2;
-        this.y_acc *= -1 / 2;
-      }
-    } else if (this.y_acc < 0) {
-      this.y_acc += 1 / 2;
-      if (this.y_acc > -1) this.y_acc = 0;
-      this.y += this.y_acc;
-      if (this.y < this.fontSize / 2 && this.isWall) {
-        this.y = this.fontSize / 2;
-        this.y_acc *= -1 / 2;
-      }
-    }
+    this.x += this.x_acc;
+    this.y += this.y_acc;
   }
+  airResistance(value = 0.95) {
+    this.x_acc *= value
 
-  destory(addFunc) {
+  }
+  destory(addFunc = () => { }) {
     if (this.life >= 0) {
       this.life -= 1;
       if (this.life < this.finLife && this.life >= 0) {
@@ -169,4 +123,35 @@ export default class Hangul {
       this.life = life;
     }
   }
+
+  detectTop(value = -0.5) {
+    const top = (this.fontSize / 2);
+    if (this.y + this.y_acc < top) {
+      this.y = top
+      this.y_acc *= value
+    }
+  }
+
+  detectBottom(value = -0.5) {
+    const bottom = window.innerHeight - (this.fontSize / 2);
+    if (this.y + this.y_acc > bottom) {
+      this.y = bottom
+      this.y_acc *= value
+    }
+  }
+  detectLeft(value = -0.5) {
+    const left = (this.fontSize / 2);
+    if (this.x + this.x_acc < left) {
+      this.x = left
+      this.x_acc *= value
+    }
+  }
+  detectRight(value = -0.5) {
+    const right = window.innerWidth - (this.fontSize / 2);
+    if (this.x + this.x_acc > right) {
+      this.x = right
+      this.x_acc *= value
+    }
+  }
+
 }

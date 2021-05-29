@@ -87,19 +87,15 @@ export default class HangulCanvas {
 
   detectObjects() {
     let i = 0,
-      j = 1;
+      j = 0;
     const length = this.objects.length;
-    while (i < length - 1) {
-      if (i !== j) {
-        this.objects[i].detect(this.objects[j]);
-      }
 
-      j += 1;
-      if (j >= length) {
-        j = i + 1;
-        i = i + 1;
+    for (i = 0; i < length; i++) {
+      for (j = 0; j < length; j++) {
+        if (i !== j) this.objects[i].detect(this.objects[j]);
       }
     }
+
   }
 
   drawObject() {
