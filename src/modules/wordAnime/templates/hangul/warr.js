@@ -12,7 +12,7 @@ export default class Warr extends Hangul {
 
     this.rotate_acc = props.rotate_acc;
     this.isGravity = props.isGravity === false ? props.isGravity : true;
-
+  }
 
 
   draw() {
