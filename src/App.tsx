@@ -7,7 +7,7 @@ import NotFound from 'src/pages/NotFound';
 import useWebAccessibility from 'src/lib/hooks/useWebAccessibility';
 
 const App = () => {
-  const [isMouseDown] = useWebAccessibility();
+  const isMouseDown = useWebAccessibility();
 
   return (
     <div className={isMouseDown ? 'mousedown' : ''}>

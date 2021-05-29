@@ -10,7 +10,13 @@
         "ko": "가벼운 물체가 떨어져서 튕기는 소리",
         "en": "The sound of light objects falling and bounces"
       },
-      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+      "themes": [
+        "T_ffffff_ffb5b5",
+        "T_ffffff_ffcb87",
+        "T_ffffff_84d384",
+        "T_000000_ffffff",
+        "T_ffffff_000000"
+      ]
     },
     {
       "id": "Kick",
@@ -21,7 +27,12 @@
         "ko": "목소리를 숨기려다 참을 수 없어 입속으로 웃는 소리",
         "en": "The sound of laughing in my mouth"
       },
-      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+      "themes": [
+        "T_000000_ffffff",
+        "T_ffffff_000000",
+        "T_ffffff_75d1d5_20989d",
+        "T_ffffff_d1b7ff_a77af7"
+      ]
     },
     {
       "id": "Banjjag",
@@ -32,7 +43,13 @@
         "ko": "작은 빛이 잠깐 잇따라 나타났다가 사라지는 모양",
         "en": "Small lights twinkling"
       },
-      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+      "themes": [
+        "T_000000_ffffff",
+        "T_ffffff_000000",
+        "T_ffffff_ffcb87",
+        "T_ffffff_75d1d5_20989d",
+        "T_ffffff_d1b7ff_a77af7"
+      ]
     },
     {
       "id": "Warr",
@@ -43,7 +60,13 @@
         "ko": "쌓인 것이 야단스럽게 무너지는 소리나 모양",
         "en": "The sound or shape of what is crumbling"
       },
-      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+      "themes": [
+        "T_000000_ffffff",
+        "T_ffffff_000000",
+        "T_ffffff_84d384",
+        "T_ffffff_ffcb87",
+        "T_ffffff_ffb5b5"
+      ]
     }
   ]
 }
