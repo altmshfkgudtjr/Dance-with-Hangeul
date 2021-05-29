@@ -7,3 +7,4 @@ export { ReactComponent as VideoIcon } from './video.svg';
 export { ReactComponent as PaletteIcon } from './palette.svg';
 export { ReactComponent as CloseIcon } from './close.svg';
 export { ReactComponent as MailIcon } from './mail.svg';
+export { ReactComponent as PlayIcon } from './play.svg';

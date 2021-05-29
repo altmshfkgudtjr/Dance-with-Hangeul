@@ -10,9 +10,6 @@ const Wrapper = styled.div`
   padding: 0.5rem;
   overflow: hidden;
 
-  &::-webkit-scrollbar {
-  }
-
   perspective: 1200px;
 
   ${media.small} {

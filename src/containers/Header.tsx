@@ -30,9 +30,9 @@ const Header = ({ device, screenStep, onClickPrev, onClickNext }: Props) => {
 
   useEffect(() => {
     if (isFullscreen) {
-      window.addEventListener('click', onToggleFullscreen);
+      window.addEventListener('click', onToggleFullscreen, true);
     } else {
-      window.removeEventListener('click', onToggleFullscreen);
+      window.removeEventListener('click', onToggleFullscreen, true);
     }
     return () => window.removeEventListener('click', onToggleFullscreen);
   }, [isFullscreen, onToggleFullscreen]);

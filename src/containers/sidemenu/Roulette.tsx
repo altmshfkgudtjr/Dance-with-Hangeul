@@ -1,39 +1,38 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 // components
 import ItemWrapper from 'src/components/sidemenu/roulette/ItemWrapper';
 import Wrapper from 'src/components/sidemenu/roulette/Wrapper';
 import ItemStandard from 'src/components/sidemenu/roulette/ItemStandard';
 import ItemBtn from 'src/components/sidemenu/roulette/ItemBtn';
 import SelectedAria from 'src/components/sidemenu/roulette/SelectedAria';
+import SelectBtn from 'src/components/sidemenu/roulette/SelectBtn';
 // slices
 import { updateSelectedTemplate } from 'src/slices/template';
 // hooks
 import { useSelector, useDispatch } from 'src/lib/hooks/useStore';
 import useRoulette from 'src/lib/hooks/useRoulette';
 // types
-import { Template } from 'src/types/template';
 import { Device } from 'src/types/common';
 
-const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
+const Roulette = ({ device = 'Desktop' }: Props) => {
   const dispatch = useDispatch();
-  const templates = useSelector(state => state.template.templates);
   const mode = useSelector(state => state.theme.selectedTheme.mode);
+  const templates = useSelector(state => state.template.templates);
   const selectedConsonant = useSelector(state => state.common.selectedConsonant);
-
-  // TODO 모바일에서 ref가 적용되지 않는 이슈 수정하기
   const rouletteScrollRef = useRef<any>(null);
-  const { onClickRouletteButton } = useRoulette(rouletteScrollRef.current);
+  const { selectedIdx, onClickRouletteButton } = useRoulette(rouletteScrollRef);
 
   /** 템플릿 선택 */
-  const onClickTemplate = (template: Template) => {
-    dispatch(updateSelectedTemplate(template));
-    if (device === 'Mobile' && onClickNextStep) onClickNextStep();
-  };
+  const onClickTemplate = useCallback(() => {
+    const filtered = templates[selectedConsonant].filter((_, idx) => idx === selectedIdx);
+    if (filtered.length === 0) return;
+    dispatch(updateSelectedTemplate(filtered[0]));
+  }, [dispatch, templates, selectedConsonant, selectedIdx]);
 
   const TemplateList =
     selectedConsonant === ''
       ? null
-      : // TODO Production 에서 주석해제
+      : // TODO Production 에서 주석해제\
         // templates[selectedConsonant].map((template, idx) => (
         mockupData.map((template, idx) => (
           <ItemBtn
@@ -45,20 +44,25 @@ const Roulette = ({ device = 'Desktop', onClickNextStep }: Props) => {
           />
         ));
 
+  /** 룰렛 변화에 따른 템플릿 선택 */
+  useEffect(() => {
+    if (device === 'Desktop') return;
+    else onClickTemplate();
+  }, [device, selectedIdx, onClickTemplate]);
+
   return (
     <Wrapper>
-      <SelectedAria />
-      {/* <div>{HiddenTemplateList}</div> */}
+      <SelectedAria onClick={onClickTemplate} />
       <ItemWrapper ref={rouletteScrollRef}>
         <ItemStandard>{TemplateList}</ItemStandard>
       </ItemWrapper>
+      <SelectBtn onClick={onClickTemplate} />
     </Wrapper>
   );
 };
 
 interface Props {
   device?: Device;
-  onClickNextStep?: () => void;
 }
 
 // TODO 테스트용 목업데이터 [Production에서 제거할 것]
