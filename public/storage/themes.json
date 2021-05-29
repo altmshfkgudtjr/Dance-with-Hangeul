@@ -12,6 +12,36 @@
       "bgColor": "#000000",
       "fgColor": ["#ffffff"],
       "mode": "Dark"
+    },
+    {
+      "id": "T_ffffff_ffb5b5",
+      "bgColor": "#ffffff",
+      "fgColor": ["#ffb5b5"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_ffcb87",
+      "bgColor": "#ffffff",
+      "fgColor": ["#ffcb87"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_84d384",
+      "bgColor": "#ffffff",
+      "fgColor": ["#84d384"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_75d1d5_20989d",
+      "bgColor": "#ffffff",
+      "fgColor": ["#75d1d5", "#20989d"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_d1b7ff_a77af7",
+      "bgColor": "#ffffff",
+      "fgColor": ["#d1b7ff", "#a77af7"],
+      "mode": "Light"
     }
   ]
 }

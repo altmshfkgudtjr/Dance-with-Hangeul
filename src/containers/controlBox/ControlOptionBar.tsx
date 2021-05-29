@@ -14,6 +14,8 @@ const ControlOptionBar = ({ device }: Props) => {
   const TransitionTime = 400;
 
   const controlOption = useSelector(state => state.common.controlOption);
+  const isFullscreen = useSelector(state => state.common.isFullscreen);
+
   const [optionType, setOptionType] = useState<ControlOption>(null);
   const [isChanged, setIsChaged] = useState<boolean>(false);
 
@@ -29,7 +31,7 @@ const ControlOptionBar = ({ device }: Props) => {
   }, [controlOption, setIsChaged, setOptionType]);
 
   return (
-    <Wrapper time={TransitionTime} isChanged={isChanged}>
+    <Wrapper time={TransitionTime} isFullscreen={isFullscreen} isChanged={isChanged}>
       {optionType === 'Palette' && <Palette device={device} />}
       {optionType === 'Save' && <Save device={device} />}
     </Wrapper>

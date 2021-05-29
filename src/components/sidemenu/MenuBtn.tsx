@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NextIcon, PrevIcon } from 'src/lib/svg';
 // lib
 import * as styles from 'src/lib/styles/styles';
+import media, { mediaQueryMin, mediaValue } from 'src/lib/styles/media';
 // types
 import { Mode } from 'src/types/common';
 
@@ -36,9 +37,19 @@ const Container = styled.button<{ mode: Mode }>`
     fill: ${({ mode }) => (mode === 'Light' ? 'black' : 'white')};
   }
 
-  &:hover {
-    & > span {
-      margin-left: -8px;
+  ${mediaQueryMin(mediaValue.medium)} {
+    &:hover {
+      & > span {
+        margin-left: -8px;
+      }
+    }
+  }
+
+  ${media.medium} {
+    &:active {
+      & > span {
+        margin-left: -8px;
+      }
     }
   }
 `;
@@ -47,6 +58,7 @@ const Message = styled.span`
   color: inherit;
   font-size: 14px;
   transition: 0.2s ${styles.transition};
+  ${styles.noselect};
 `;
 
 interface Props {

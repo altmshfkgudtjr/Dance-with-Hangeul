@@ -11,12 +11,13 @@ import { useSelector } from 'src/lib/hooks/useStore';
 const SideMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const selectedTheme = useSelector(state => state.theme.selectedTheme);
+  const isFullscreen = useSelector(state => state.common.isFullscreen);
 
   /** 메뉴 토글 */
   const onToggleMenu = () => setIsOpen(v => !v);
 
   return (
-    <Wrapper isOpen={isOpen}>
+    <Wrapper isOpen={isOpen} isFullscreen={isFullscreen}>
       <MenuBtn isOpen={isOpen} mode={selectedTheme.mode} onClick={onToggleMenu} />
       <Consonant />
       <Roulette />

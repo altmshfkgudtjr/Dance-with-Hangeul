@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components';
 // icons
 import { PaletteIcon, VideoIcon, SaveIcon } from 'src/lib/svg';
 // lib
+import animations from 'src/lib/styles/animations';
 import media, { mediaQueryMin, mediaValue } from 'src/lib/styles/media';
 import * as styles from 'src/lib/styles/styles';
 import palette from 'src/lib/styles/palette';
 // types
-import { Mode } from 'src/types/common';
+import { Mode, Device } from 'src/types/common';
 
 const IconMap = {
   Palette: PaletteIcon,
@@ -14,18 +15,18 @@ const IconMap = {
   Save: SaveIcon,
 };
 
-const Button = ({ type, isSelected, mode, onClick }: Props) => {
+const Button = ({ type, isSelected, mode, device, onClick }: Props) => {
   const Icon = IconMap[type];
 
   return (
-    <Container mode={mode} onClick={onClick}>
+    <Container mode={mode} device={device} isSelected={isSelected} onClick={onClick}>
       <Background mode={mode} isSelected={isSelected} />
       <Icon />
     </Container>
   );
 };
 
-const Container = styled.button<{ mode: Mode }>`
+const Container = styled.button<{ mode: Mode; device: Device; isSelected: boolean }>`
   position: relative;
   width: 40px;
   height: 40px;
@@ -33,11 +34,21 @@ const Container = styled.button<{ mode: Mode }>`
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
+  opacity: 0;
+  ${({ device }) =>
+    device === 'Mobile'
+      ? css`
+          animation: 1.4s ${animations.fadeInRight} 1s ease-in-out;
+        `
+      : css`
+          animation: 1.4s ${animations.fadeInLeft} 1s ease-in-out;
+        `}
+  animation-fill-mode: forwards;
 
   & > svg {
     width: 28px;
     height: 28px;
-    opacity: 0.7;
+    opacity: ${({ isSelected }) => (isSelected ? 1 : 0.7)};
     z-index: 1;
     fill: ${({ mode }) => (mode === 'Light' ? 'black' : 'white')};
   }
@@ -118,6 +129,7 @@ interface Props {
   type: 'Palette' | 'Video' | 'Save';
   isSelected: boolean;
   mode: Mode;
+  device: Device;
   onClick: () => void;
 }
 
