@@ -6,8 +6,8 @@ export default class Canvas_Warr extends HangulCanvas {
   constructor(props) {
     super(props);
     this.HangulClass = Warr;
-    this.maxObjectCount = 100;
-    this.maxCooltime = 120;
+    this.maxObjectCount = 45;
+    this.maxCooltime = 10;
   }
   init() {
     super.init();
@@ -17,7 +17,7 @@ export default class Canvas_Warr extends HangulCanvas {
 
   start() {
     //const colors = ["#ffc107", "#80bdff", "#ff9800"]
-    const step = timestamp => {
+    const step = () => {
       this.createObjects();
       this.detectObjects();
       this.removeObject();
@@ -29,12 +29,13 @@ export default class Canvas_Warr extends HangulCanvas {
   }
 
   getParams() {
-    const lineCount = 10;
-    const hangulCount = 10;
+    const lineCount = 5;
+    const hangulCount = 9;
     const paramsArray = [];
-    const fontSize = 100;
-    const x = window.innerWidth / 2 - ((fontSize - 10) * (hangulCount - 1)) / 2;
     const superParams = super.getParams();
+    let fontSize = 50;
+    fontSize *= this.rectSum;
+    const x = window.innerWidth / 2 - ((fontSize - 10) * (hangulCount - 1)) / 2;
     const params = {
       ...superParams,
       fontSize: fontSize,
@@ -54,9 +55,9 @@ export default class Canvas_Warr extends HangulCanvas {
         }
         paramsArray.push({
           ...params,
-          text: i === 0 || i === 3 ? '와' : '르',
-          x: x + (fontSize - 10) * i,
-          y: 0 - (fontSize - 0) * j,
+          text: i % 3 === 0 ? '와' : '르',
+          x: x + ((fontSize - 10) * i),
+          y: 300 - (fontSize - 0) * j,
           line: j,
           finLife: finLife,
           rotate: getRandomInt(-20, 20),
@@ -72,7 +73,7 @@ export default class Canvas_Warr extends HangulCanvas {
     const length = this.objects.length;
     for (i = 0; i < length; i++) {
       for (j = 0; j < length; j++) {
-        if (i == j) continue;
+        if (i === j) continue;
         this.objects[i].detect(this.objects[j]);
       }
     }

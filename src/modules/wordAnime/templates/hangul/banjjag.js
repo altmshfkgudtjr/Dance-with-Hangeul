@@ -1,11 +1,15 @@
 import Hangul from '../Hangul';
 
-export default class Banjjag extends Hangul {
+export class Banjjag extends Hangul {
   constructor(props) {
     super(props);
-    this.isBlur = props.isBlur;
-    this.blur = 40;
+    this.text = '반짝'
+    this.opacity = 0
+    this.crush_acc = 1.5
   }
+
+
+
 
   draw() {
     if (this.isGravity) this.gravity();
@@ -29,18 +33,15 @@ export default class Banjjag extends Hangul {
     this.ctx.translate(this.x, this.y);
     this.ctx.rotate((this.rotate * Math.PI) / 180);
 
-    if (this.isFadeIn) this.fadeIn();
+    this.fadeIn();
 
     this.ctx.fillText(this.text, 0, 0);
-    if (this.isBlur) {
-      this.ctx.filter = `blur(${this.blur}px)`;
-      this.ctx.beginPath();
-      if (this.opacity > 0.5) this.ctx.globalAlpha = 0.5;
-      this.ctx.ellipse(0, 0, this.fontSize, this.fontSize / 2, 0, 0, 2 * Math.PI);
-      this.ctx.fill();
-      //this.ctx.fillRect(-this.fontSize/2*2, -this.fontSize/2, this.fontSize*2, this.fontSize)
-    }
-    //this.ctx.fillText(this.text, 0, 0)
+
+    // this.ctx.filter = `blur(${this.blur}px)`;
+    // this.ctx.beginPath();
+    // if (this.opacity > 0.5) this.ctx.globalAlpha = 0.5;
+    // this.ctx.ellipse(0, 0, this.fontSize, this.fontSize / 2, 0, 0, 2 * Math.PI);
+    // this.ctx.fill();
 
     this.ctx.restore();
 
@@ -50,25 +51,9 @@ export default class Banjjag extends Hangul {
 
   move() {
     this.x += this.x_acc;
-    if (this.y_acc > 0) {
-      this.y_acc -= 0.1;
-      if (this.y_acc < 0.1) this.y_acc = 0;
-      this.y += this.y_acc;
-
-      if (this.y + this.fontSize / 2 > window.innerHeight && this.isWall) {
-        this.y = window.innerHeight - this.fontSize / 2;
-        this.y_acc *= -1 / 2;
-      }
-    } else if (this.y_acc < 0) {
-      this.y_acc += 0.1;
-      if (this.y_acc > -0.1) this.y_acc = 0;
-      this.y += this.y_acc;
-      if (this.y < this.fontSize / 2 && this.isWall) {
-        this.y = this.fontSize / 2;
-        this.y_acc *= -1 / 2;
-      }
-    }
+    this.y += this.y_acc;
   }
+
 
   destory() {
     super.destory(() => {
@@ -94,4 +79,62 @@ export default class Banjjag extends Hangul {
       this.y_acc = Math.cos(radian - Math.PI / 2) * this.crush_acc;
     }
   }
+}
+
+export class Sparkle extends Hangul {
+
+
+  drawSpakle(size) {
+    this.ctx.beginPath();
+    this.ctx.ellipse(0, 0 + size - (size * 0.37 / 2), size, size * 1.5, Math.PI / 2, Math.PI * 0.8, Math.PI * 1.2);
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.ellipse(0, 0 - size + (size * 0.37 / 2), size, size * 1.5, Math.PI / 2, Math.PI * -0.2, Math.PI * 0.2);
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.ellipse(0 + size - (size * 0.37 / 2), 0, size * 1.5, size, Math.PI / 2, Math.PI * 0.3, Math.PI * 0.7);
+    this.ctx.fill();
+
+    this.ctx.beginPath();
+    this.ctx.ellipse(0 - size + (size * 0.37 / 2), 0, size * 1.5, size, Math.PI / 2, Math.PI * 1.3, Math.PI * 1.7);
+    this.ctx.fill();
+  }
+  move() {
+    this.x += this.x_acc;
+    this.y += this.y_acc;
+  }
+  draw() {
+    this.move();
+
+    this.ctx.save();
+    this.ctx.fillStyle = "#fff";
+    this.ctx.globalAlpha = this.opacity;
+    this.ctx.fillStyle = this.color;
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
+    this.ctx.translate(this.x, this.y);
+    this.ctx.rotate((this.rotate * Math.PI) / 180);
+
+
+    this.drawSpakle(this.fontSize);
+    // this.ctx.filter = `blur(20px)`;
+    // this.ctx.beginPath();
+    // this.ctx.arc(0, 0, this.fontSize, 0, Math.PI * 2);
+    // this.ctx.fill();
+
+    this.ctx.restore();
+    this.destory();
+  }
+  detect() { }
+
+
+  destory() {
+    super.destory(() => {
+      this.opacity = this.life / 60;
+    });
+  }
+
 }

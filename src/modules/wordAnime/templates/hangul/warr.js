@@ -1,5 +1,4 @@
 import Hangul from '../Hangul';
-import { getRandomInt } from '../utils';
 
 
 
@@ -13,27 +12,10 @@ export default class Warr extends Hangul {
 
     this.rotate_acc = props.rotate_acc;
     this.isGravity = props.isGravity === false ? props.isGravity : true;
-    this.isStop = false;
-    this.isRotate = false;
-    this.vibeValue = 1;
-    this.line = props.line;
-  }
 
-  init() {
-    this.paddingVisiable = false;
 
-    this.fontSize = this.fontSize ? this.fontSize : getRandomInt(500, 500);
-    this.x = this.x
-      ? this.x
-      : getRandomInt(this.fontSize / 2, window.innerWidth - this.fontSize / 2);
-    this.y = this.y ? this.y : 0;
-    this.y_acc = this.y_acc ? this.y_acc : getRandomInt(5, 15);
-    this.x_acc = this.x_acc ? this.x_acc : 0;
-    this.life = this.life ? this.life : 300;
-  }
 
   draw() {
-
     if (this.life < this.finLife) this.gravity();
     this.airResistance();
     this.vibe();
@@ -61,7 +43,7 @@ export default class Warr extends Hangul {
   gravity() { this.y_acc += this.gravityValue; }
 
   airResistance() {
-    this.x_acc *= 0.9
+    this.x_acc *= 0.95
     this.y_acc *= 0.9
   }
 
@@ -87,16 +69,13 @@ export default class Warr extends Hangul {
     const x = this.x - obj.x;
     const y = this.y - obj.y;
     const originDistance = this.fontSize / 2 + obj.fontSize / 2
-    const padding = 1.3
+    const padding = 1
     const distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) * padding;
-    if (distance < originDistance) {
+    if (distance < originDistance * 0.9) {
       const radian = Math.atan2(y, x);
-      if (distance < originDistance * 0.5) {
-        this.x_acc += Math.sin(radian + Math.PI / 2) * 5;
-        this.y_acc += Math.cos(radian - Math.PI / 2) * 5;
-        this.y_acc -= 5
-      }
-      this.x_acc += Math.sin(radian + Math.PI / 2) * 2;
+      //const f = originDistance - distance;
+
+      this.x_acc += Math.sin(radian + Math.PI / 2);
       this.y_acc = 0;
     } else {
     }
