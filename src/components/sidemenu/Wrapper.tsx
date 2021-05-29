@@ -19,7 +19,7 @@ const Container = styled.div<{ isOpen: boolean; isFullscreen: boolean }>`
   right: -400px;
   width: 400px;
   height: 100vh;
-  transition: 0.6s ${styles.transition};
+  transition: transform 0.6s ${styles.transition};
   transform: ${({ isOpen }) => (isOpen ? 'translateX(-400px)' : `translateX(0)`)};
   backdrop-filter: ${({ isFullscreen }) => (isFullscreen ? `` : `blur(6px)`)};
 
