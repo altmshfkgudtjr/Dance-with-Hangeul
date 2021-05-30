@@ -48,33 +48,19 @@ export default class Hangul {
     this.life = this.life ? this.life : 300;
   }
 
-  draw() {
-    this.gravity();
-    this.vibe();
-    this.move();
-
+  draw(addFunc = () => { }) {
     this.ctx.save();
-
-    if (this.paddingVisiable) {
-      this.ctx.fillStyle = '#666';
-      this.ctx.beginPath();
-      this.ctx.arc(this.x, this.y, this.fontSize / 2, 0, Math.PI * 2);
-      this.ctx.fill();
-    }
-
-    this.ctx.globalAlpha = this.opacity;
     this.ctx.fillStyle = this.color;
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
     this.ctx.rotate((this.rotate * Math.PI) / 180);
-
-    if (this.isFadeIn) this.fadeIn();
+    addFunc();
 
     this.ctx.fillText(this.text, 0, 0);
-    this.ctx.restore();
 
+    this.ctx.restore();
     this.destory();
   }
 
@@ -152,6 +138,12 @@ export default class Hangul {
       this.x = right
       this.x_acc *= value
     }
+  }
+
+  progress(start, end, current) {
+    if (current > end) return 1
+    if (current < start) return 0
+    return (current - start) / (end - start)
   }
 
 }

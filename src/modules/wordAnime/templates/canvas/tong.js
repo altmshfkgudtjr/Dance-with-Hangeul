@@ -5,8 +5,6 @@ class Canvas_Tong extends HangulCanvas {
   init() {
     super.init();
     this.HangulClass = Tong;
-    this.ctx.globalAlpha = 1;
-    this.ctx.fillStyle = '#fff';
     if (this.width <= 600) {
       this.maxObjectCount = 3
     }
