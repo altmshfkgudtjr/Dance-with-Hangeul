@@ -8,9 +8,10 @@ const Wrapper = styled.div`
   height: 100%;
   margin: auto;
   padding: 0.5rem;
+  box-sizing: border-box;
   overflow: hidden;
 
-  perspective: 1200px;
+  perspective: 1600px;
 
   ${media.small} {
     max-height: 600px;

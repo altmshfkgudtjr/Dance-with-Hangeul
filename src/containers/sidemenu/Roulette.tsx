@@ -38,6 +38,7 @@ const Roulette = ({ device = 'Desktop' }: Props) => {
           <ItemBtn
             key={template.id}
             idx={idx}
+            isEmphasized={selectedIdx === idx}
             mode={mode}
             template={template}
             onClick={onClickRouletteButton}
@@ -224,6 +225,72 @@ const mockupData = [
   {
     id: 'Areun',
     name: '아른아른(임시)',
+    consonant: 'ㅇ',
+    pronunciation: 'Areun',
+    info: {
+      ko: '쌓인 것이 야단스럽게 무너지는 소리나 모양',
+      en: 'The sound or shape of what is crumbling',
+    },
+    themes: ['T_000000_ffffff', 'T_ffffff_000000', 'T_ffffff_ffb5b5'],
+  },
+  {
+    id: 'Teat_a',
+    name: 'Empty',
+    consonant: 'ㅇ',
+    pronunciation: 'Areun',
+    info: {
+      ko: '쌓인 것이 야단스럽게 무너지는 소리나 모양',
+      en: 'The sound or shape of what is crumbling',
+    },
+    themes: ['T_000000_ffffff', 'T_ffffff_000000', 'T_ffffff_ffb5b5'],
+  },
+  {
+    id: 'Teat_b',
+    name: 'Empty',
+    consonant: 'ㅇ',
+    pronunciation: 'Areun',
+    info: {
+      ko: '쌓인 것이 야단스럽게 무너지는 소리나 모양',
+      en: 'The sound or shape of what is crumbling',
+    },
+    themes: ['T_000000_ffffff', 'T_ffffff_000000', 'T_ffffff_ffb5b5'],
+  },
+  {
+    id: 'Teat_c',
+    name: 'Empty',
+    consonant: 'ㅇ',
+    pronunciation: 'Areun',
+    info: {
+      ko: '쌓인 것이 야단스럽게 무너지는 소리나 모양',
+      en: 'The sound or shape of what is crumbling',
+    },
+    themes: ['T_000000_ffffff', 'T_ffffff_000000', 'T_ffffff_ffb5b5'],
+  },
+  {
+    id: 'Teat_d',
+    name: 'Empty',
+    consonant: 'ㅇ',
+    pronunciation: 'Areun',
+    info: {
+      ko: '쌓인 것이 야단스럽게 무너지는 소리나 모양',
+      en: 'The sound or shape of what is crumbling',
+    },
+    themes: ['T_000000_ffffff', 'T_ffffff_000000', 'T_ffffff_ffb5b5'],
+  },
+  {
+    id: 'Teat_e',
+    name: 'Empty',
+    consonant: 'ㅇ',
+    pronunciation: 'Areun',
+    info: {
+      ko: '쌓인 것이 야단스럽게 무너지는 소리나 모양',
+      en: 'The sound or shape of what is crumbling',
+    },
+    themes: ['T_000000_ffffff', 'T_ffffff_000000', 'T_ffffff_ffb5b5'],
+  },
+  {
+    id: 'Teat_f',
+    name: 'Empty',
     consonant: 'ㅇ',
     pronunciation: 'Areun',
     info: {

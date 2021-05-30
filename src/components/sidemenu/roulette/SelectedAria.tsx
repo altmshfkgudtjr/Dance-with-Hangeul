@@ -18,7 +18,7 @@ const SelectedAria = styled.div`
   z-index: -1;
 
   ${media.small} {
-    width: 94vw;
+    width: 100%;
     height: 64px;
   }
 `;
