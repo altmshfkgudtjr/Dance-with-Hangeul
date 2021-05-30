@@ -1,13 +1,15 @@
 import { useEffect, useRef } from 'react';
+import JulugCanvas from '../templates/canvas/julug';
+
 import { CanvasType } from '../types/canvas'
-import BanjjagCanvas from '../templates/canvas/banjjag';
 
 
-function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
+function JulugComponent({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
+
   useEffect(() => {
     const canvasRef = ref.current;
-    const canvas = new BanjjagCanvas({
+    const canvas = new JulugCanvas({
       canvas: canvasRef,
       color,
       backgroundColor,
@@ -16,7 +18,8 @@ function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
     canvas.init();
     canvas.start();
   }, [color, backgroundColor, fontFamily]);
+
   return <canvas ref={ref}></canvas>;
 }
 
-export default Banjjag;
+export default JulugComponent;
