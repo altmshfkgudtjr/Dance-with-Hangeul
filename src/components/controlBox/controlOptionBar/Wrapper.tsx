@@ -15,7 +15,7 @@ const Container = styled.div<{ time: number; isFullscreen: boolean; isChanged: b
   ${({ time, isFullscreen, isChanged }) => {
     if (isChanged && isFullscreen) {
       return css`
-        animation: 400ms ${animations.fadeOutLeft} ease-in-out;
+        animation: ${time}ms ${animations.fadeOutLeft} ease-in-out;
       `;
     }
 
@@ -27,13 +27,13 @@ const Container = styled.div<{ time: number; isFullscreen: boolean; isChanged: b
 
     if (!isChanged && isFullscreen) {
       return css`
-        animation: 400ms ${animations.fadeOutLeft} ease-in-out;
+        animation: ${time}ms ${animations.fadeOutLeft} ease-in-out;
       `;
     }
 
     if (!isChanged && !isFullscreen) {
       return css`
-        animation: 400ms ${animations.fadeInLeft} ease-in-out;
+        animation: ${time}ms ${animations.fadeInLeft} ease-in-out;
       `;
     }
   }};
