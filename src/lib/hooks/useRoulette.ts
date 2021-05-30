@@ -120,9 +120,11 @@ const useRoulette = (element: any) => {
     const cylinderElement = element.current?.querySelector('div');
     if (!cylinderElement) return;
 
-    cylinderDom.current = cylinderElement;
-    // TODO children이 빈 배열이 나오는 버그 수정
-    setButtonCount(cylinderElement.children.length);
+    // TODO cylinderDom children length 0이 추출되는 버그 수정
+    window.setTimeout(() => {
+      cylinderDom.current = cylinderElement;
+      setButtonCount(cylinderElement.children.length);
+    }, 0);
   }, [element, setButtonCount]);
 
   /** 이벤트 등록 / 해제 작업 */

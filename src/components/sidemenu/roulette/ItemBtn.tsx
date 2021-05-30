@@ -36,7 +36,7 @@ const Container = styled.button<{ idx: number }>`
 `;
 
 const Message = styled.span<{ mode: Mode; isEmphasized: boolean }>`
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 600;
   color: ${({ mode }) => (mode === 'Light' ? 'black' : 'white')};
   opacity: ${({ isEmphasized }) => (isEmphasized ? '1' : '0.3')};

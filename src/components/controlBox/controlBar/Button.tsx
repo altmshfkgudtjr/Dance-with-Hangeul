@@ -65,6 +65,14 @@ const Container = styled.button<{ mode: Mode; device: Device; isSelected: boolea
         opacity: 0.9;
       }
     }
+
+    &:active {
+      & > div {
+        transform: scale(5, 5);
+        background-color: ${({ mode }) =>
+          mode === 'Light' ? palette.purple3 : palette.purple5};
+      }
+    }
   }
 
   ${media.small} {

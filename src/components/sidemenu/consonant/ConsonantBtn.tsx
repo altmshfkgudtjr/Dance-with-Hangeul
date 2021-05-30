@@ -53,8 +53,7 @@ const Container = styled.button<{ isSelected: boolean; device: Device; mode: Mod
 const Name = styled.span`
   display: block;
   color: inherit;
-  margin-top: 3px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
   ${styles.noselect};
 `;

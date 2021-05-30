@@ -27,9 +27,10 @@ const Button = styled.button`
   height: 32px;
   border-radius: 4px;
   margin-right: 12px;
-  background-color: ${palette.purple4};
+  background-color: ${palette.purple5};
   opacity: 0.6;
-  transition: 0.1s ${styles.transition};
+  transition: 0.2s ${styles.transition};
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 
   & > svg {
     width: 18px;
@@ -39,6 +40,12 @@ const Button = styled.button`
 
   &:hover {
     opacity: 1;
+  }
+
+  &:active {
+    opacity: 1;
+    background-color: ${palette.purple5};
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16) inset;
   }
 
   ${media.small} {
