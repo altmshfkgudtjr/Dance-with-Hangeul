@@ -121,6 +121,7 @@ const useRoulette = (element: any) => {
     if (!cylinderElement) return;
 
     cylinderDom.current = cylinderElement;
+    // TODO children이 빈 배열이 나오는 버그 수정
     setButtonCount(cylinderElement.children.length);
   }, [element, setButtonCount]);
 

@@ -33,8 +33,8 @@ const Roulette = ({ device = 'Desktop' }: Props) => {
     selectedConsonant === ''
       ? null
       : // TODO Production 에서 주석해제\
-        // templates[selectedConsonant].map((template, idx) => (
-        mockupData.map((template, idx) => (
+        templates[selectedConsonant].map((template, idx) => (
+          // mockupData.map((template, idx) => (
           <ItemBtn
             key={template.id}
             idx={idx}
