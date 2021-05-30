@@ -19,7 +19,6 @@ const Consonant = ({ device = 'Desktop', onClickNextStep }: Props) => {
   /** 자음 버튼 클릭 */
   const onClickBtn = (consonant: string) => {
     dispatch(updateSelectedConsonant(consonant));
-    if (device === 'Mobile' && onClickNextStep) onClickNextStep();
   };
 
   /** 선택된 자음 갱신 작업 */

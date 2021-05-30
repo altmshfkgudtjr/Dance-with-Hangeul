@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 // lib
 import animations from 'src/lib/styles/animations';
+import media from 'src/lib/styles/media';
 
 const HomeContent = ({ time, step, isDirection, children }: Props) => {
   const [anime, setAnime] = useState<Anime>({
@@ -56,6 +57,10 @@ const Container = styled.div<{ time: number; anime: Anime }>`
       `;
     }
   }}
+
+  ${media.small} {
+    max-height: calc(100% - 48px);
+  }
 `;
 
 interface Props {

@@ -19,16 +19,20 @@ const Conainer = styled.div`
   padding-right: 0.5rem;
 
   ${media.small} {
-    width: 100%;
-    flex: 1;
-    padding-right: 0;
+    overflow-y: auto;
+    justify-content: flex-start;
+    padding: 0.5rem;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
+    }
   }
 
   ${media.mobileLandscape} {
-    width: 100%;
+    width: auto;
+    padding: 0;
     height: auto;
-    flex: 1;
-    padding-right: 0;
   }
 `;
 
@@ -38,20 +42,13 @@ const ContentContainer = styled.div`
   align-items: center;
 
   ${media.small} {
-    width: 80px;
-    height: 340px;
-    flex-wrap: wrap;
-    justify-content: center;
     margin: auto;
-    padding-bottom: 4rem;
   }
 
   ${media.mobileLandscape} {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 340px;
-    height: 80px;
-    padding-bottom: 4rem;
+    width: 162px;
   }
 `;
 

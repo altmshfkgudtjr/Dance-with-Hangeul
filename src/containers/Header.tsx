@@ -15,7 +15,7 @@ const Header = ({ device, screenStep, onClickPrev, onClickNext }: Props) => {
   const selectedTheme = useSelector(state => state.theme.selectedTheme);
   const isFullscreen = useSelector(state => state.common.isFullscreen);
   const currentMode =
-    device === 'Mobile' && (screenStep !== undefined ? screenStep < 2 : false)
+    device === 'Mobile' && (screenStep !== undefined ? screenStep < 1 : false)
       ? 'Light'
       : selectedTheme.mode;
 
@@ -43,7 +43,7 @@ const Header = ({ device, screenStep, onClickPrev, onClickNext }: Props) => {
         <MoveBtn
           direction="Left"
           mode={currentMode}
-          step={screenStep !== undefined ? screenStep : 2}
+          step={screenStep !== undefined ? screenStep : 1}
           onClick={onClickPrev}
         />
       )}
@@ -52,7 +52,7 @@ const Header = ({ device, screenStep, onClickPrev, onClickNext }: Props) => {
         <MoveBtn
           direction="Right"
           mode={currentMode}
-          step={screenStep !== undefined ? screenStep : 2}
+          step={screenStep !== undefined ? screenStep : 1}
           onClick={onClickNext}
         />
       )}

@@ -6,6 +6,7 @@ import ControlOptionBar from 'src/containers/controlBox/ControlOptionBar';
 import Consonant from 'src/containers/sidemenu/Consonant';
 import Roulette from 'src/containers/sidemenu/Roulette';
 // components
+import MobileWrapper from 'src/components/sidemenu/MobileWrapper';
 import HomeContent from 'src/components/layout/HomeContent';
 
 const HomeMobile = ({ setShowCanvas }: Props) => {
@@ -28,7 +29,7 @@ const HomeMobile = ({ setShowCanvas }: Props) => {
   const onClickNext = () => {
     setIsDirection('Right');
     setStep(v => {
-      if (v === 2) return v;
+      if (v === 1) return v;
       return v + 1;
     });
   };
@@ -37,7 +38,7 @@ const HomeMobile = ({ setShowCanvas }: Props) => {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setViewStep(step);
-      if (step === 2) setShowCanvas(true);
+      if (step === 1) setShowCanvas(true);
       else setShowCanvas(false);
     }, TransitionTime);
     return () => window.clearTimeout(timer);
@@ -53,9 +54,12 @@ const HomeMobile = ({ setShowCanvas }: Props) => {
       />
 
       <HomeContent time={TransitionTime} step={step} isDirection={isDirection}>
-        {viewStep === 0 && <Consonant device="Mobile" onClickNextStep={onClickNext} />}
-        {viewStep === 1 && <Roulette device="Mobile" />}
-        {viewStep === 2 && (
+        {/* 룰렛 상태 유지를 위한 조절 */}
+        <MobileWrapper isShow={viewStep === 0}>
+          <Consonant device="Mobile" onClickNextStep={onClickNext} />
+          <Roulette device="Mobile" />
+        </MobileWrapper>
+        {viewStep === 1 && (
           <>
             <ControlBar device="Mobile" />
             <ControlOptionBar device="Mobile" />

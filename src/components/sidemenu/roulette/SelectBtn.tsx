@@ -51,6 +51,10 @@ const Button = styled.button`
   ${media.small} {
     display: none;
   }
+
+  ${media.mobileLandscape} {
+    display: none;
+  }
 `;
 
 interface Props {

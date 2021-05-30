@@ -30,8 +30,8 @@ const Container = styled.button<{ idx: number }>`
   backface-visibility: hidden;
 
   ${media.small} {
-    width: 94vw;
-    height: 48px;
+    width: 100%;
+    height: 64px;
   }
 `;
 
@@ -45,6 +45,12 @@ const Message = styled.span<{ mode: Mode; isEmphasized: boolean }>`
 
   ${media.small} {
     color: black;
+    font-size: 18px;
+  }
+
+  ${media.mobileLandscape} {
+    color: black;
+    font-size: 18px;
   }
 `;
 

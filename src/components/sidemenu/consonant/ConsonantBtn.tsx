@@ -42,7 +42,9 @@ const Container = styled.button<{ isSelected: boolean; device: Device; mode: Mod
   }
 
   ${media.mobileLandscape} {
-    margin-right: 8px;
+    width: 50px;
+    height: 50px;
+    margin: 0;
 
     &:active {
       background-color: ${palette.purple3};

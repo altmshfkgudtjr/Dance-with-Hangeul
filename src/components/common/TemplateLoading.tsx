@@ -62,6 +62,16 @@ const Wrapper = styled.div<{
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(6px);
   }
+
+  ${media.mobileLandscape} {
+    width: 100vw;
+    height: calc(100vh - 96px);
+    top: 48px;
+    left: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+  }
 `;
 
 const Circle = styled.div<{ isClose: boolean }>`

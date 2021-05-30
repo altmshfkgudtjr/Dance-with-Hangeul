@@ -7,18 +7,21 @@ const Wrapper = styled.div`
   width: 90vw;
   height: 100%;
   margin: auto;
-  padding: 0.5rem;
   box-sizing: border-box;
   overflow: hidden;
 
   perspective: 1600px;
 
   ${media.small} {
-    max-height: 600px;
+    width: auto;
+    max-width: 300px;
+    margin: 0 0.5rem 0 0;
   }
 
-  ${media.xsmall} {
-    max-height: 400px;
+  ${media.mobileLandscape} {
+    width: auto;
+    max-width: 300px;
+    margin: 0;
   }
 `;
 
