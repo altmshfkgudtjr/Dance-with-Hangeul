@@ -1,9 +1,41 @@
 {
-	"name": "hanguelQuotes",
-	"documents": [
-		{
-			"ko": "1994 년 ‘Discover’ 잡지는 한글을 ‘세계 최고의 알파벳’으로 ‘세계에서 가장 과학적인 글쓰기 체계’로 묘사했다. 한글은 음성 기호 체계 임에도 불구하고 모음과 자음, 심지어는 “그것을 발음하기 위해 입술, 입, 혀를 잡는 위치”로 분류된다.",
-			"en": "In 1994, ‘Discover’ magazine described Hangeul as ‘the most scientific system of writing’ in the world withthe ‘world’s best alphabet.’ Even though Hangeul is a system of phonetic symbols, the symbols arecategorized by vowels and consonants and even by the “position in which the lips, mouth, or tongue is heldto pronounce that” symbol."
-		}
-	]
+  "name": "hanguelQuotes",
+  "documents": [
+    {
+      "ko": "1994 년 ‘Discover’ 잡지는 한글을 ‘세계 최고의 알파벳’으로 ‘세계에서 가장 과학적인 글쓰기 체계’로 묘사했다. 한글은 음성 기호 체계 임에도 불구하고 모음과 자음, 심지어는 “그것을 발음하기 위해 입술, 입, 혀를 잡는 위치”로 분류된다.",
+      "en": "In 1994, ‘Discover’ magazine described Hangeul as ‘the most scientific system of writing’ in the world withthe ‘world’s best alphabet.’ Even though Hangeul is a system of phonetic symbols, the symbols arecategorized by vowels and consonants and even by the “position in which the lips, mouth, or tongue is heldto pronounce that” symbol."
+    },
+    {
+      "ko": "한글은 전 세계에서 가장 단순한 글자이며, 가장 훌륭한 글. - 펄 벅 (노벨문학상 소설 ‘대지’ 작가)",
+      "en": "Hangeul is the simplest alphabet in the world, and the best writing. - Pearl Buck (writer of the Nobel Prize in Literature ‘The Earth’)"
+    },
+    {
+      "ko": "한글은 세계 어떤 나라의 문자에서도 볼 수 없는 가장 과학적인 표기체계이다. - 미국 하버드대 라이샤워 교수",
+      "en": "Hangeul is the most scientific notation system that could't be found in any other country in the world. - Professor Reishauer, Harvard University"
+    },
+    {
+      "ko": "한글은 인류의 가장 위대한 지적 성취 가운데 하나임은 이론의 여지가 없다. - 영국 언어학자 샘슨 서섹스대 교수",
+      "en": "There is no arguing that Hangeul is one of the greatest intellectual achievements of mankind. - British linguist Sampson Professor at the University of Sussex"
+    },
+    {
+      "ko": "한글이 그토록 중요한 것은 다른 모든 알파벳이 수백 년 동안 수많은 민족의 손을 거치면서 서서히 변형 개량되어 온 것인데 반해 한글은 발명된 글자이기 때문이다. 한글은 세계적인 발명품이다. - 미국 메릴랜드대 램지 교수",
+      "en": "The reason why Hangeul is so important is because Hangeul is an invented letter, whereas all other alphabets have been gradually transformed and improved through the hands of countless peoples over hundreds of years. Hangeul is a global invention. - Professor Ramsay, University of Maryland, USA"
+    },
+    {
+      "ko": "한글은 세계에서 가장 훌륭하고 가장 단순한 글자이다. 24개의 부호가 조합될 때 인간의 목청에서 나오는 어떠한 소리도 정확하게 표현할 수 있다. - 펄벅의 『The Living Reed』 서문",
+      "en": "Hangeul is the best and simplest alphabet in the world. When the 24 symbols are combined, any sound from the human throat can be accurately expressed. - Foreword to 『The Living Reed』 by Pearlbuck"
+    },
+    {
+      "ko": "현존하는 문자 가운데 가장 완전한 글자. - 존 로스 목사",
+      "en": "The most complete text in existence. - Pastor John Ross"
+    },
+    {
+      "ko": "세종의 한글 창제는 인류사의 빛나는 업적 - 호머 헐버트 박사",
+      "en": "King Sejong's creation of Hangul was a brilliant achievement in human history. - Dr. Homer Hulbert"
+    },
+    {
+      "ko": "‘세계에서 가장 합리적인 글’, ‘그 무엇과도 비교할 수 없는 문자학적 가치’, ‘세계 문자역사상 가장 진보된 글자’ - 세계적인 과학잡지 ‘디스커버’",
+      "en": "‘The most rational text in the world’, ‘Incomparable literal value’, ‘The most advanced text in the history of the world’ - World-class scientific magazine ‘Discover’"
+    }
+  ]
 }
