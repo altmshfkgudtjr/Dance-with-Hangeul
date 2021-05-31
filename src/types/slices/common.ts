@@ -22,4 +22,4 @@ export type Quote = {
 };
 
 /** @type ControlBar 옵션 타입 */
-export type ControlOption = null | 'Palette' | 'Save';
+export type ControlOption = null | 'Palette' | 'Video' | 'Save';

@@ -20,9 +20,9 @@
     },
     {
       "id": "Kick",
-      "name": "킥",
+      "name": "킥킥",
       "consonant": "ㅋ",
-      "pronunciation": "Ki’ck",
+      "pronunciation": "Ki’ck ki’ck",
       "info": {
         "ko": "목소리를 숨기려다 참을 수 없어 입속으로 웃는 소리",
         "en": "The sound of laughing in my mouth"
@@ -93,6 +93,40 @@
       "info": {
         "ko": "어떠한 단계나 순서를 단번에 건너뛰는 모양",
         "en": "The appearance of jumping through any step at once"
+      },
+      "themes": [
+        "T_ffffff_000000",
+        "T_000000_ffffff",
+        "T_ffffff_84d384",
+        "T_ffffff_ffcb87",
+        "T_ffffff_ffb5b5"
+      ]
+    },
+    {
+      "id": "Dugeun",
+      "name": "두근",
+      "consonant": "ㄷ",
+      "pronunciation": "Du’geun",
+      "info": {
+        "ko": "몹시 놀라거나 불안하여 자꾸 가슴이 뛰는 모양",
+        "en": "The appearance of being very surprised or anxious and the heart keeps beating"
+      },
+      "themes": [
+        "T_ffffff_000000",
+        "T_000000_ffffff",
+        "T_ffffff_84d384",
+        "T_ffffff_ffcb87",
+        "T_ffffff_ffb5b5"
+      ]
+    },
+    {
+      "id": "Julug",
+      "name": "주륵주륵",
+      "consonant": "ㅈ",
+      "pronunciation": "Ju’leug",
+      "info": {
+        "ko": "굵은 물줄기나 빗물 따위가 빠르게 자꾸 흐르거나 내리는 소리. 또는 그 모양",
+        "en": "The sound of rapid flowing or falling of thick water or rainwater. or its shape"
       },
       "themes": [
         "T_ffffff_000000",

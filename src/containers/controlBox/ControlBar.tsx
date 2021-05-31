@@ -34,8 +34,8 @@ const ControlBar = ({ device }: Props) => {
 
   /** 영상 버튼 */
   const onClickVideo = () => {
-    onUpdateControlOption(null);
-    console.log('영상을 업로드 해 주세요.');
+    if (controlOption === 'Video') onUpdateControlOption(null);
+    else onUpdateControlOption('Video');
   };
 
   return (
@@ -49,7 +49,7 @@ const ControlBar = ({ device }: Props) => {
       />
       <Button
         type="Video"
-        isSelected={false}
+        isSelected={controlOption === 'Video'}
         mode={selectedTheme.mode}
         device={device}
         onClick={onClickVideo}
