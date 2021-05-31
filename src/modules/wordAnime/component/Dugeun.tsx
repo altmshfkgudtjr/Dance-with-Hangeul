@@ -1,13 +1,18 @@
 import { useEffect, useRef } from 'react';
-import { CanvasType } from '../types/canvas'
-import BanjjagCanvas from '../templates/canvas/banjjag';
+import DugeunCanvas from '../templates/canvas/dugeun';
 
+interface AppProps {
+  color: string[];
+  backgroundColor: string;
+  fontFamily: string;
+}
 
-function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
+function DugeunComponent({ color, backgroundColor, fontFamily }: AppProps) {
   const ref = useRef(null);
+
   useEffect(() => {
     const canvasRef = ref.current;
-    const canvas = new BanjjagCanvas({
+    const canvas = new DugeunCanvas({
       canvas: canvasRef,
       color,
       backgroundColor,
@@ -16,7 +21,8 @@ function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
     canvas.init();
     canvas.start();
   }, [color, backgroundColor, fontFamily]);
+
   return <canvas ref={ref}></canvas>;
 }
 
-export default Banjjag;
+export default DugeunComponent;
