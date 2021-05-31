@@ -30,6 +30,22 @@ const useRoulette = (element: any) => {
   const touchClientY = useRef<number>(0);
   const rouletteDegree = useRef<number>(0);
 
+  /** 룰렛 특정 idx로 회전 함수 */
+  const onSpinRoulette = useCallback(
+    (templateIdx: number) => {
+      if (!cylinderDom.current) return;
+
+      const value = Number(element.current.dataset.pos) || 0;
+      const degree = value + (templateIdx - currentIdx) * DEGREE_STEP;
+
+      setCurrentIdx(templateIdx);
+
+      element.current.dataset.pos = degree;
+      cylinderDom.current.style.transform = `rotateX(${DEGREE_START + degree}deg)`;
+    },
+    [element, cylinderDom, setCurrentIdx, currentIdx],
+  );
+
   /** 룰렛 요소 클릭 함수 */
   const onClickButton = (e: any) => {
     if (!cylinderDom.current) return;
@@ -38,7 +54,6 @@ const useRoulette = (element: any) => {
     const targetIdx = Number(e.currentTarget.dataset.idx);
     const degree = value + (targetIdx - currentIdx) * DEGREE_STEP;
 
-    // currentIdx.current = targetIdx;
     setCurrentIdx(targetIdx);
 
     element.current.dataset.pos = degree;
@@ -147,6 +162,7 @@ const useRoulette = (element: any) => {
 
   return {
     selectedIdx: currentIdx,
+    onSpinRoulette,
     onClickRouletteButton: onClickButton,
   };
 };

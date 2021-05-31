@@ -56,7 +56,7 @@ const HomeMobile = ({ setShowCanvas }: Props) => {
       <HomeContent time={TransitionTime} step={step} isDirection={isDirection}>
         {/* 룰렛 상태 유지를 위한 조절 */}
         <MobileWrapper isShow={viewStep === 0}>
-          <Consonant device="Mobile" onClickNextStep={onClickNext} />
+          <Consonant device="Mobile" />
           <Roulette device="Mobile" />
         </MobileWrapper>
         {viewStep === 1 && (

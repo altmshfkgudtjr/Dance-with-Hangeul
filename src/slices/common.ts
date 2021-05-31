@@ -23,7 +23,10 @@ const initialState: CommonState = {
 	controlOption: null,
 	quotes: [],
 	isFullscreen: false,
-	selectedConsonant: ''
+	sideMenu: {
+		selectedConsonant: '',
+		selectedTemplateIdx: 0
+	}
 };
 
 
@@ -46,9 +49,12 @@ const commonSlice = createSlice({
 		toggleFullscreen(state) {
 			state.isFullscreen = !state.isFullscreen
 		},
-		/** @dispatch Selected Consonant 갱신 */
-		updateSelectedConsonant(state, action: PayloadAction<string>) {
-			state.selectedConsonant = action.payload;
+		/** @dispatch Sidemenu information 갱신 */
+		updateSideMenuInfo(state, action: PayloadAction<{
+			selectedConsonant?: string,
+			selectedTemplateIdx?: number
+		}>) {
+			state.sideMenu = { ...state.sideMenu, ...action.payload };
 		}
 	}
 });
@@ -58,7 +64,7 @@ export const {
 	updateControlOption,
 	updateQuotes,
 	toggleFullscreen,
-	updateSelectedConsonant
+	updateSideMenuInfo
 } = commonSlice.actions;
 
 
