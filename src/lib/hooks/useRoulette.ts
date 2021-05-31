@@ -12,12 +12,13 @@ const useRoulette = (element: any) => {
    * DEGREE_START: 룰렛 초기 degree
    * DEGREE_PADDING: 룰렛 degree 한계값
    */
-  const DEGREE_STEP = 20;
+  const DEGREE_STEP = 12;
   const DEGREE_START = 0;
   const DEGREE_PADDING = 5;
 
   /** 룰렛에 포함된 요소 개수 */
   const [buttonCount, setButtonCount] = useState<number>(0);
+  const [currentIdx, setCurrentIdx] = useState<number>(0);
 
   /**
    * cylinderDom = 룰렛 DOM Element
@@ -28,19 +29,34 @@ const useRoulette = (element: any) => {
   const cylinderDom = useRef<any>(null);
   const touchClientY = useRef<number>(0);
   const rouletteDegree = useRef<number>(0);
-  const currentIdx = useRef<number>(0);
+
+  /** 룰렛 특정 idx로 회전 함수 */
+  const onSpinRoulette = useCallback(
+    (templateIdx: number) => {
+      if (!cylinderDom.current) return;
+
+      const value = Number(element.current.dataset.pos) || 0;
+      const degree = value + (templateIdx - currentIdx) * DEGREE_STEP;
+
+      setCurrentIdx(templateIdx);
+
+      element.current.dataset.pos = degree;
+      cylinderDom.current.style.transform = `rotateX(${DEGREE_START + degree}deg)`;
+    },
+    [element, cylinderDom, setCurrentIdx, currentIdx],
+  );
 
   /** 룰렛 요소 클릭 함수 */
   const onClickButton = (e: any) => {
     if (!cylinderDom.current) return;
 
-    const value = Number(element.dataset.pos) || 0;
+    const value = Number(element.current.dataset.pos) || 0;
     const targetIdx = Number(e.currentTarget.dataset.idx);
-    const degree = value + (targetIdx - currentIdx.current) * DEGREE_STEP;
+    const degree = value + (targetIdx - currentIdx) * DEGREE_STEP;
 
-    currentIdx.current = targetIdx;
+    setCurrentIdx(targetIdx);
 
-    element.dataset.pos = degree;
+    element.current.dataset.pos = degree;
     cylinderDom.current.style.transform = `rotateX(${DEGREE_START + degree}deg)`;
   };
 
@@ -49,16 +65,16 @@ const useRoulette = (element: any) => {
     (e: any) => {
       if (!cylinderDom.current) return;
 
-      const value = Number(element.dataset.pos) || 0;
+      const value = Number(element.current.dataset.pos) || 0;
       const direction = e.deltaY < 0 ? -1 : 1;
       const degree = value + direction * DEGREE_STEP;
 
       // 룰렛 한계값
-      if (degree === -DEGREE_STEP || degree === buttonCount * DEGREE_STEP) return;
+      if (degree <= -DEGREE_STEP || degree >= buttonCount * DEGREE_STEP) return;
 
-      currentIdx.current += direction;
+      setCurrentIdx(val => val + direction);
 
-      element.dataset.pos = degree;
+      element.current.dataset.pos = degree;
       cylinderDom.current.style.transform = `rotateX(${DEGREE_START + degree}deg)`;
     },
     [element, buttonCount],
@@ -66,7 +82,7 @@ const useRoulette = (element: any) => {
 
   /** 룰렛 TouchDown 함수 */
   const onCursorDown = useCallback(() => {
-    rouletteDegree.current = Number(element.dataset.pos) || 0;
+    rouletteDegree.current = Number(element.current.dataset.pos) || 0;
   }, [element]);
 
   /** 룰렛 TouchMove 함수 */
@@ -74,7 +90,7 @@ const useRoulette = (element: any) => {
     (e: any) => {
       if (!cylinderDom.current) return;
 
-      const value = Number(element.dataset.pos) || 0;
+      const value = Number(element.current.dataset.pos) || 0;
       const { clientY } = e.touches[0];
       const direction = clientY > touchClientY.current ? -1 : 1;
       const degree = value + direction * 3;
@@ -88,7 +104,7 @@ const useRoulette = (element: any) => {
         return;
       }
 
-      element.dataset.pos = degree;
+      element.current.dataset.pos = degree;
       cylinderDom.current.style.transform = `rotateX(${DEGREE_START + degree}deg)`;
     },
     [element, buttonCount],
@@ -99,16 +115,16 @@ const useRoulette = (element: any) => {
     (e: any) => {
       if (!cylinderDom.current) return;
 
-      const value = Number(element.dataset.pos) || 0;
+      const value = Number(element.current.dataset.pos) || 0;
       const diff = Math.round((value % DEGREE_STEP) / DEGREE_STEP)
         ? (value < 0 ? -1 : 1) * (DEGREE_STEP - Math.abs(value % DEGREE_STEP))
         : -(value % DEGREE_STEP);
       const idxDegreeDiff = value + diff - rouletteDegree.current;
       const idxDiff = idxDegreeDiff / DEGREE_STEP;
 
-      currentIdx.current += idxDiff;
+      setCurrentIdx(val => val + idxDiff);
 
-      element.dataset.pos = value + diff;
+      element.current.dataset.pos = value + diff;
       cylinderDom.current.style.transform = `rotateX(${DEGREE_START + value + diff}deg)`;
     },
     [element],
@@ -116,31 +132,37 @@ const useRoulette = (element: any) => {
 
   /** 초기값 설정 */
   useEffect(() => {
-    const cylinderElement = element?.querySelector('div');
+    const cylinderElement = element.current?.querySelector('div');
     if (!cylinderElement) return;
 
-    cylinderDom.current = cylinderElement;
-    setButtonCount(cylinderElement.children.length);
+    // TODO cylinderDom children length 0이 추출되는 버그 수정
+    window.setTimeout(() => {
+      cylinderDom.current = cylinderElement;
+      setButtonCount(cylinderElement.children.length);
+    }, 0);
   }, [element, setButtonCount]);
 
   /** 이벤트 등록 / 해제 작업 */
   useEffect(() => {
-    if (!element) return;
-    element.addEventListener('wheel', onScrollRoulette);
-    element.addEventListener('touchstart', onCursorDown);
-    element.addEventListener('touchmove', onCursorMove);
-    element.addEventListener('touchend', onCursorUp);
+    const targetDom = element.current;
+    if (!targetDom) return;
+    targetDom.addEventListener('wheel', onScrollRoulette);
+    targetDom.addEventListener('touchstart', onCursorDown);
+    targetDom.addEventListener('touchmove', onCursorMove);
+    targetDom.addEventListener('touchend', onCursorUp);
 
     return () => {
-      if (!element) return;
-      element.removeEventListener('wheel', onScrollRoulette);
-      element.removeEventListener('touchstart', onCursorDown);
-      element.removeEventListener('touchmove', onCursorMove);
-      element.removeEventListener('touchend', onCursorUp);
+      if (!targetDom) return;
+      targetDom.removeEventListener('wheel', onScrollRoulette);
+      targetDom.removeEventListener('touchstart', onCursorDown);
+      targetDom.removeEventListener('touchmove', onCursorMove);
+      targetDom.removeEventListener('touchend', onCursorUp);
     };
   }, [element, onScrollRoulette, onCursorDown, onCursorMove, onCursorUp]);
 
   return {
+    selectedIdx: currentIdx,
+    onSpinRoulette,
     onClickRouletteButton: onClickButton,
   };
 };

@@ -10,7 +10,7 @@ const MoveBtn = ({ direction, mode, step, onClick }: Props) => {
   const message = direction === 'Left' ? 'PREV' : 'NEXT';
 
   const isDisplay =
-    direction === 'Left' ? (step > 0 ? true : false) : step < 2 ? true : false;
+    direction === 'Left' ? (step > 0 ? true : false) : step < 1 ? true : false;
 
   return (
     <Container direction={direction} mode={mode} isDisplay={isDisplay} onClick={onClick}>

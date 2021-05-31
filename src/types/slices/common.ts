@@ -9,7 +9,10 @@ export interface CommonState {
   controlOption: ControlOption;
   quotes: Quote[];
   isFullscreen: boolean;
-  selectedConsonant: string;
+  sideMenu: {
+    selectedConsonant: string;
+    selectedTemplateIdx: number;
+  };
 }
 
 /** @type 인용구 타입 */

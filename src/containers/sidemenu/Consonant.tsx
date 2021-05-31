@@ -1,30 +1,40 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // components
 import Wrapper from 'src/components/sidemenu/consonant/Wrapper';
 import ConsonantBtn from 'src/components/sidemenu/consonant/ConsonantBtn';
 // slices
-import { updateSelectedConsonant } from 'src/slices/common';
+import { updateSideMenuInfo } from 'src/slices/common';
 // hooks
 import { useSelector, useDispatch } from 'src/lib/hooks/useStore';
 // types
+import { Template } from 'src/types/template';
 import { Device } from 'src/types/common';
 
-const Consonant = ({ device = 'Desktop', onClickNextStep }: Props) => {
+const Consonant = ({ device = 'Desktop' }: Props) => {
   const dispatch = useDispatch();
   const templates = useSelector(state => state.template.templates);
   const selectedTheme = useSelector(state => state.theme.selectedTheme);
   const selectedTemplate = useSelector(state => state.template.selectedTemplate);
-  const selectedConsonant = useSelector(state => state.common.selectedConsonant);
+  const selectedConsonant = useSelector(state => state.common.sideMenu.selectedConsonant);
+  const [templateList, setTemplateList] = useState<Template[]>([]);
 
   /** 자음 버튼 클릭 */
   const onClickBtn = (consonant: string) => {
-    dispatch(updateSelectedConsonant(consonant));
-    if (device === 'Mobile' && onClickNextStep) onClickNextStep();
+    for (let idx in templateList) {
+      if (templateList[Number(idx)].consonant === consonant) {
+        dispatch(
+          updateSideMenuInfo({
+            selectedTemplateIdx: Number(idx),
+            selectedConsonant: consonant,
+          }),
+        );
+      }
+    }
   };
 
   /** 선택된 자음 갱신 작업 */
   useEffect(() => {
-    dispatch(updateSelectedConsonant(selectedTemplate.consonant));
+    dispatch(updateSideMenuInfo({ selectedConsonant: selectedTemplate.consonant }));
   }, [dispatch, selectedTemplate]);
 
   const BtnList = Object.keys(templates).map(consonant => (
@@ -38,12 +48,23 @@ const Consonant = ({ device = 'Desktop', onClickNextStep }: Props) => {
     />
   ));
 
+  /** Template Flatten 작업 */
+  useEffect(() => {
+    const flattenTemplates = Object.keys(templates).reduce(
+      (acc: Template[], cur: string) => {
+        acc.push(...templates[cur]);
+        return acc;
+      },
+      [],
+    );
+    setTemplateList(flattenTemplates);
+  }, [templates, setTemplateList]);
+
   return <Wrapper>{BtnList}</Wrapper>;
 };
 
 interface Props {
   device?: Device;
-  onClickNextStep?: () => void;
 }
 
 export default Consonant;

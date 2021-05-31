@@ -12,14 +12,21 @@ const SelectedAria = styled.div`
   margin: auto;
   width: calc(100% - 1rem);
   height: 64px;
-  border-radius: 16px;
+  border-radius: 12px;
   background-color: ${palette.purple3};
-  opacity: 0.4;
+  opacity: 0.3;
   z-index: -1;
 
   ${media.small} {
-    width: 94vw;
-    height: 48px;
+    width: 100%;
+    max-width: 300px;
+    height: 64px;
+  }
+
+  ${media.mobileLandscape} {
+    width: 100%;
+    max-width: 400px;
+    height: 64px;
   }
 `;
 

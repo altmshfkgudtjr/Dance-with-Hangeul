@@ -2,6 +2,7 @@ import { lazy, useState, useEffect } from 'react';
 // components
 import WordAnimeLayout from 'src/components/layout/WordAnime';
 import CanvasLayout from 'src/components/layout/Canvas';
+import TemplateLoading from 'src/components/common/TemplateLoading';
 // hook
 import { useSelector, useDispatch } from 'src/lib/hooks/useStore';
 import useTransitionSuspense from 'src/lib/hooks/useTransitionSuspense';
@@ -20,14 +21,13 @@ const WordAnime = ({ isShow }: Props) => {
   const [CanvasComponent, setCanvasComponent] = useState<any>(function () {
     return () => null;
   });
-  const { isFullfilled, DelayedSuspense } = useTransitionSuspense({
+  const { isPending, isFullfilled, DelayedSuspense } = useTransitionSuspense({
     delay: 1000,
   });
 
   /** Canvas component init */
   useEffect(() => {
     if (!selectedTemplate.id) return;
-    // TODO Production 때, 주석 해제하기
     // setCanvasComponent(templateLazyImport(selectedTemplate.id));
     // dispatch(selectTheme(selectedTemplate.themes[0]));
   }, [dispatch, setCanvasComponent, selectedTemplate]);
@@ -46,23 +46,26 @@ const WordAnime = ({ isShow }: Props) => {
   return (
     <>
       {isDisplay && (
-        <WordAnimeLayout time={TransitionTime} isAnime={isAnime}>
-          <DelayedSuspense>
-            <CanvasLayout isFullfilled={isFullfilled}>
-              <CanvasComponent
-                fontFamily={'Nanum Myeongjo'}
-                color={selectedTheme.fgColor}
-                backgroundColor={selectedTheme.bgColor}
-              />
-            </CanvasLayout>
-          </DelayedSuspense>
-        </WordAnimeLayout>
+        <>
+          <TemplateLoading isShow={isShow} isClose={!isPending} />
+          <WordAnimeLayout time={TransitionTime} isAnime={isAnime}>
+            <DelayedSuspense>
+              <CanvasLayout isFullfilled={isFullfilled}>
+                <CanvasComponent
+                  fontFamily={'Nanum Myeongjo'}
+                  color={selectedTheme.fgColor}
+                  backgroundColor={selectedTheme.bgColor}
+                />
+              </CanvasLayout>
+            </DelayedSuspense>
+          </WordAnimeLayout>
+        </>
       )}
     </>
   );
 };
 
-const templateLazyImport = name => {
+const templateLazyImport = (name: string) => {
   return lazy(() => import(`src/modules/wordAnime/component/${name}`));
 };
 

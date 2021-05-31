@@ -42,7 +42,9 @@ const Container = styled.button<{ isSelected: boolean; device: Device; mode: Mod
   }
 
   ${media.mobileLandscape} {
-    margin-right: 8px;
+    width: 50px;
+    height: 50px;
+    margin: 0;
 
     &:active {
       background-color: ${palette.purple3};
@@ -53,8 +55,7 @@ const Container = styled.button<{ isSelected: boolean; device: Device; mode: Mod
 const Name = styled.span`
   display: block;
   color: inherit;
-  margin-top: 3px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
   ${styles.noselect};
 `;

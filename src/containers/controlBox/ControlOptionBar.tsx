@@ -16,11 +16,15 @@ const ControlOptionBar = ({ device }: Props) => {
   const controlOption = useSelector(state => state.common.controlOption);
   const isFullscreen = useSelector(state => state.common.isFullscreen);
 
-  const [optionType, setOptionType] = useState<ControlOption>(null);
+  const [optionType, setOptionType] = useState<ControlOption>(controlOption);
   const [isChanged, setIsChaged] = useState<boolean>(false);
 
   /** 옵션 아이템 전환 작업 */
+  // TODO useState 의존성 변경 하기
+  /* eslint-disable */
   useEffect(() => {
+    if (!optionType) return setOptionType(controlOption);
+
     setIsChaged(true);
     const timer = window.setTimeout(() => {
       setIsChaged(false);
@@ -29,6 +33,7 @@ const ControlOptionBar = ({ device }: Props) => {
 
     return () => window.clearTimeout(timer);
   }, [controlOption, setIsChaged, setOptionType]);
+  /* eslint-enable */
 
   return (
     <Wrapper time={TransitionTime} isFullscreen={isFullscreen} isChanged={isChanged}>
