@@ -10,17 +10,19 @@ const VideoOption = ({ device }: Props) => {
   const TransitionTime = 400;
   const mode = useSelector(state => state.theme.selectedTheme.mode);
 
-  /** 카메라 열기 */
+  /**
+   * 카메라 열기
+   * - 소리 녹음
+   * - 모바일인 경우, 전면 카메라
+   */
   const onCamera = () => {
     const videoTag: HTMLMediaElement | null = document.querySelector('#hangeul-video');
     if (!videoTag) return;
 
     navigator.mediaDevices
-      .getUserMedia({ video: true })
+      .getUserMedia({ audio: true, video: { facingMode: 'user' } })
       .then(stream => (videoTag.srcObject = stream))
-      .catch(err => console.log(err));
-
-    // TODO videoTag 컨트롤러 역할 진행
+      .catch(err => console.log(`[Stream Error] ${err}`));
   };
 
   /** 파일 열기 */
