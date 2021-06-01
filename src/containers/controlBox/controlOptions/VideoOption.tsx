@@ -38,6 +38,7 @@ const VideoOption = ({ device }: Props) => {
   };
 
   /** 영상 파일 업로드 */
+  // TODO 테마 블랙 테마로 변경하기 + Dark 모드 적용
   const onChangeFile = (e: any) => {
     const videoTag = document.querySelector('#hangeul-video');
     if (!videoTag) return;

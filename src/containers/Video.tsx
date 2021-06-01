@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Video = () => {
-  return <VideoInput id="hangeul-video" />;
+  return <VideoInput id="hangeul-video" autoPlay loop />;
 };
 
 const VideoInput = styled.video`
