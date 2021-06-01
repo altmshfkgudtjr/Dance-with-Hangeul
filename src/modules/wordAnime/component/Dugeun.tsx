@@ -20,6 +20,9 @@ function DugeunComponent({ color, backgroundColor, fontFamily }: AppProps) {
     });
     canvas.init();
     canvas.start();
+    return () => {
+      canvas.stop();
+    }
   }, [color, backgroundColor, fontFamily]);
 
   return <canvas ref={ref}></canvas>;
