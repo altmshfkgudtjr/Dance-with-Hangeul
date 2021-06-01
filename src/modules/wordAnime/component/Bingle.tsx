@@ -1,18 +1,17 @@
 import { useEffect, useRef } from 'react';
-import DugeunCanvas from '../templates/canvas/dugeun';
+import BingleCanvas from '../templates/canvas/bingle';
 
-interface AppProps {
+type AppProps = {
   color: string[];
   backgroundColor: string;
   fontFamily: string;
-}
+};
 
-function DugeunComponent({ color, backgroundColor, fontFamily }: AppProps) {
+function Bingle({ color, backgroundColor, fontFamily }: AppProps) {
   const ref = useRef(null);
-
   useEffect(() => {
     const canvasRef = ref.current;
-    const canvas = new DugeunCanvas({
+    const canvas = new BingleCanvas({
       canvas: canvasRef,
       color,
       backgroundColor,
@@ -24,8 +23,7 @@ function DugeunComponent({ color, backgroundColor, fontFamily }: AppProps) {
       canvas.stop();
     }
   }, [color, backgroundColor, fontFamily]);
-
   return <canvas ref={ref}></canvas>;
 }
 
-export default DugeunComponent;
+export default Bingle;

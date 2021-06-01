@@ -18,7 +18,9 @@ export class Du extends Hangul {
         this.frame += 1
         super.draw(() => {
 
-            if (this.frame <= this.scenes[1]) {
+            if (this.life > this.maxLife - 40) {
+                this.scale = easeInExpo(this.progress(0, 40, this.maxLife - this.life));
+            } else if (this.frame <= this.scenes[1]) {
                 this.scale = 1 + (easeInExpo(this.progress(this.scenes[0], this.scenes[1], this.frame)) * 0.1)
             } else if (this.frame <= this.scenes[2]) {
                 this.scale = 1.1 - (easeOutExpo(this.progress(this.scenes[1], this.scenes[2], this.frame)) * 0.1)
@@ -38,8 +40,13 @@ export class Du extends Hangul {
             } else {
                 this.frame = 0
             }
+
+
             this.ctx.scale(this.scale, this.scale)
+
         });
+
+
     }
 }
 
@@ -54,10 +61,11 @@ export class Geun extends Hangul {
     }
     draw() {
         this.frame += 1
-        let num = 0;
         super.draw(() => {
 
-            if (this.frame <= this.scenes[1]) {
+            if (this.life > this.maxLife - 40) {
+                this.scale = easeInExpo(this.progress(0, 40, this.maxLife - this.life));
+            } else if (this.frame <= this.scenes[1]) {
                 this.scale = 1 + (easeInExpo(this.progress(this.scenes[0], this.scenes[1], this.frame)) * 0.1)
             } else if (this.frame <= this.scenes[2]) {
                 this.scale = 1.1 - (easeOutExpo(this.progress(this.scenes[1], this.scenes[2], this.frame)) * 0.1)

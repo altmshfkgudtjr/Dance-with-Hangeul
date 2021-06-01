@@ -31,6 +31,7 @@ export default class HangulCanvas {
 
   stop() {
     cancelAnimationFrame(this.animation);
+    this.objects.length = 0;
   }
   reset() {
     this.ctx.restore();
