@@ -48,15 +48,16 @@ export default class Hangul {
     this.life = this.life ? this.life : 300;
   }
 
-  draw(addFunc = () => { }) {
+  draw(after = () => { }, before = () => { }) {
     this.ctx.save();
+    before();
     this.ctx.fillStyle = this.color;
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
     this.ctx.rotate((this.rotate * Math.PI) / 180);
-    addFunc();
+    after();
 
     this.ctx.fillText(this.text, 0, 0);
 
