@@ -15,6 +15,9 @@ function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
     });
     canvas.init();
     canvas.start();
+    return () => {
+      canvas.stop();
+    }
   }, [color, backgroundColor, fontFamily]);
   return <canvas ref={ref}></canvas>;
 }
