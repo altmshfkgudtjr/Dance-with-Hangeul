@@ -50,7 +50,7 @@ const WordAnime = ({ isShow }: Props) => {
           <TemplateLoading isShow={isShow} isClose={!isPending} />
           <WordAnimeLayout time={TransitionTime} isAnime={isAnime}>
             <DelayedSuspense>
-              <CanvasLayout isFullfilled={isFullfilled}>
+              <CanvasLayout id="hageul-cavnas" isFullfilled={isFullfilled}>
                 <CanvasComponent
                   fontFamily={'Nanum Myeongjo'}
                   color={selectedTheme.fgColor}

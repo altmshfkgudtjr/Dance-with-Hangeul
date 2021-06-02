@@ -6,7 +6,7 @@ import QuoteScreen from 'src/containers/lauchScreen/QuoteScreen';
 import LaunchScreenLayout from 'src/components/layout/LaunchScreen';
 // slices
 import { getQuotes } from 'src/slices/common';
-import { getThemes } from 'src/slices/theme';
+import { getThemes, getDefaultThemes } from 'src/slices/theme';
 import { getTemplates } from 'src/slices/template';
 // hooks
 import { useDispatch } from 'src/lib/hooks/useStore';
@@ -28,6 +28,7 @@ const LaunchScreen = ({ time = 5000, isFullfilled }: Props) => {
   useEffect(() => {
     dispatch(getQuotes());
     dispatch(getThemes());
+    dispatch(getDefaultThemes());
     dispatch(getTemplates());
   }, [dispatch]);
 

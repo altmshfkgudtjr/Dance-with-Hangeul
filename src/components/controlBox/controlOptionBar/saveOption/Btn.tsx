@@ -45,6 +45,9 @@ const Container = styled.button<{ time: number; mode: Mode }>`
   &:nth-child(2) {
     animation-delay: 200ms;
   }
+  &:nth-child(3) {
+    animation-delay: 300ms;
+  }
 
   & > svg {
     width: 12px;
