@@ -3,9 +3,12 @@ export default class Julug extends Hangul {
   constructor(props) {
     super(props);
 
-    this.text2 = '주';
+
     this.text = '룩';
+    this.subText = Math.random() > 0.9 ? ['주', '룩', '주'] : ['주']
     this.acc_value = 1;
+    this.gravityValue = props.gravity
+
   }
 
   draw() {
@@ -14,7 +17,9 @@ export default class Julug extends Hangul {
     this.detectBottom(0);
 
     super.draw(() => {
-      this.ctx.fillText(this.text2, 0, -this.fontSize);
+      this.subText.forEach((text, index) => {
+        this.ctx.fillText(text, 0, -this.fontSize * (index + 1));
+      })
     })
   }
 

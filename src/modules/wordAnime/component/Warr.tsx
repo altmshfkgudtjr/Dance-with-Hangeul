@@ -1,13 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import WarrCanvas from '../templates/canvas/warr';
 
-type AppProps = {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-};
-
-function Warr({ color, backgroundColor, fontFamily }: AppProps) {
+function Warr({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
   useEffect(() => {
     const canvasRef = ref.current;

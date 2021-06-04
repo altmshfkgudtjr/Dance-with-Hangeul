@@ -5,6 +5,7 @@ import { getRandomInt } from '../utils';
 export default class Canvas_Banjjag extends HangulCanvas {
   constructor(props) {
     super(props);
+    this.subBackgroundColor = props.subBackgroundColor;
     this.maxCooltime = 10;
     this.sparkleCooltime = 10;
     this.maxObjectCount = 20;
@@ -59,7 +60,7 @@ export default class Canvas_Banjjag extends HangulCanvas {
     this.ctx.save();
     this.ctx.fillStyle = this.backgroundColor;
     this.ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-    this.ctx.fillStyle = '#080816';
+    this.ctx.fillStyle = this.subBackgroundColor;
     this.ctx.filter = `blur(100px)`;
     this.ctx.beginPath();
     this.ctx.ellipse(this.width * 0.5, this.height * 0.5, this.width * 0.4, this.height * 0.4, 0, 0, Math.PI * 2);

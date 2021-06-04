@@ -6,7 +6,8 @@ import WordComponent from 'src/modules/wordAnime/component/Bingle';
 const LabPage = () => {
   return (
     <WordAnimeLayout>
-      <WordComponent />
+      <WordComponent
+        subBackgroundColor="#123456" />
     </WordAnimeLayout>
   );
 };

@@ -3,7 +3,7 @@ import { CanvasType } from '../types/canvas'
 import BanjjagCanvas from '../templates/canvas/banjjag';
 
 
-function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
+function Banjjag({ color, backgroundColor, subBackgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
   useEffect(() => {
     const canvasRef = ref.current;
@@ -11,6 +11,7 @@ function Banjjag({ color, backgroundColor, fontFamily }: CanvasType) {
       canvas: canvasRef,
       color,
       backgroundColor,
+      subBackgroundColor,
       fontFamily,
     });
     canvas.init();

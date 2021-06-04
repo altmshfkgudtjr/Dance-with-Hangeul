@@ -1,13 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import KkeongchungCanvas from '../templates/canvas/kkeongchung';
 
-type AppProps = {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-};
-
-function Kkeongchung({ color, backgroundColor, fontFamily }: AppProps) {
+function Kkeongchung({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
   useEffect(() => {
     const canvasRef = ref.current;
@@ -19,6 +14,10 @@ function Kkeongchung({ color, backgroundColor, fontFamily }: AppProps) {
     });
     canvas.init();
     canvas.start();
+
+    return () => {
+      canvas.stop();
+    }
   }, [color, backgroundColor, fontFamily]);
   return <canvas ref={ref}></canvas>;
 }

@@ -1,13 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import SyagCanvas from '../templates/canvas/syag';
 
-interface AppProps {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-}
-
-function TongComponent({ color, backgroundColor, fontFamily }: AppProps) {
+function TongComponent({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
 
   useEffect(() => {

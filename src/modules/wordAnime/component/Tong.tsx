@@ -1,13 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import TongCanvas from '../templates/canvas/tong';
 
-interface AppProps {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-}
 
-function TongComponent({ color, backgroundColor, fontFamily }: AppProps) {
+function TongComponent({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
 
   useEffect(() => {
