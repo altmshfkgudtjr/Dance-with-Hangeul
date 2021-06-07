@@ -1,13 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import KickCanvas from '../templates/canvas/kick';
 
-type AppProps = {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-};
 
-function Kick({ color, backgroundColor, fontFamily }: AppProps) {
+function Kick({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
   useEffect(() => {
     const canvasRef = ref.current;

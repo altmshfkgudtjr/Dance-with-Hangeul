@@ -14,7 +14,7 @@ export default class Bingle extends Hangul {
     this.move();
 
     const after = () => {
-      this.rotate += this.x_acc / 2
+      this.rotate += 1
       if (this.life > this.maxLife - 30) {
         this.scale = this.progress(0, 30, this.maxLife - this.life)
         this.distance = this.progress(0, 30, this.maxLife - this.life) * this.maxDistance;

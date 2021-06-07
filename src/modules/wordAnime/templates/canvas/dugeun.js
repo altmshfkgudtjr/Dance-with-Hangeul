@@ -33,7 +33,7 @@ class Canvas_Dugeun extends HangulCanvas {
         return {
             ...params,
             fontSize: 250 * this.rectSum,
-            y: this.height * 0.4,
+            y: this.height * 0.45,
             life: 999999,
         };
     }

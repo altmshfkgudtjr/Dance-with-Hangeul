@@ -2,7 +2,7 @@ import HangulCanvas from '../HangulCanvas';
 import Bingle from '../hangul/bingle';
 import { getRandomInt } from '../utils';
 
-const textArray = ['빙', '글', '뱅', '글'];
+const textArray = ['빙', '글', '빙', '글'];
 export default class Canvas_Bingle extends HangulCanvas {
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ export default class Canvas_Bingle extends HangulCanvas {
         this.ctx.globalAlpha = 1;
         this.ctx.fillStyle = '#fff';
         this.maxCooltime = 100
-        this.maxObjectCount = 40
+        this.maxObjectCount = 20
     }
 
     start() {
@@ -29,6 +29,7 @@ export default class Canvas_Bingle extends HangulCanvas {
         };
         this.animation = requestAnimationFrame(step);
     }
+
     getParams() {
         const acc = 12.5 * this.rectSum;
         const groupId = new Date();
@@ -36,7 +37,7 @@ export default class Canvas_Bingle extends HangulCanvas {
         const paramsArray = [];
 
         const maxCount = 7;
-        const count = getRandomInt(4, maxCount) * 2;
+        const count = 30;
         const x = getRandomInt(this.width * 0.2, this.width * 0.7);
         const y = getRandomInt(this.height * 0.3, this.height * 0.8)
         const fontSize = 60 * this.rectSum;
@@ -47,11 +48,10 @@ export default class Canvas_Bingle extends HangulCanvas {
             ...superParams,
             groupId: groupId,
             fontSize: fontSize,
-            life: 800,
-            x: x,
-            y: y,
-            x_acc: x_acc,
-            y_acc: y_acc,
+            life: 99999,
+            x: this.width * 0.5,
+            y: this.height * 0.45,
+            rotate: 1,
         };
 
         let i;
