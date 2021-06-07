@@ -4,12 +4,14 @@ import { Kkeong } from '../hangul/kkeongchung';
 export default class Canvas_Warr extends HangulCanvas {
     constructor(props) {
         super(props);
-        this.maxObjectCount = 3;
+        this.HangulClass = Kkeong;
+        this.maxObjectCount = this.width < 800 ? 4 : 3;
         this.maxCooltime = 40;
         this.count = 0
+        this.latterSpacing = -5 * this.rectSum;
     }
     init() {
-        this.canvas.style.letterSpacing = '-10px';
+        this.canvas.style.letterSpacing = `${this.latterSpacing}px`;
         this.ctx = this.canvas.getContext('2d');
         this.ctx.save();
 
@@ -32,42 +34,41 @@ export default class Canvas_Warr extends HangulCanvas {
         this.cooltime += 1;
         if (this.cooltime < this.maxCooltime) return;
         if (this.objects.length >= this.maxObjectCount) return;
-        this.objects.push(new Kkeong(this.getKkeongParams()));
-        //this.objects.push(new Chung(this.getChungParams()));
+        this.objects.push(new Kkeong(this.getParams()));
         this.cooltime = 0;
         this.count += 1
     }
-    getKkeongParams() {
+    getParams() {
         const params = super.getParams();
-        let fontSize, x, y, x_acc, y_acc, bottom
-        if (this.count % 3 == 0) {
+        const num = this.count % this.maxObjectCount;
+        let x_acc = 9 * this.rectSum - ((6 * this.rectSum) * (num / this.maxObjectCount));
+        const y_acc = -25 + (15 * (num / this.maxObjectCount));
+        let fontSize, x, bottom
+        if (num == 0) {
             fontSize = 150 * this.rectSum;
             bottom = window.innerHeight - (fontSize / 2)
             x = -fontSize * 2;
-            y = bottom;
-            x_acc = 9
-            y_acc = -25
-        } else if (this.count % 3 == 1) {
+        } else if (num == 1) {
             fontSize = 100 * this.rectSum;
-            bottom = window.innerHeight * 0.7 - (fontSize / 2)
+            x_acc *= -1
+            bottom = window.innerHeight * (1 - (num / this.maxObjectCount)) - (fontSize / 2)
             x = this.width;
-            y = bottom;
-            x_acc = -6
-            y_acc = -20
-        } else if (this.count % 3 == 2) {
-            fontSize = 50 * this.rectSum;
-            bottom = window.innerHeight * 0.3 - (fontSize / 2)
+        } else if (num == 2) {
+            fontSize = 70 * this.rectSum;
+            bottom = window.innerHeight * (1 - (num / this.maxObjectCount)) - (fontSize / 2)
             x = -fontSize * 2;
-            y = bottom;
-            x_acc = 3
-            y_acc = -16
+        } else if (num === 3) {
+            fontSize = 50 * this.rectSum;
+            x_acc *= -1
+            bottom = window.innerHeight * (1 - (num / this.maxObjectCount)) - (fontSize / 2)
+            x = this.width;
         }
 
         return {
             ...params,
             fontSize: fontSize,
             x: x,
-            y: y,
+            y: bottom,
             default_x_acc: x_acc,
             default_y_acc: y_acc,
             bottom: bottom,
@@ -75,17 +76,7 @@ export default class Canvas_Warr extends HangulCanvas {
             life: 3000,
         };
     }
-    getChungParams() {
-        const params = super.getParams();
-        const fontSize = 150 * this.rectSum;
-        return {
-            ...params,
-            fontSize: fontSize,
-            x: fontSize - 10,
-            y: window.innerHeight - (fontSize / 2),
-            life: 1000,
-        };
-    }
+
 
 
 }

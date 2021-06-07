@@ -1,13 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import DugeunCanvas from '../templates/canvas/dugeun';
 
-interface AppProps {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-}
-
-function DugeunComponent({ color, backgroundColor, fontFamily }: AppProps) {
+function DugeunComponent({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
 
   useEffect(() => {

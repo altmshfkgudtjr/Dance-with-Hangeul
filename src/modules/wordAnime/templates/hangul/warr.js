@@ -8,36 +8,26 @@ export default class Warr extends Hangul {
     this.gravityValue = 2;
     this.acc_value = 2;
     this.x_acc = 0;
-    this.y_acc = 20;
+    this.y_acc = 45;
 
     this.rotate_acc = props.rotate_acc;
-    this.isGravity = props.isGravity === false ? props.isGravity : true;
+    this.vibeValue = 1;
   }
 
 
   draw() {
-    if (this.life < this.finLife) this.gravity();
+    if (this.life < this.finLife) {
+      this.gravity();
+      this.rotate += this.rotate_acc
+    }
     this.airResistance();
     this.vibe();
-    this.detectBottom();
-    this.detectLeft();
-    this.detectRight();
     this.move();
 
-    this.ctx.save();
-    //this.drawPadding();
-    this.ctx.fillStyle = this.color;
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
-    this.ctx.translate(this.x, this.y);
-    this.ctx.rotate((this.rotate * Math.PI) / 180);
-    this.ctx.globalAlpha = this.opacity;
+    super.draw(() => {
 
-    this.ctx.fillText(this.text, 0, 0);
-    this.ctx.restore();
+    })
 
-    this.destory();
   }
 
   gravity() { this.y_acc += this.gravityValue; }
@@ -54,61 +44,19 @@ export default class Warr extends Hangul {
 
 
   destory() {
-    if (this.life >= 0) {
-      this.life -= 1;
-      if (this.life < this.finLife && this.life >= this.finLife - 20) {
-        this.isGravity = true;
-      } else if (-1 < this.life && this.life <= 60) {
-        this.opacity = this.life / 60;
-      } else if (this.life > this.maxLife) {
-        this.life = -1;
-      }
-    }
-  }
-  detect(obj) {
-    const x = this.x - obj.x;
-    const y = this.y - obj.y;
-    const originDistance = this.fontSize / 2 + obj.fontSize / 2
-    const padding = 1
-    const distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) * padding;
-    if (distance < originDistance * 0.9) {
-      const radian = Math.atan2(y, x);
-      //const f = originDistance - distance;
+    super.destory(() => {
 
-      this.x_acc += Math.sin(radian + Math.PI / 2);
-      this.y_acc = 0;
-    } else {
-    }
+    })
+
   }
 
-  detectBottom() {
-    const bottom = window.innerHeight - (this.fontSize / 2);
-    if (this.y + this.y_acc > bottom) {
-      this.y = bottom
-      this.y_acc *= -0.5
-    }
-  }
-  detectLeft() {
-    const left = (this.fontSize / 2);
-    if (this.x + this.x_acc < left) {
-      this.x = left
-      this.x_acc *= -0.5
-    }
-  }
-  detectRight() {
-    const right = window.innerWidth - (this.fontSize / 2);
-    if (this.x + this.x_acc > right) {
-      this.x = right
-      this.x_acc *= -0.5
-    }
-  }
 
 
   vibe() {
     if (this.life < this.maxLife - 60 && this.life > this.finLife) {
       this.x += this.vibeValue;
       this.vibeValue *= -1.01;
-      if (this.vibeValue > 10) this.vibeValue = 10;
+      if (this.vibeValue > 5) this.vibeValue = 10;
     }
   }
 }

@@ -1,13 +1,9 @@
 import { useEffect, useRef } from 'react';
+import { CanvasType } from '../types/canvas'
 import BingleCanvas from '../templates/canvas/bingle';
 
-type AppProps = {
-  color: string[];
-  backgroundColor: string;
-  fontFamily: string;
-};
 
-function Bingle({ color, backgroundColor, fontFamily }: AppProps) {
+function Bingle({ color, backgroundColor, fontFamily }: CanvasType) {
   const ref = useRef(null);
   useEffect(() => {
     const canvasRef = ref.current;

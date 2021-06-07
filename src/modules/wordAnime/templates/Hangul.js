@@ -12,7 +12,6 @@ export default class Hangul {
     this.ctx = props.ctx;
 
     this.groupId = props.groupId;
-
     this.text = props.text;
     this.fontSize = props.fontSize;
     this.fontFamily = props.fontFamily;
@@ -29,10 +28,7 @@ export default class Hangul {
     this.finLife = props.finLife;
     this.gravityValue = 2;
 
-
     this.init();
-
-    //this.paddingVisiable = true;
   }
 
   init() {
