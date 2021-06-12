@@ -23,21 +23,21 @@ const PaletteOption = ({ device }: Props) => {
   const onClickPalette = (theme: Theme) => dispatch(updateSelectedTheme(theme));
 
   const PaletteList = isVideo
-    ? defaultThemes.map(theme => (
+    ? defaultThemes.map((theme, idx) => (
         <PaletteBtn
-          key={theme.id}
+          key={idx}
           time={TransitionTime}
           isSelected={theme.id === selectedTheme.id}
-          colors={theme.fgColor}
+          colors={[theme.bgColor, ...theme.fgColor]}
           onClick={() => onClickPalette(theme)}
         />
       ))
-    : selectedTemplate.themes.map(themeId => (
+    : selectedTemplate.themes.map((themeId, idx) => (
         <PaletteBtn
-          key={themeId}
+          key={idx}
           time={TransitionTime}
           isSelected={themeId === selectedTheme.id}
-          colors={themes[themeId].fgColor}
+          colors={[themes[themeId].bgColor, ...themes[themeId].fgColor]}
           onClick={() => onClickPalette(themes[themeId])}
         />
       ));

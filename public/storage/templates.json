@@ -135,6 +135,23 @@
         "T_ffffff_ffcb87",
         "T_ffffff_ffb5b5"
       ]
+    },
+    {
+      "id": "Bingle",
+      "name": "빙글빙글",
+      "consonant": "ㅂ",
+      "pronunciation": "Binglebingle",
+      "info": {
+        "ko": "동그랗게 맴도는 모양",
+        "en": "Round and round"
+      },
+      "themes": [
+        "T_ffffff_000000",
+        "T_000000_ffffff",
+        "T_ffffff_84d384",
+        "T_ffffff_ffcb87",
+        "T_ffffff_ffb5b5"
+      ]
     }
   ]
 }
