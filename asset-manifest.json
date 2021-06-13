@@ -8,9 +8,9 @@
     "static/js/5.bc6987ba.chunk.js": "/Dance-with-Hangeul/static/js/5.bc6987ba.chunk.js",
     "static/js/6.b95745bc.chunk.js": "/Dance-with-Hangeul/static/js/6.b95745bc.chunk.js",
     "static/js/7.7ba4d7b8.chunk.js": "/Dance-with-Hangeul/static/js/7.7ba4d7b8.chunk.js",
-    "home.js": "/Dance-with-Hangeul/static/js/home.d7d8a7b2.chunk.js",
+    "home.js": "/Dance-with-Hangeul/static/js/home.6dad6ae6.chunk.js",
     "main.js": "/Dance-with-Hangeul/static/js/main.0e95d06d.chunk.js",
-    "runtime-main.js": "/Dance-with-Hangeul/static/js/runtime-main.0199918a.js",
+    "runtime-main.js": "/Dance-with-Hangeul/static/js/runtime-main.c1c26fa5.js",
     "static/js/11.64b2abbb.chunk.js": "/Dance-with-Hangeul/static/js/11.64b2abbb.chunk.js",
     "static/js/12.d17b51e1.chunk.js": "/Dance-with-Hangeul/static/js/12.d17b51e1.chunk.js",
     "index.html": "/Dance-with-Hangeul/index.html",
@@ -27,7 +27,7 @@
     "static/media/video.2fef7145.svg": "/Dance-with-Hangeul/static/media/video.2fef7145.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0199918a.js",
+    "static/js/runtime-main.c1c26fa5.js",
     "static/js/11.64b2abbb.chunk.js",
     "static/js/main.0e95d06d.chunk.js"
   ]
