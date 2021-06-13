@@ -28,10 +28,10 @@
         "en": "The sound of laughing in my mouth"
       },
       "themes": [
-        "T_ffffff_000000",
-        "T_000000_ffffff",
         "T_ffe055_f43232_4f78ff",
-        "T_eafed0_2ea1f9_4f78ff"
+        "T_eafed0_2ea1f9_4f78ff",
+        "T_ffffff_000000",
+        "T_000000_ffffff"
       ]
     },
     {
@@ -60,11 +60,11 @@
         "en": "The sound or shape of what is crumbling"
       },
       "themes": [
-        "T_ffffff_000000",
-        "T_000000_ffffff",
         "T_5D6267_ffffff",
         "T_ffffff_ff9205_ffb25a",
-        "T_ffffff_75d1d5_20989d"
+        "T_ffffff_75d1d5_20989d",
+        "T_ffffff_000000",
+        "T_000000_ffffff"
       ]
     },
     {
@@ -77,8 +77,8 @@
         "en": "The action that humans, animals or things are moving fast"
       },
       "themes": [
-        "T_ffffff_000000",
         "T_000000_ffffff",
+        "T_ffffff_000000",
         "T_ffffff_ffcb87",
         "T_ffffff_ffb5b5",
         "T_e1f7e1_219821_9ad09a"
@@ -126,17 +126,17 @@
       "id": "Bingle",
       "name": "빙글빙글",
       "consonant": "ㅂ",
-      "pronunciation": "Binglebingle",
+      "pronunciation": "Bingle bingle",
       "info": {
         "ko": "동그랗게 맴도는 모양",
         "en": "Round and round"
       },
       "themes": [
-        "T_ffffff_000000",
-        "T_000000_ffffff",
-        "T_84d384_ffffff",
         "T_b62424_ffffff",
-        "T_ffffff_d1b7ff_a77af7"
+        "T_84d384_ffffff",
+        "T_ffffff_d1b7ff_a77af7",
+        "T_ffffff_000000",
+        "T_000000_ffffff"
       ]
     }
   ]

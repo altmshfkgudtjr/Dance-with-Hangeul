@@ -73,6 +73,11 @@ const VideoOption = ({ device }: Props) => {
 
     videoTag.srcObject = null;
     dispatch(updateIsVideo(false));
+
+    const themeId = selectedTemplate.themes[0];
+    if (!themeId) return;
+
+    dispatch(selectTheme(themeId));
   };
 
   /** 영상이 존재여부에 따른 테마 및 모드 변경 작업 */
@@ -82,16 +87,12 @@ const VideoOption = ({ device }: Props) => {
 
     if (isExist) {
       dispatch(selectTheme('T_000000_ffffff'));
-      const target = document.querySelector('#hageul-cavnas');
+      const target = document.querySelector('#hageul-canvas');
       if (!target) return;
 
       target.setAttribute('style', 'background-color: black;');
     } else {
-      const themeId = selectedTemplate.themes[0];
-      if (!themeId) return;
-
-      dispatch(selectTheme(themeId));
-      const target = document.querySelector('#hageul-cavnas');
+      const target = document.querySelector('#hageul-canvas');
       if (!target) return;
 
       target.removeAttribute('style');
