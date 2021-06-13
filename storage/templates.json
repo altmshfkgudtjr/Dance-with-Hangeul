@@ -11,9 +11,9 @@
         "en": "The sound of light objects falling and bounces"
       },
       "themes": [
-        "T_ffffff_ffb5b5",
-        "T_ffffff_ffcb87",
-        "T_ffffff_84d384",
+        "T_ffffff_ffb5b5_ff9898_ffd0d0",
+        "T_ffffff_ffcb87_ffbb61_f9d2a0",
+        "T_ffffff_84d384_aae9aa_bee9be",
         "T_000000_ffffff",
         "T_ffffff_000000"
       ]
@@ -28,10 +28,10 @@
         "en": "The sound of laughing in my mouth"
       },
       "themes": [
+        "T_ffe055_f43232_4f78ff",
+        "T_eafed0_2ea1f9_4f78ff",
         "T_ffffff_000000",
-        "T_000000_ffffff",
-        "T_ffffff_75d1d5_20989d",
-        "T_ffffff_d1b7ff_a77af7"
+        "T_000000_ffffff"
       ]
     },
     {
@@ -45,10 +45,9 @@
       },
       "themes": [
         "T_000000_ffffff",
-        "T_ffffff_000000",
-        "T_ffffff_ffcb87",
-        "T_ffffff_75d1d5_20989d",
-        "T_ffffff_d1b7ff_a77af7"
+        "T_000000_b238ff_fa0fbf",
+        "T_ffffff_d1b7ff_a77af7",
+        "T_ffffff_75d1d5_20989d"
       ]
     },
     {
@@ -61,11 +60,11 @@
         "en": "The sound or shape of what is crumbling"
       },
       "themes": [
+        "T_5D6267_ffffff",
+        "T_ffffff_ff9205_ffb25a",
+        "T_ffffff_75d1d5_20989d",
         "T_ffffff_000000",
-        "T_000000_ffffff",
-        "T_ffffff_84d384",
-        "T_ffffff_ffcb87",
-        "T_ffffff_ffb5b5"
+        "T_000000_ffffff"
       ]
     },
     {
@@ -78,11 +77,11 @@
         "en": "The action that humans, animals or things are moving fast"
       },
       "themes": [
-        "T_ffffff_000000",
         "T_000000_ffffff",
-        "T_ffffff_84d384",
+        "T_ffffff_000000",
         "T_ffffff_ffcb87",
-        "T_ffffff_ffb5b5"
+        "T_ffffff_ffb5b5",
+        "T_e1f7e1_219821_9ad09a"
       ]
     },
     {
@@ -95,11 +94,10 @@
         "en": "The appearance of jumping through any step at once"
       },
       "themes": [
-        "T_ffffff_000000",
-        "T_000000_ffffff",
+        "T_e0e8f4_feac1e_cb8000",
+        "T_e1f7e1_ffc404_fba8ff",
         "T_ffffff_84d384",
-        "T_ffffff_ffcb87",
-        "T_ffffff_ffb5b5"
+        "T_000000_ffffff"
       ]
     },
     {
@@ -111,13 +109,7 @@
         "ko": "몹시 놀라거나 불안하여 자꾸 가슴이 뛰는 모양",
         "en": "The appearance of being very surprised or anxious and the heart keeps beating"
       },
-      "themes": [
-        "T_ffffff_000000",
-        "T_000000_ffffff",
-        "T_ffffff_84d384",
-        "T_ffffff_ffcb87",
-        "T_ffffff_ffb5b5"
-      ]
+      "themes": ["T_f4b0ff_f7a4d0", "T_3c506d_ff8289", "T_ff8c8c_ffffff"]
     },
     {
       "id": "Julug",
@@ -128,12 +120,23 @@
         "ko": "굵은 물줄기나 빗물 따위가 빠르게 자꾸 흐르거나 내리는 소리. 또는 그 모양",
         "en": "The sound of rapid flowing or falling of thick water or rainwater. or its shape"
       },
+      "themes": ["T_387eff_ffffff", "T_65728a_ffffff", "T_000000_ffffff"]
+    },
+    {
+      "id": "Bingle",
+      "name": "빙글빙글",
+      "consonant": "ㅂ",
+      "pronunciation": "Bingle bingle",
+      "info": {
+        "ko": "동그랗게 맴도는 모양",
+        "en": "Round and round"
+      },
       "themes": [
+        "T_b62424_ffffff",
+        "T_84d384_ffffff",
+        "T_ffffff_d1b7ff_a77af7",
         "T_ffffff_000000",
-        "T_000000_ffffff",
-        "T_ffffff_84d384",
-        "T_ffffff_ffcb87",
-        "T_ffffff_ffb5b5"
+        "T_000000_ffffff"
       ]
     }
   ]
