@@ -8,9 +8,8 @@ export default class Warr extends Hangul {
     this.gravityValue = 2;
     this.acc_value = 2;
     this.x_acc = 0;
-    this.y_acc = 45;
 
-    this.rotate_acc = props.rotate_acc;
+    this.angle_acc = props.angle_acc;
     this.vibeValue = 1;
   }
 
@@ -18,7 +17,7 @@ export default class Warr extends Hangul {
   draw() {
     if (this.life < this.finLife) {
       this.gravity();
-      this.rotate += this.rotate_acc
+      this.angle += this.angle_acc
     }
     this.airResistance();
     this.vibe();

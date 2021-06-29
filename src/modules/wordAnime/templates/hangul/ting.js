@@ -2,7 +2,7 @@ class Ting extends Hangul {
   constructor(props) {
     super(props);
     this.acc_value = 2;
-    this.rotate_acc = props.rotate_acc;
+    this.angle_acc = props.angle_acc;
     this.isGravity = props.isGravity ?? true;
     this.isStop = false;
     this.isRotate = false;
@@ -36,7 +36,7 @@ class Ting extends Hangul {
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
-    this.ctx.rotate((this.rotate * Math.PI) / 180);
+    this.ctx.rotate((this.angle * Math.PI) / 180);
     this.ctx.transform(1, this.c, 0, 1, 0, 0);
     this.ctx.globalAlpha = this.opacity;
 
@@ -51,7 +51,7 @@ class Ting extends Hangul {
     if (bottom > this.y + this.fontSize / 2) {
       this.y_acc += this.acc_value;
       this.y += this.y_acc;
-      this.rotate += this.rotate_acc;
+      this.angle += this.angle_acc;
       this.x_acc += getRandomInt(-2, 2);
     }
     if (this.y + this.fontSize / 2 >= bottom) {
@@ -127,8 +127,8 @@ class Ting extends Hangul {
       this.y_acc = Math.cos(radian - Math.PI / 2) * this.crush_acc * 4;
       obj.x_acc = Math.sin(radian + Math.PI / 2) * -obj.crush_acc * 5;
       obj.y_acc = Math.cos(radian - Math.PI / 2) * -obj.crush_acc * 4;
-      this.rotate += this.rotate_acc;
-      obj.rotate += this.rotate_acc;
+      this.angle += this.angle_acc;
+      obj.angle += this.angle_acc;
 
       return 0;
     }

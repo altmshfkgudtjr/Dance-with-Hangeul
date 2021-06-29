@@ -41,6 +41,7 @@ export default class Canvas_Warr extends HangulCanvas {
       x: x,
       y: 0,
       life: 700,
+      y_acc: 50
     };
     let i, j, finLife;
     for (j = 0; j < lineCount; j++) {
@@ -61,8 +62,8 @@ export default class Canvas_Warr extends HangulCanvas {
           y: 0 - (fontSize - 0) * j,
           line: j,
           finLife: finLife,
-          rotate: getRandomInt(-20, 20),
-          rotate_acc: getRandomInt(-5, 5),
+          angle: getRandomInt(-20, 20),
+          angle_acc: Math.random() > 0.5 ? getRandomInt(3, 5) : getRandomInt(-3, -5),
         });
       }
     }

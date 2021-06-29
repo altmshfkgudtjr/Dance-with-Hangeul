@@ -80,7 +80,7 @@ export default class Canvas_Banjjag extends HangulCanvas {
       x_acc: getRandomInt(5, 10) / -20,
       life: 120,
       finLife: 30,
-      rotate: getRandomInt(-20, 20),
+      angle: getRandomInt(-20, 20),
     };
   }
   getSparkleParams() {
@@ -95,7 +95,7 @@ export default class Canvas_Banjjag extends HangulCanvas {
       x_acc: getRandomInt(1, 2) / -5,
       life: 300,
       finLife: 30,
-      rotate: getRandomInt(-20, 20),
+      angle: getRandomInt(-20, 20),
     };
   }
 }

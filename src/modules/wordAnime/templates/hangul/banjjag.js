@@ -31,7 +31,7 @@ export class Banjjag extends Hangul {
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
-    this.ctx.rotate((this.rotate * Math.PI) / 180);
+    this.ctx.rotate((this.angle * Math.PI) / 180);
 
     this.fadeIn();
 
@@ -116,7 +116,7 @@ export class Sparkle extends Hangul {
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
-    this.ctx.rotate((this.rotate * Math.PI) / 180);
+    this.ctx.rotate((this.angle * Math.PI) / 180);
 
 
     this.drawSpakle(this.fontSize);
