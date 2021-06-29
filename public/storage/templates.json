@@ -120,7 +120,7 @@
         "ko": "굵은 물줄기나 빗물 따위가 빠르게 자꾸 흐르거나 내리는 소리. 또는 그 모양",
         "en": "The sound of rapid flowing or falling of thick water or rainwater. or its shape"
       },
-      "themes": ["T_387eff_ffffff", "T_65728a_ffffff", "T_000000_ffffff"]
+      "themes": ["T_65728a_ffffff", "T_387eff_ffffff", "T_000000_ffffff"]
     },
     {
       "id": "Bingle",
@@ -138,6 +138,39 @@
         "T_ffffff_000000",
         "T_000000_ffffff"
       ]
+    },
+    {
+      "id": "Peong",
+      "name": "펑",
+      "consonant": "ㅍ",
+      "pronunciation": "Peong",
+      "info": {
+        "ko": "풍선이나 폭탄 따위가 갑자기 요란스럽게 터지는 소리",
+        "en": "The sound of a balloon or bomb exploding"
+      },
+      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+    },
+    {
+      "id": "Degul",
+      "name": "데굴",
+      "consonant": "ㄷ",
+      "pronunciation": "Degul",
+      "info": {
+        "ko": "어떠한 물건이 계속 구르는 모양",
+        "en": "The shape of something that keeps rolling"
+      },
+      "themes": ["T_000000_ffffff", "T_ffffff_000000"]
+    },
+    {
+      "id": "Chalkag",
+      "name": "찰칵",
+      "consonant": "ㅊ",
+      "pronunciation": "Chalka’g",
+      "info": {
+        "ko": "사진기의 셔터 따위를 누를 때 나는 소리",
+        "en": "The sound made when the camera's shutter is pressed"
+      },
+      "themes": ["T_ffffff_000000", "T_000000_ffffff"]
     }
   ]
 }
