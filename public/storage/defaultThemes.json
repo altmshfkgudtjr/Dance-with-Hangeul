@@ -2,16 +2,28 @@
   "name": "defaultThemes",
   "documents": [
     {
+      "id": "T_ffffff_000000",
+      "bgColor": "#ffffff",
+      "fgColor": ["#000000"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_982ae6",
+      "bgColor": "#ffffff",
+      "fgColor": ["#982ae6"],
+      "mode": "Light"
+    },
+    {
       "id": "T_000000_ffffff",
       "bgColor": "#000000",
       "fgColor": ["#ffffff"],
       "mode": "Dark"
     },
     {
-      "id": "T_ffffff_000000",
-      "bgColor": "#ffffff",
-      "fgColor": ["#000000"],
-      "mode": "Light"
+      "id": "T_000000_dff5ff",
+      "bgColor": "#000000",
+      "fgColor": ["#dff5ff"],
+      "mode": "Dark"
     }
   ]
 }

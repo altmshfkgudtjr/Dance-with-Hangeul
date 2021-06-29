@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import HomeDesktop from 'src/containers/home/HomeDesktop';
 import HomeMobile from 'src/containers/home/HomeMobile';
 import WordAnime from 'src/containers/WordAnime';
+import Video from 'src/containers/Video';
 // components
 import HomeLayout from 'src/components/layout/Home';
 // utils
@@ -51,6 +52,8 @@ const Home = () => {
   return (
     <>
       <WordAnime isShow={showCanvas} />
+
+      <Video />
 
       <HomeLayout>
         {device === 'Desktop' && <HomeDesktop />}

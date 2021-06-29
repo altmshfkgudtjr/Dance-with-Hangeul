@@ -23,6 +23,7 @@ const initialState: CommonState = {
 	controlOption: null,
 	quotes: [],
 	isFullscreen: false,
+	isVideo: false,
 	sideMenu: {
 		selectedConsonant: '',
 		selectedTemplateIdx: 0
@@ -49,6 +50,10 @@ const commonSlice = createSlice({
 		toggleFullscreen(state) {
 			state.isFullscreen = !state.isFullscreen
 		},
+		/** @dispatch isVideo 설정 */
+		updateIsVideo(state, action: PayloadAction<boolean>) {
+			state.isVideo = action.payload;
+		},
 		/** @dispatch Sidemenu information 갱신 */
 		updateSideMenuInfo(state, action: PayloadAction<{
 			selectedConsonant?: string,
@@ -64,6 +69,7 @@ export const {
 	updateControlOption,
 	updateQuotes,
 	toggleFullscreen,
+	updateIsVideo,
 	updateSideMenuInfo
 } = commonSlice.actions;
 

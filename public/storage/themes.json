@@ -8,12 +8,6 @@
       "mode": "Light"
     },
     {
-      "id": "T_000000_ffffff",
-      "bgColor": "#000000",
-      "fgColor": ["#ffffff"],
-      "mode": "Dark"
-    },
-    {
       "id": "T_ffffff_ffb5b5",
       "bgColor": "#ffffff",
       "fgColor": ["#ffb5b5"],
@@ -32,6 +26,42 @@
       "mode": "Light"
     },
     {
+      "id": "T_ffffff_ffb5b5_ff9898_ffd0d0",
+      "bgColor": "#ffffff",
+      "fgColor": ["#ffb5b5", "#ff9898", "#ffd0d0"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_ffcb87_ffbb61_f9d2a0",
+      "bgColor": "#ffffff",
+      "fgColor": ["#ffcb87", "#ffbb61", "#f9d2a0"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_84d384_aae9aa_bee9be",
+      "bgColor": "#ffffff",
+      "fgColor": ["#84d384", "#aae9aa", "#bee9be"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_e1f7e1_219821_9ad09a",
+      "bgColor": "#e1f7e1",
+      "fgColor": ["#219821", "#9ad09a"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_e1f7e1_ffc404_fba8ff",
+      "bgColor": "#6EC96E",
+      "fgColor": ["#FFE284", "#FDD2FF"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_ffffff_ff9205_ffb25a",
+      "bgColor": "#ffffff",
+      "fgColor": ["#ff9205", "#ffb25a"],
+      "mode": "Light"
+    },
+    {
       "id": "T_ffffff_75d1d5_20989d",
       "bgColor": "#ffffff",
       "fgColor": ["#75d1d5", "#20989d"],
@@ -42,6 +72,84 @@
       "bgColor": "#ffffff",
       "fgColor": ["#d1b7ff", "#a77af7"],
       "mode": "Light"
+    },
+    {
+      "id": "T_ffe055_f43232_4f78ff",
+      "bgColor": "#ffe055",
+      "fgColor": ["#f43232", "#4f78ff"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_eafed0_2ea1f9_4f78ff",
+      "bgColor": "#eafed0",
+      "fgColor": ["#2ea1f9", "#4f78ff"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_e0e8f4_feac1e_cb8000",
+      "bgColor": "#e0e8f4",
+      "fgColor": ["#feac1e", "#cb8000"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_000000_ffffff",
+      "bgColor": "#000000",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_5D6267_ffffff",
+      "bgColor": "#5D6267",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_000000_b238ff_fa0fbf",
+      "bgColor": "#000000",
+      "fgColor": ["#b238ff", "#fa0fbf"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_ff8c8c_ffffff",
+      "bgColor": "#ff8c8c",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_3c506d_ff8289",
+      "bgColor": "#3c506d",
+      "fgColor": ["#ff8289"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_f4b0ff_f7a4d0",
+      "bgColor": "#f7f7d1",
+      "fgColor": ["#f7a4d0"],
+      "mode": "Light"
+    },
+    {
+      "id": "T_387eff_ffffff",
+      "bgColor": "#387eff",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_65728a_ffffff",
+      "bgColor": "#65728a",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_84d384_ffffff",
+      "bgColor": "#66C766",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
+    },
+    {
+      "id": "T_b62424_ffffff",
+      "bgColor": "#b62424",
+      "fgColor": ["#ffffff"],
+      "mode": "Dark"
     }
   ]
 }

@@ -3,12 +3,14 @@
  * @property {} controlOption Option 선택 타입
  * @property {} quotes 인용구 리스트
  * @property {} isFullscreen UI 가리기 여부
+ * @property {} isVideo 비디오 여부
  * @property {} selectedConsonant 현재 선택된 자음
  */
 export interface CommonState {
   controlOption: ControlOption;
   quotes: Quote[];
   isFullscreen: boolean;
+  isVideo: boolean;
   sideMenu: {
     selectedConsonant: string;
     selectedTemplateIdx: number;
@@ -22,4 +24,4 @@ export type Quote = {
 };
 
 /** @type ControlBar 옵션 타입 */
-export type ControlOption = null | 'Palette' | 'Save';
+export type ControlOption = null | 'Palette' | 'Video' | 'Save';

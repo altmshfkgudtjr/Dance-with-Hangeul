@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 // containers
 import Palette from 'src/containers/controlBox/controlOptions/PaletteOption';
+import Video from 'src/containers/controlBox/controlOptions/VideoOption';
 import Save from 'src/containers/controlBox/controlOptions/SaveOption';
 // components
 import Wrapper from 'src/components/controlBox/controlOptionBar/Wrapper';
@@ -11,7 +12,7 @@ import { Device } from 'src/types/common';
 import { ControlOption } from 'src/types/slices/common';
 
 const ControlOptionBar = ({ device }: Props) => {
-  const TransitionTime = 400;
+  const TransitionTime = 100;
 
   const controlOption = useSelector(state => state.common.controlOption);
   const isFullscreen = useSelector(state => state.common.isFullscreen);
@@ -38,6 +39,7 @@ const ControlOptionBar = ({ device }: Props) => {
   return (
     <Wrapper time={TransitionTime} isFullscreen={isFullscreen} isChanged={isChanged}>
       {optionType === 'Palette' && <Palette device={device} />}
+      {optionType === 'Video' && <Video device={device} />}
       {optionType === 'Save' && <Save device={device} />}
     </Wrapper>
   );

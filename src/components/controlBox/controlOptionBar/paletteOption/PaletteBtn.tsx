@@ -8,12 +8,17 @@ import * as styles from 'src/lib/styles/styles';
 const PaletteBtn = ({ time, isSelected, colors, onClick }: Props) => {
   const colorLength = colors.length;
   const gradientColor = colors.reduce((acc, cur, idx) => {
+    if (cur === '#000000' || cur === '#ffffff') return acc;
     return acc + `, ${cur} 0 ${(100 / colorLength) * (idx + 1)}%`;
   }, '');
 
   return (
     <Container time={time} isSelected={isSelected} onClick={onClick}>
-      <Color gradientColor={gradientColor.slice(2)} />
+      <Color
+        gradientColor={
+          gradientColor === '' ? `${colors[0]} 0 100%` : gradientColor.slice(2)
+        }
+      />
     </Container>
   );
 };
