@@ -1,5 +1,5 @@
 import Hangul from '../Hangul';
-import { getRandomInt } from '../utils';
+
 export default class Kick extends Hangul {
   constructor(props) {
     super(props);
@@ -27,8 +27,8 @@ export default class Kick extends Hangul {
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
-    this.ctx.rotate((this.rotate * Math.PI) / 180);
-
+    this.ctx.rotate((this.angle * Math.PI) / 180);
+    this.ctx.globalAlpha = this.opacity;
     if (this.isFadeIn) this.fadeIn();
 
     this.ctx.fillText(this.text, 0, 0);
@@ -45,8 +45,9 @@ export default class Kick extends Hangul {
 
   destory() {
     super.destory(() => {
-      this.rotate += 2;
-      this.y_acc += 2;
+      this.angle += 3;
+      this.y_acc += 2.5;
+      this.opacity = this.life / 30;
     })
   }
 

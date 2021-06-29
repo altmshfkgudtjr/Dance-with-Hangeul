@@ -61,12 +61,19 @@ export default class HangulCanvas {
     };
   }
 
-  createObject() {
+  randomCooltime(nums) {
+    this.maxCooltime = nums[getRandomInt(0, nums.length)];
+  }
+
+  createObject(nums = []) {
     this.cooltime += 1;
     if (this.cooltime < this.maxCooltime) return;
     if (this.objects.length >= this.maxObjectCount) return;
     this.objects.push(new this.HangulClass(this.getParams()));
     this.cooltime = 0;
+    if (nums.length) {
+      this.randomCooltime(nums);
+    }
   }
 
   createObjects() {

@@ -5,16 +5,20 @@ export default class Julug extends Hangul {
 
 
     this.text = '룩';
-    this.subText = Math.random() > 0.9 ? ['주', '룩', '주'] : ['주']
+    this.subText = Math.random() > 0.8 ? ['주', '룩', '주'] : ['주']
     this.acc_value = 1;
     this.gravityValue = props.gravity
-
+    this.die = false;
   }
 
   draw() {
     this.gravity();
     this.move();
-    this.detectBottom(0);
+    this.detectBottom(0, () => {
+      if (this.die) return;
+      this.die = true;
+      this.life = 40;
+    });
 
     super.draw(() => {
       this.subText.forEach((text, index) => {
@@ -25,7 +29,7 @@ export default class Julug extends Hangul {
 
   destory() {
     super.destory(() => {
-      this.fontSize = this.fontSize * (this.life / 60);
+      this.fontSize = this.fontSize * (this.life / 40);
 
     })
 

@@ -17,7 +17,7 @@ export default class Hangul {
     this.fontFamily = props.fontFamily;
     this.color = props.color;
     this.opacity = props.opacity;
-    this.rotate = props.rotate;
+    this.angle = props.angle;
     this.x = props.x;
     this.y = props.y;
     this.x_acc = props.x_acc;
@@ -52,7 +52,7 @@ export default class Hangul {
     this.ctx.textBaseline = 'middle';
     this.ctx.font = `${this.fontSize}px ${this.fontFamily}`;
     this.ctx.translate(this.x, this.y);
-    this.ctx.rotate((this.rotate * Math.PI) / 180);
+    this.ctx.rotate((this.angle * Math.PI) / 180);
     after();
 
     this.ctx.fillText(this.text, 0, 0);
@@ -71,7 +71,7 @@ export default class Hangul {
   }
 
 
-  gravity() { this.y_acc += this.gravityValue; }
+  gravity(value = this.gravityValue) { this.y_acc += value; }
 
   move() {
     this.x += this.x_acc;
@@ -115,11 +115,12 @@ export default class Hangul {
     }
   }
 
-  detectBottom(value = -0.5) {
+  detectBottom(value = -0.5, func = () => { }) {
     const bottom = window.innerHeight - (this.fontSize / 2);
     if (this.y + this.y_acc > bottom) {
       this.y = bottom
       this.y_acc *= value
+      func();
     }
   }
   detectLeft(value = -0.5) {
