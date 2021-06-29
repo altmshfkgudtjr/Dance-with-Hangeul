@@ -18,16 +18,18 @@ export class Degul extends Hangul {
 
         this.count += 1
         if (this.count >= this.cooltime) {
-            this.count = -15;
+            this.count = getRandomInt(-20, -10);
 
         } else if (this.count < 0) {
-            this.x_acc *= 1.1;
-            this.y_acc -= 1.5
+            this.x_acc += 1 + (getRandomInt(120, 130) * 0.001);
+            this.y_acc -= getRandomInt(15, 20) * 0.1;
         }
         if (this.count < 10) {
-            this.angle -= 12
+            this.angle += 15
         } else {
-            this.angle += getRandomInt(-3, 3);
+            this.angle += 5;
+
+            //this.angle += getRandomInt(-3, 3);
         }
         super.draw(() => {
             if (this.y < this.bottom - 60) {
@@ -40,6 +42,14 @@ export class Degul extends Hangul {
         })
     }
 
+    detectBottom(value = -0.5, func = () => { }) {
+        const bottom = window.innerHeight - (this.fontSize);
+        if (this.y + this.y_acc > bottom) {
+            this.y = bottom
+            this.y_acc *= value
+            func();
+        }
+    }
 
     destory() {
         super.destory()
