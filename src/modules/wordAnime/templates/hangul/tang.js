@@ -8,9 +8,12 @@ export class Tang extends Hangul {
         this.angle = props.angle;
         this.distance = 0;
         this.stop = false;
+
+        this.vibe_acc = 1;
     }
 
     draw() {
+        this.vibe_acc *= -1;
         if (!this.stop)
             this.distance -= 25;
 
@@ -30,6 +33,7 @@ export class Tang extends Hangul {
         this.ctx.translate(this.x + x_distance, this.y + y_distance - 25);
         this.ctx.rotate((this.angle * Math.PI) / 180);
 
+        this.ctx.rotate((this.vibe_acc * Math.PI) / 180);
         this.ctx.fillText(this.text, -150, -150);
 
         this.ctx.restore();
@@ -40,6 +44,7 @@ export class Tang extends Hangul {
         if ((!bigger && value < limit) || (bigger && value > limit)) {
             if (!this.stop) {
                 this.life = 60;
+                this.vibe_acc = 0;
             }
             this.stop = true;
         }

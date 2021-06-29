@@ -52,7 +52,7 @@ export default class Canvas_Kick extends HangulCanvas {
       x_acc: acc,
       y_acc: -acc,
       crush_acc: 10,
-      rotate: getRandomInt(-30, 30),
+      angle: getRandomInt(-30, 30),
     };
 
     paramsArray.push(params);
@@ -62,12 +62,12 @@ export default class Canvas_Kick extends HangulCanvas {
         ...params,
         x_acc: 0,
         y_acc: -acc * 1.4,
-        rotate: getRandomInt(-30, 30),
+        angle: getRandomInt(-30, 30),
       };
       const params3 = {
         ...params,
         x_acc: -acc,
-        rotate: getRandomInt(-30, 30),
+        angle: getRandomInt(-30, 30),
       };
       paramsArray.push(params2);
       paramsArray.push(params3);
@@ -76,7 +76,7 @@ export default class Canvas_Kick extends HangulCanvas {
         ...params,
         x_acc: 0,
         y_acc: -acc * 1.3,
-        rotate: getRandomInt(-30, 30),
+        angle: getRandomInt(-30, 30),
       };
       paramsArray.push(params2);
     }
