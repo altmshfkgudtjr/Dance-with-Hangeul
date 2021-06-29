@@ -12,7 +12,7 @@ import { Device } from 'src/types/common';
 import { ControlOption } from 'src/types/slices/common';
 
 const ControlOptionBar = ({ device }: Props) => {
-  const TransitionTime = 400;
+  const TransitionTime = 100;
 
   const controlOption = useSelector(state => state.common.controlOption);
   const isFullscreen = useSelector(state => state.common.isFullscreen);
