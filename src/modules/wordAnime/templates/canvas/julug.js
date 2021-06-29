@@ -34,7 +34,7 @@ class Canvas_Julug extends HangulCanvas {
     fontSize = getRandomInt(10, 20)
     const y_acc = this.width < 1000 ? 2 : 5
     const gravity = this.width < 1000 ? 0.2 : 2
-    const life = this.width < 1000 ? 135 : 80
+    const life = 2000
     return {
       ...params,
       fontSize: fontSize,

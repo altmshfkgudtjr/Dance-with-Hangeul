@@ -6,7 +6,7 @@ export class Du extends Hangul {
     constructor(props) {
         super(props);
         this.text = '두';
-        this.rotate = -10
+        this.angle = -10
         this.x -= this.fontSize / 2
 
         this.frame = 0;
@@ -54,7 +54,7 @@ export class Geun extends Hangul {
     constructor(props) {
         super(props);
         this.text = '근';
-        this.rotate = 10
+        this.angle = 10
         this.x += this.fontSize / 2
         this.frame = 0;
         this.scenes = [0, 15, 30, 50, 60, 75, 90, 115, 140]
