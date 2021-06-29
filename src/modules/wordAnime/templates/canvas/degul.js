@@ -5,7 +5,7 @@ export default class Canvas_Degul extends HangulCanvas {
     constructor(props) {
         super(props);
         this.HangulClass = Degul;
-        this.maxObjectCount = this.width < 800 ? 1 : 1;
+        this.maxObjectCount = this.width < 800 ? 1 : 4;
         this.maxCooltime = 40;
         this.count = 0
         this.latterSpacing = -5 * this.rectSum;
@@ -21,7 +21,7 @@ export default class Canvas_Degul extends HangulCanvas {
     start() {
         //const colors = ["#ffc107", "#80bdff", "#ff9800"]
         const step = () => {
-            this.createObject();
+            this.createObject([30, 60, 80]);
             this.removeObject();
             this.drawBackground();
             this.drawObject();

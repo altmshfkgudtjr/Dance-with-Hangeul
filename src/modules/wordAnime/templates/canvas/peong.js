@@ -6,7 +6,7 @@ export default class Canvas_Peong extends HangulCanvas {
     constructor(props) {
         super(props);
         this.HangulClass = Peong;
-        this.maxObjectCount = this.width < 800 ? 1 : 3;
+        this.maxObjectCount = this.width < 800 ? 1 : 6;
         this.maxCooltime = 10;
         this.count = 0
         this.latterSpacing = -5 * this.rectSum;
@@ -22,7 +22,7 @@ export default class Canvas_Peong extends HangulCanvas {
     start() {
         //const colors = ["#ffc107", "#80bdff", "#ff9800"]
         const step = () => {
-            this.createObject([60, 240, 300]);
+            this.createObject([30, 30, 60, 240]);
             this.removeObject();
             this.drawBackground();
             this.drawObject();

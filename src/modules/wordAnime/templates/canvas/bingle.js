@@ -2,7 +2,7 @@ import HangulCanvas from '../HangulCanvas';
 import Bingle from '../hangul/bingle';
 import { getRandomInt } from '../utils';
 
-const textArray = ['빙', '글', '뱅', '글'];
+const textArray = ['빙', '글', '빙', '글'];
 export default class Canvas_Bingle extends HangulCanvas {
     constructor(props) {
         super(props);
@@ -95,7 +95,7 @@ export default class Canvas_Bingle extends HangulCanvas {
                     const x = groups_pos[i].x - groups_pos[j].x;
                     const y = groups_pos[i].y - groups_pos[j].y;
                     const distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) * 1.2;
-                    if (distance < groups_pos[i].distance + groups_pos[j].distance + 50) {
+                    if (distance < groups_pos[i].distance + groups_pos[j].distance + 150) {
                         const radian = Math.atan2(y, x);
                         for (k = 0; k < length; k++) {
                             if (groups[i] === this.objects[k].groupId) {
